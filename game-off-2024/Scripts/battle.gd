@@ -8,7 +8,7 @@ var player_number = BattleData.player_number
 var computer_number = 0
 var player_attempts = 0
 var computer_attempts = 0
-var is_player_turn = true  
+var is_player_turn = false  
 var game_started = BattleData.game_started    
 var computer_timer = 0     
 var computer_delay = 2.0 
@@ -39,21 +39,38 @@ func setup_game():
 	player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
-	is_player_turn = true
 	computer_min = 1
 	computer_max = MAX_NUMBER
 	computer_previous_guesses.clear()
 	player_guess_history.clear()
 	computer_guess_history.clear()
 	
-	$InstructionLabel.text = "Now guess the OPPS number!"
+	$InstructionLabel.text = ""
 	$PlayerResultLabel.text = ""
 	$ComputerGuessLabel.text = ""
 	$ComputerResultLabel.text = ""
-	$BattleStatusLabel.text = "Your turn"
+	$BattleStatusLabel.text = ""
 	$PlayerHistoryLabel.text = ""
 	$ComputerHistoryLabel.text = ""
 	$GuessInput.clear()
+	which_player_starts()
+	
+	
+func which_player_starts():
+
+	# Random select Player
+	is_player_turn = randi() % 2 == 0
+	
+	# Update Battle Status Label based on who starts
+	if is_player_turn:
+		$BattleStatusLabel.text = "You start! Make a guess."
+		$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % MAX_NUMBER
+	else:
+		$BattleStatusLabel.text = "Computer starts guessing..."
+		$InstructionLabel.text = "Computer will guess in 2 seconds..."
+		await get_tree().create_timer(2.0).timeout
+
+
 
 func update_history_display():
 	var player_history_text = "Player Guesses:\n"
