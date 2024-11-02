@@ -11,7 +11,9 @@ var computer_attempts = 0
 var is_player_turn = false  
 var game_started = BattleData.game_started    
 var computer_timer = 0     
-var computer_delay = 2.0 
+var computer_delay = 2.0
+
+var computer_strategy = BattleData.computer_strategy
 
 # Variables for smart computer guessing
 var computer_min = 1
@@ -57,7 +59,6 @@ func setup_game():
 	
 	
 func which_player_starts():
-
 	# Random select Player
 	is_player_turn = randi() % 2 == 0
 	
@@ -125,11 +126,14 @@ func smart_computer_guess() -> int:
 	var possible_numbers = []
 	for i in range(computer_min, computer_max + 1):
 		if i not in computer_previous_guesses:
+			if BattleData.computer_strategy == "even" and i % 2 == 1:
+				continue  # Skip odd numbers in special mode
 			possible_numbers.append(i)
 	
 	if possible_numbers.size() > 0:
 		return possible_numbers[randi() % possible_numbers.size()]
 	
+	# If no even options left in special mode, guess the only remaining odd number
 	return computer_min + (computer_max - computer_min) / 2
 
 func computer_guesses():
