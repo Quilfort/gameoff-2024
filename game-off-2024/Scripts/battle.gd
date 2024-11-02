@@ -1,75 +1,167 @@
 extends Node2D
 
+# Game configuration
+var MAX_NUMBER = BattleData.MAX_NUMBER
+
 # Variables to store the target numbers and attempts
-var player_number = 0
+var player_number = BattleData.player_number
 var computer_number = 0
 var player_attempts = 0
 var computer_attempts = 0
-var is_player_turn = true  # Track whose turn it is
-var game_started = false    # Track if the game has started
+var is_player_turn = true  
+var game_started = BattleData.game_started    
+var computer_timer = 0     
+var computer_delay = 2.0 
 
-# Called when the node enters the scene
+# Variables for smart computer guessing
+var computer_min = 1
+var computer_max = MAX_NUMBER
+var computer_previous_guesses = []
+
+# Variables for storing guess history
+var player_guess_history = []
+var computer_guess_history = []
+
 func _ready():
-	setup_game()  # Setup the game when ready
+	setup_game()
 
-# Function to set up the game
+func _process(delta):
+	if game_started and !is_player_turn:
+		computer_timer += delta
+		if computer_timer >= computer_delay:
+			computer_timer = 0
+			computer_guesses()
+			is_player_turn = true
+			$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % MAX_NUMBER
+
 func setup_game():
-	computer_number = randi() % 10 + 1  # Generate a random number for the computer
-	player_attempts = 0  # Reset player's attempts
-	computer_attempts = 0  # Reset computer's attempts
-	$InstructionLabel.text = "Set your number (1-10):"  # Prompt the player to set their number
-	$PlayerResultLabel.text = ""  # Clear the result label
-	$ComputerGuessLabel.text = "" 
-	$ComputerResultLabel.text = "" 
-	$GuessInput.clear()  # Clear the input field
+	computer_number = randi() % MAX_NUMBER + 1
+	player_attempts = 0
+	computer_attempts = 0
+	computer_timer = 0
+	is_player_turn = true
+	computer_min = 1
+	computer_max = MAX_NUMBER
+	computer_previous_guesses.clear()
+	player_guess_history.clear()
+	computer_guess_history.clear()
+	
+	$InstructionLabel.text = "Now guess the OPPS number!"
+	$PlayerResultLabel.text = ""
+	$ComputerGuessLabel.text = ""
+	$ComputerResultLabel.text = ""
+	$BattleStatusLabel.text = "Your turn"
+	$PlayerHistoryLabel.text = ""
+	$ComputerHistoryLabel.text = ""
+	$GuessInput.clear()
 
-# Function to check the player's guess
+func update_history_display():
+	var player_history_text = "Player Guesses:\n"
+	for guess_info in player_guess_history:
+		player_history_text += str(guess_info.guess) + " - " + guess_info.result + "\n"
+	
+	$PlayerHistoryLabel.text = player_history_text  # Update the player history label
+
+	var computer_history_text = "Computer Guesses:\n"
+	for guess_info in computer_guess_history:
+		computer_history_text += str(guess_info.guess) + " - " + guess_info.result + "\n"
+	
+	$ComputerHistoryLabel.text = computer_history_text  # Update the computer history label
+
 func check_guess(guess: int):
-	if is_player_turn:
-		player_attempts += 1
-		# Compare the player's guess with the computer's number
-		if guess < computer_number:
-			$PlayerResultLabel.text = "Too low! Try again."
-		elif guess > computer_number:
-			$PlayerResultLabel.text = "Too high! Try again."
-		else:
-			$PlayerResultLabel.text = "Correct! You guessed it in " + str(player_attempts) + " attempts."
-			is_player_turn = false  # Switch turn to computer
-			computer_guesses()  # Trigger computer's guessing logic
+	if !is_player_turn:
+		return
+		
+	player_attempts += 1
+	var result = ""
+	
+	if guess < computer_number:
+		result = "Too low!"
+		$BattleStatusLabel.text = "Wait for computer's turn..."
+		$PlayerResultLabel.text = result
+	elif guess > computer_number:
+		result = "Too high!"
+		$BattleStatusLabel.text = "Wait for computer's turn..."
+		$PlayerResultLabel.text = result
 	else:
-		computer_guesses()  # Trigger computer's guessing logic
+		result = "Correct!"
+		$BattleStatusLabel.text = "You Won"
+		$PlayerResultLabel.text = "Correct! You won in " + str(player_attempts) + " attempts!"
+		
+	# Add guess to history
+	player_guess_history.append({
+		"guess": guess,
+		"result": result
+	})
+	update_history_display()
+	
+	if guess == computer_number:
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+		return
+		
+	is_player_turn = false 
+	$InstructionLabel.text = "Computer will guess in 2 seconds..."
+	$GuessInput.clear()
 
-# Function for the computer to make a guess (you can improve this later)
+func smart_computer_guess() -> int:
+	var possible_numbers = []
+	for i in range(computer_min, computer_max + 1):
+		if i not in computer_previous_guesses:
+			possible_numbers.append(i)
+	
+	if possible_numbers.size() > 0:
+		return possible_numbers[randi() % possible_numbers.size()]
+	
+	return computer_min + (computer_max - computer_min) / 2
+
 func computer_guesses():
-	# Simple logic for the computer to guess (you can make it more sophisticated)
-	var guess = randi() % 10 + 1  # Random guess from 1 to 10
+	var guess = smart_computer_guess()
+	computer_previous_guesses.append(guess)
 	computer_attempts += 1
+	var result = ""
+	
 	$ComputerGuessLabel.text = "Computer guessed: " + str(guess)
-	print("Computer guessed: ", guess)  # For debugging purposes; remove in production
-
+	
 	if guess < player_number:
+		result = "Too low!"
+		$BattleStatusLabel.text = "Your turn"
 		$ComputerResultLabel.text = "Computer guessed too low!"
+		computer_min = guess + 1
 	elif guess > player_number:
+		result = "Too high!"
+		$BattleStatusLabel.text = "Your turn"
 		$ComputerResultLabel.text = "Computer guessed too high!"
+		computer_max = guess - 1
 	else:
-		$ComputerResultLabel.text = "Computer guessed your number in " + str(computer_attempts) + " attempts!"
-		#reset_game()
+		result = "Correct!"
+		$BattleStatusLabel.text = "You lost"
+		$ComputerResultLabel.text = "Computer won in " + str(computer_attempts) + " attempts!"
+	
+	# Add guess to history
+	computer_guess_history.append({
+		"guess": guess,
+		"result": result
+	})
+	update_history_display()
+	
+	if guess == player_number:
+		await get_tree().create_timer(5.0).timeout
+		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+		return
 
-# Function to reset the game for a new round
 func reset_game():
-	setup_game()  # Reset the game settings and start again
+	setup_game()
 
-# Function to handle the button press
+
 func _on_submit_button_pressed():
 	if !game_started:
-		player_number = $GuessInput.text.to_int()
-		if player_number < 1 or player_number > 10:
-			$PlayerResultLabel.text = "Please enter a number between 1 and 10."
-			return  
-		$InstructionLabel.text = "Now guess the computer's number!"
-		game_started = true
-		if game_started:
-			$GuessInput.clear()
-	else:
-		var guess = $GuessInput.text.to_int()  
-		check_guess(guess)  
+		print("NOT STARTED")
+	elif is_player_turn:
+		var guess = $GuessInput.text.to_int()
+		if guess < 1 or guess > MAX_NUMBER:
+			$PlayerResultLabel.text = "Please enter a number between 1 and %d." % MAX_NUMBER
+			return
+		check_guess(guess)
+
+		

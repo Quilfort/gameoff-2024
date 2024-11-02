@@ -7,43 +7,62 @@ position = Vector2(60, 77)
 script = ExtResource("1_owltm")
 
 [node name="InstructionLabel" type="Label" parent="."]
-offset_left = 50.0
+offset_left = 240.0
 offset_top = 50.0
-offset_right = 117.0
-offset_bottom = 73.0
+offset_right = 310.0
+offset_bottom = 80.0
 metadata/_edit_use_anchors_ = true
 
 [node name="GuessInput" type="LineEdit" parent="."]
-offset_left = 50.0
+offset_left = 200.0
 offset_top = 100.0
-offset_right = 120.0
+offset_right = 270.0
 offset_bottom = 131.0
 metadata/_edit_use_anchors_ = true
 
 [node name="SubmitButton" type="Button" parent="."]
-offset_left = 50.0
+offset_left = 200.0
 offset_top = 150.0
-offset_right = 117.0
+offset_right = 267.0
 offset_bottom = 170.0
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayerResultLabel" type="Label" parent="."]
-offset_left = 20.0
-offset_top = 200.0
-offset_right = 90.0
-offset_bottom = 225.0
+offset_left = 200.0
+offset_top = 250.0
+offset_right = 270.0
+offset_bottom = 275.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ComputerResultLabel" type="Label" parent="."]
-offset_left = 150.0
+offset_left = 600.0
 offset_top = 250.0
-offset_right = 220.0
+offset_right = 670.0
 offset_bottom = 275.0
+metadata/_edit_use_anchors_ = true
 
 [node name="ComputerGuessLabel" type="Label" parent="."]
-offset_left = 150.0
+offset_left = 600.0
 offset_top = 100.0
-offset_right = 220.0
+offset_right = 670.0
 offset_bottom = 130.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BattleStatusLabel" type="Label" parent="."]
+offset_left = 500.0
+offset_right = 570.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerHistoryLabel" type="Label" parent="."]
+offset_right = 70.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ComputerHistoryLabel" type="Label" parent="."]
+offset_left = 900.0
+offset_right = 970.0
+offset_bottom = 30.0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_button_pressed"]
