@@ -26,6 +26,12 @@ var computer_previous_guesses = []
 var player_guess_history = []
 var computer_guess_history = []
 
+# Flags for half_guess strategy
+var last_guess = 0
+var half_guess_difference = 0
+var is_guess_too_low = false
+var is_guess_too_high = false
+
 func _ready():
 	setup_game()
 
@@ -48,6 +54,8 @@ func setup_game():
 	computer_previous_guesses.clear()
 	player_guess_history.clear()
 	computer_guess_history.clear()
+	is_guess_too_high = false
+	half_guess_difference = 0
 	
 	# Strings
 	$InstructionLabel.text = ""
@@ -127,19 +135,7 @@ func check_guess(guess: int):
 	$InstructionLabel.text = "Computer will guess in 2 seconds..."
 	$GuessInput.clear()
 
-func smart_computer_guess() -> int:
-	var possible_numbers = []
-	for i in range(computer_min, computer_max + 1):
-		if i not in computer_previous_guesses:
-			if computer_strategy == "even" and i % 2 == 1:
-				continue  # Skip odd numbers in special mode
-			possible_numbers.append(i)
-	
-	if possible_numbers.size() > 0:
-		return possible_numbers[randi() % possible_numbers.size()]
-	
-	# If no even options left in special mode, guess the only remaining odd number
-	return computer_min + (computer_max - computer_min) / 2
+
 
 func computer_guesses():
 	var guess = smart_computer_guess()
@@ -149,16 +145,21 @@ func computer_guesses():
 	
 	$ComputerGuessLabel.text = "Computer guessed: " + str(guess)
 	
+	is_guess_too_low = false
+	is_guess_too_high = false
+	
 	if guess < player_number:
 		result = "Too low!"
 		$BattleStatusLabel.text = "Your turn"
 		$ComputerResultLabel.text = "Computer guessed too low!"
 		computer_min = guess + 1
+		is_guess_too_low = true
 	elif guess > player_number:
 		result = "Too high!"
 		$BattleStatusLabel.text = "Your turn"
 		$ComputerResultLabel.text = "Computer guessed too high!"
 		computer_max = guess - 1
+		is_guess_too_high = true
 	else:
 		result = "Correct!"
 		$BattleStatusLabel.text = "You lost"
@@ -190,4 +191,64 @@ func _on_submit_button_pressed():
 			return
 		check_guess(guess)
 
+# Handle Computer Strategy Logic
+func even_strategy() -> int:
+	var possible_numbers = []
+	for i in range(computer_min, computer_max + 1):
+		if i not in computer_previous_guesses and i % 2 == 0:
+			possible_numbers.append(i)
+	
+	if possible_numbers.size() > 0:
+		last_guess = possible_numbers[randi() % possible_numbers.size()]
+	else:
+		# If no even options left, revert to any remaining number
+		last_guess = computer_min + (computer_max - computer_min) / 2
+	
+	return last_guess
+	
+func uneven_strategy() -> int:
+	var possible_numbers = []
+	for i in range(computer_min, computer_max + 1):
+		if i not in computer_previous_guesses and i % 2 == 1:
+			possible_numbers.append(i)
+	
+	if possible_numbers.size() > 0:
+		last_guess = possible_numbers[randi() % possible_numbers.size()]
+	else:
+		# If no odd options left, revert to any remaining number
+		last_guess = computer_min + (computer_max - computer_min) / 2
+	
+	return last_guess
+	
+func half_guess() -> int:
+	if last_guess == 0:
+		# First guess: Start at half of MAX_NUMBER
+		last_guess = ceil(float(MAX_NUMBER) / 2)
+	else:
+		# Adjust the range based on the previous guess feedback
+		if is_guess_too_low:
+			computer_min = last_guess + 1
+		elif is_guess_too_high:
+			computer_max = last_guess - 1
+
+		# Recalculate half of the current search range based on the adjusted min-max range
+		half_guess_difference = ceil(float(computer_max - computer_min) / 2)
 		
+		# Set the next guess to the midpoint of the updated range
+		last_guess = computer_min + half_guess_difference
+	
+	# Clamp to ensure the guess is within bounds
+	last_guess = clamp(last_guess, computer_min, computer_max)
+	return last_guess
+
+func smart_computer_guess() -> int:
+	match computer_strategy:
+		"even":
+			return even_strategy()
+		"uneven":
+			return uneven_strategy()
+		"half_guess":
+			return half_guess()
+		_:
+			last_guess = randi() % (computer_max - computer_min + 1) + computer_min
+			return last_guess
