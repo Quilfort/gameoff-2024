@@ -4,15 +4,17 @@ var MAX_NUMBER = 500
 
 var player_number = 0
 var game_started = false
-var computer_name = ComputerData.uneven.name
-var computer_strategy = ComputerData.uneven.computer_strategy
+
+var computer = ComputerData.normal
+var computer_name = computer.name
+var computer_strategy = computer.computer_strategy.to_lower()
 
 func _ready():
 	setup_game()
 
 func setup_game():
 	$StartLabel.text = "Choice your Pokemon between 1 and %d." % MAX_NUMBER
-	print(ComputerData.uneven)
+	print(computer)
 
 func _on_start_button_pressed() -> void:
 	if !game_started:
