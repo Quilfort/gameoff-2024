@@ -2,20 +2,22 @@ extends Node2D
 
 # Game configuration
 var MAX_NUMBER = BattleData.MAX_NUMBER
+var game_started = BattleData.game_started    
 
-# Variables to store the target numbers and attempts
+# Player
 var player_number = BattleData.player_number
 var computer_number = 0
 var player_attempts = 0
+var is_player_turn = false 
+
+#Computer
+var computer_name = ComputerData.computer_name
 var computer_attempts = 0
-var is_player_turn = false  
-var game_started = BattleData.game_started    
 var computer_timer = 0     
 var computer_delay = 2.0
 
-var computer_strategy = BattleData.computer_strategy
-
-# Variables for smart computer guessing
+# Computer Strategy
+var computer_strategy = ComputerData.computer_strategy
 var computer_min = 1
 var computer_max = MAX_NUMBER
 var computer_previous_guesses = []
@@ -47,6 +49,7 @@ func setup_game():
 	player_guess_history.clear()
 	computer_guess_history.clear()
 	
+	# Strings
 	$InstructionLabel.text = ""
 	$PlayerResultLabel.text = ""
 	$ComputerGuessLabel.text = ""
@@ -55,6 +58,8 @@ func setup_game():
 	$PlayerHistoryLabel.text = ""
 	$ComputerHistoryLabel.text = ""
 	$GuessInput.clear()
+	print("Computer Name: ", computer_name )
+	print("Strategy: ", computer_strategy )
 	which_player_starts()
 	
 	
@@ -126,7 +131,7 @@ func smart_computer_guess() -> int:
 	var possible_numbers = []
 	for i in range(computer_min, computer_max + 1):
 		if i not in computer_previous_guesses:
-			if BattleData.computer_strategy == "even" and i % 2 == 1:
+			if computer_strategy == "even" and i % 2 == 1:
 				continue  # Skip odd numbers in special mode
 			possible_numbers.append(i)
 	

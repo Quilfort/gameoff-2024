@@ -17,7 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BattleData="*res://Scripts/battle_data.gd"
+BattleData="*res://Scripts/Singleton/battle_data.gd"
+BattleHistory="*res://Scripts/Singleton/battle_history.gd"
+ComputerData="*res://Scripts/Singleton/computer_data.gd"
 
 [rendering]
 

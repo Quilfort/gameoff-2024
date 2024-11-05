@@ -3,7 +3,9 @@ extends Node2D
 var MAX_NUMBER = 500
 
 var player_number = 0
-var game_started = false   
+var game_started = false
+var computer_name = "Mambo Nr 5"
+var computer_strategy = "even"   
 
 func _ready():
 	setup_game()
@@ -33,9 +35,12 @@ func _on_even_button_pressed() -> void:
 			$StartLabel.text = "Please enter a number between 1 and %d." % MAX_NUMBER
 			return
 		game_started = true
+		# Set Battle Data
 		BattleData.game_started = game_started
 		BattleData.player_number = player_number
-		BattleData.computer_strategy = "even"
+		# Set Computer Data
+		ComputerData.computer_strategy = computer_strategy
+		ComputerData.computer_name = computer_name
 		$GuessInput.clear()
 		BattleData.MAX_NUMBER = MAX_NUMBER
 		get_tree().change_scene_to_file("res://Scenes/battle.tscn")
