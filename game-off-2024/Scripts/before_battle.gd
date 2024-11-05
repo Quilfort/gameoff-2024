@@ -4,14 +4,15 @@ var MAX_NUMBER = 500
 
 var player_number = 0
 var game_started = false
-var computer_name = "Mambo Nr 5"
-var computer_strategy = "half_guess"   
+var computer_name = ComputerData.uneven.name
+var computer_strategy = ComputerData.uneven.computer_strategy
 
 func _ready():
 	setup_game()
 
 func setup_game():
 	$StartLabel.text = "Choice your Pokemon between 1 and %d." % MAX_NUMBER
+	print(ComputerData.uneven)
 
 func _on_start_button_pressed() -> void:
 	if !game_started:
@@ -39,8 +40,8 @@ func _on_even_button_pressed() -> void:
 		BattleData.game_started = game_started
 		BattleData.player_number = player_number
 		# Set Computer Data
-		ComputerData.computer_strategy = computer_strategy
-		ComputerData.computer_name = computer_name
+		BattleData.computer_strategy = computer_strategy
+		BattleData.computer_name = computer_name
 		$GuessInput.clear()
 		BattleData.MAX_NUMBER = MAX_NUMBER
 		get_tree().change_scene_to_file("res://Scenes/battle.tscn")

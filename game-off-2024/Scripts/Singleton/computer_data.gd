@@ -1,5 +1,10 @@
 extends Node
 
 
-var computer_name = ""
-var computer_strategy = ""
+
+
+# Dictionary to store computer properties
+var uneven = {
+	"name": "uneven",
+	"computer_strategy": "uneven"
+}
