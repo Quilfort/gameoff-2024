@@ -10,5 +10,7 @@ var game_started = false
 var player_number = 0
 
 # Computer
-var computer_name = ""
-var computer_strategy = ""
+var computer = null
+
+var computer_name = null
+var computer_strategy = null

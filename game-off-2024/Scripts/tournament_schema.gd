@@ -12,7 +12,17 @@ func _ready():
 	else:
 		print("Draft already completed. Skipping draft.")
 
-
+# Function to display the tournament schedule
+func display_schedule():
+	var schedule_text = "Tournament Schedule:\n\n"
+	
+	for match in GameData.tournament_matches:
+		var team1 = match["team1"].name
+		var team2 = match["team2"].name
+		schedule_text += "%s vs %s\n" % [team1, team2]
+	
+	$TournamentScheduleLabel.text = schedule_text
+	print(schedule_text)  # For debugging/logging
 
 ## DRAFT
 # Function to handle the entire draft process
@@ -26,9 +36,11 @@ func start_draft():
 	
 	# Randomize and pair participants
 	var pairings = create_duos(participants)
+	GameData.tournament_matches = pairings
+	print(GameData.tournament_matches)
 	
 	# Display the pairings in the TournamentScheduleLabel
-	display_schedule(pairings)
+	display_schedule()
 	
 # Function to randomly draft MAX_PLAYERS - 1 computers
 func draft_opponents():
@@ -48,15 +60,19 @@ func create_duos(participants):
 		if i + 1 < participants.size():
 			pairings.append({"team1": participants[i], "team2": participants[i + 1]})
 	return pairings
+
+
+func _on_next_battle_button_pressed() -> void:
+	for pairing in GameData.tournament_matches:
+		# Check if the Player is in team1 or team2 of the current pairing
+		if pairing.team1.id == 0:  # Player is in team1
+			BattleData.computer = pairing.team2  # Set opponent as team2
+			get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+			return
+		elif pairing.team2.id == 0:  # Player is in team2
+			BattleData.computer = pairing.team1  # Set opponent as team1
+			get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+			return
 	
-# Function to display the tournament schedule
-func display_schedule(pairings):
-	var schedule_text = "Tournament Schedule:\n\n"
-	
-	for pair in pairings:
-		var team1 = pair["team1"].name
-		var team2 = pair["team2"].name
-		schedule_text += "%s vs %s\n" % [team1, team2]
-	
-	$TournamentScheduleLabel.text = schedule_text
-	print(schedule_text)  # For debugging/logging
+	# If no matching pairing is found, you could print a message or handle it in some way
+	print("No battle found for the Player in the tournament matches.")

@@ -1,7 +1,8 @@
 extends Node
 
 
+var MAX_PLAYERS = 2
 
 # Tournament
 var DRAFT_COMPLETED = false
-var MAX_PLAYERS = 4
+var tournament_matches = null

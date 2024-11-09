@@ -24,7 +24,6 @@ var half_guess = {
 	"computer_strategy": "half_guess"
 }
 
-# Function to return all computer data as a list
 # Function to dynamically return all computer data as a list
 func get_all_computers():
 	var computers = []
@@ -32,8 +31,4 @@ func get_all_computers():
 		var computer = get(property.name)
 		if typeof(computer) == TYPE_DICTIONARY:
 				computers.append(computer)
-		#if property.name.begins_with("computer_"):  
-			#var computer = get(property.name)
-			#if typeof(computer) == TYPE_DICTIONARY:  # Ensure it's a dictionary before adding
-				#computers.append(computer)
 	return computers
