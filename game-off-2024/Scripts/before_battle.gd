@@ -6,7 +6,7 @@ var player_number = 0
 var game_started = false
 
 ## Add Check to Default to Normal if Computer Name is not accesable
-var computer_player = "normal"
+var computer_player = "half_guess"
 var computer = ComputerData.get(computer_player)
 var computer_name = computer.name
 var computer_strategy = computer.computer_strategy.to_lower()

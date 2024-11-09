@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://5v8ykpbewox1"]
+
+[ext_resource type="Script" path="res://Scripts/draft_players.gd" id="1_gf848"]
+
+[node name="Tournament" type="Node2D"]
+script = ExtResource("1_gf848")
+
+[node name="TournamentScheduleLabel" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 300.0
+offset_right = 370.0
+offset_bottom = 350.0
+
+[node name="DraftButton" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 150.0
+offset_right = 270.0
+offset_bottom = 170.0
+
+[node name="NextBattleButton" type="Button" parent="."]
+offset_left = 400.0
+offset_top = 150.0
+offset_right = 470.0
+offset_bottom = 170.0
+
+[connection signal="pressed" from="DraftButton" to="." method="_on_draft_button_pressed"]
