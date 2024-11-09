@@ -37,6 +37,7 @@ func start_draft():
 	# Randomize and pair participants
 	var pairings = create_duos(participants)
 	GameData.tournament_matches = pairings
+	GameData.next_matches = pairings
 	print(GameData.tournament_matches)
 	
 	# Display the pairings in the TournamentScheduleLabel
@@ -63,7 +64,7 @@ func create_duos(participants):
 
 
 func _on_next_battle_button_pressed() -> void:
-	for pairing in GameData.tournament_matches:
+	for pairing in GameData.next_matches:
 		# Check if the Player is in team1 or team2 of the current pairing
 		if pairing.team1.id == 0:  # Player is in team1
 			BattleData.computer = pairing.team2  # Set opponent as team2

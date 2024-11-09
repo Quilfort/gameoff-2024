@@ -11,13 +11,13 @@ var player_attempts = 0
 var is_player_turn = false 
 
 #Computer
-var computer_name = BattleData.computer_name
+var computer_name = BattleData.computer.name
 var computer_attempts = 0
 var computer_timer = 0     
 var computer_delay = 2.0
 
 # Computer Strategy
-var computer_strategy = BattleData.computer_strategy
+var computer_strategy = BattleData.computer.computer_strategy
 var computer_min = 1
 var computer_max = MAX_NUMBER
 var computer_previous_guesses = []

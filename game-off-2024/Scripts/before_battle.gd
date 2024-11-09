@@ -4,13 +4,12 @@ var MAX_NUMBER = 500
 
 var player_number = 0
 var game_started = false
-var computer = BattleData.computer
 
 func _ready():
 	setup_game()
 
 func setup_game():
-	print(computer)
+	print(BattleData.computer)
 	$StartLabel.text = "Choice your Pokemon between 1 and %d." % MAX_NUMBER
 
 func _on_start_button_pressed() -> void:
@@ -24,8 +23,6 @@ func _on_start_button_pressed() -> void:
 		BattleData.game_started = game_started
 		BattleData.player_number = player_number
 		# Set Computer Data
-		BattleData.computer_strategy = str(computer.computer_strategy).to_lower()
-		BattleData.computer_name = str(computer.name)
 		$GuessInput.clear()
 		BattleData.MAX_NUMBER = MAX_NUMBER
 		get_tree().change_scene_to_file("res://Scenes/battle.tscn")
