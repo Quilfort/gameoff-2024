@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5v8ykpbewox1"]
 
-[ext_resource type="Script" path="res://Scripts/draft_players.gd" id="1_gf848"]
+[ext_resource type="Script" path="res://Scripts/tournament_schema.gd" id="1_gf848"]
 
 [node name="Tournament" type="Node2D"]
 script = ExtResource("1_gf848")
