@@ -128,7 +128,7 @@ func check_guess(guess: int):
 	
 	if guess == computer_number:
 		await get_tree().create_timer(5.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+		get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
 		return
 		
 	is_player_turn = false 
@@ -174,7 +174,7 @@ func computer_guesses():
 	
 	if guess == player_number:
 		await get_tree().create_timer(5.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+		get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
 		return
 
 func reset_game():
@@ -202,7 +202,7 @@ func even_strategy() -> int:
 		last_guess = possible_numbers[randi() % possible_numbers.size()]
 	else:
 		# If no even options left, revert to any remaining number
-		last_guess = computer_min + (computer_max - computer_min) / 2
+		last_guess = computer_min + (computer_max - computer_min) / 2.0
 	
 	return last_guess
 	
@@ -216,7 +216,7 @@ func uneven_strategy() -> int:
 		last_guess = possible_numbers[randi() % possible_numbers.size()]
 	else:
 		# If no odd options left, revert to any remaining number
-		last_guess = computer_min + (computer_max - computer_min) / 2
+		last_guess = computer_min + (computer_max - computer_min) / 2.0
 	
 	return last_guess
 	

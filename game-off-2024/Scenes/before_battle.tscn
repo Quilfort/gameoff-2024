@@ -6,21 +6,21 @@
 script = ExtResource("1_oxnch")
 
 [node name="StartLabel" type="Label" parent="."]
-offset_left = 300.0
+offset_left = 576.0
 offset_top = 100.0
-offset_right = 370.0
+offset_right = 646.0
 offset_bottom = 130.0
 
 [node name="GuessInput" type="LineEdit" parent="."]
-offset_left = 300.0
-offset_top = 150.0
-offset_right = 370.0
-offset_bottom = 181.0
+offset_left = 576.0
+offset_top = 200.0
+offset_right = 676.0
+offset_bottom = 240.0
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = 300.0
-offset_top = 250.0
-offset_right = 370.0
-offset_bottom = 280.0
+offset_left = 576.0
+offset_top = 300.0
+offset_right = 646.0
+offset_bottom = 330.0
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
