@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Game Off 2024"
+config/name="Guess The Number"
 run/main_scene="res://Scenes/tournament.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+boot_splash/bg_color=Color(0.229644, 0.304963, 0.129726, 1)
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,7 +23,14 @@ BattleHistory="*res://Scripts/Singleton/battle_history.gd"
 ComputerData="*res://Scripts/Singleton/computer_data.gd"
 GameData="*res://Scripts/Singleton/game_data.gd"
 
+[display]
+
+window/size/window_width_override=2304
+window/size/window_height_override=1296
+window/stretch/mode="viewport"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

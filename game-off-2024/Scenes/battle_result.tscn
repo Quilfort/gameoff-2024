@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://cy76r6mgelxnk"]
 
 [node name="BattleResult" type="Node2D"]
+
+[node name="BattleResult" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ContinueButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
