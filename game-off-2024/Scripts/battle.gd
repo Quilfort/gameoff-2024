@@ -44,8 +44,12 @@ func _process(delta):
 			is_player_turn = true
 			$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % MAX_NUMBER
 
+func reset_game():
+	setup_game()
+
 func setup_game():
 	computer_number = randi() % MAX_NUMBER + 1
+	print(computer_number)
 	player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
@@ -83,8 +87,6 @@ func which_player_starts():
 		$BattleStatusLabel.text = "Computer starts guessing..."
 		$InstructionLabel.text = "Computer will guess in 2 seconds..."
 		await get_tree().create_timer(2.0).timeout
-
-
 
 func update_history_display():
 	var player_history_text = "Player Guesses:\n"
@@ -135,8 +137,6 @@ func check_guess(guess: int):
 	$InstructionLabel.text = "Computer will guess in 2 seconds..."
 	$GuessInput.clear()
 
-
-
 func computer_guesses():
 	var guess = smart_computer_guess()
 	computer_previous_guesses.append(guess)
@@ -176,10 +176,6 @@ func computer_guesses():
 		await get_tree().create_timer(5.0).timeout
 		get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
 		return
-
-func reset_game():
-	setup_game()
-
 
 func _on_submit_button_pressed():
 	if !game_started:
