@@ -1,6 +1,7 @@
 extends Node
 
-
+#Settings
+var MAX_NUMBER = 500
 var MAX_PLAYERS = 2
 
 # Tournament

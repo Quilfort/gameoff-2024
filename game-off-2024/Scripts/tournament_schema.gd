@@ -2,7 +2,7 @@ extends Node2D
 
 var MAX_PLAYERS = GameData.MAX_PLAYERS
 var computer_opponents = []  # List to store selected computers
-var player = {"id": 0, "name": "Player", "computer_strategy": "manual"}
+var player = {"id": 0, "name": PlayerData.player_name, "computer_strategy": "player"}
 
 func _ready():
 	# Check if the draft has already been completed
