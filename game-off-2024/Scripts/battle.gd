@@ -88,8 +88,17 @@ func which_player_starts():
 		$InstructionLabel.text = "Computer will guess in 2 seconds..."
 		await get_tree().create_timer(2.0).timeout
 
-func finish_game():
+func finish_game(number, winner):
+	# Set game_active to false to prevent further guesses
 	game_active = false
+	# Store player and computer histories in BattleData.battle_history
+	BattleData.battle_history = {
+		"player": player_guess_history,
+		"computer": computer_guess_history,
+		"winner": winner,
+		"number": number
+	}
+
 	await get_tree().create_timer(5.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
 
@@ -134,7 +143,7 @@ func check_guess(guess: int):
 	update_history_display()
 	
 	if guess == computer_number:
-		finish_game()
+		finish_game(computer_number, "Codename Daisy")
 		
 	is_player_turn = false 
 	$InstructionLabel.text = "Computer will guess in 2 seconds..."
@@ -173,10 +182,11 @@ func computer_guesses():
 		"guess": guess,
 		"result": result
 	})
+	
 	update_history_display()
 	
 	if guess == player_number:
-		finish_game()
+		finish_game(player_number, BattleData.computer.name)
 
 # Handle Computer Strategy Logic
 func even_strategy() -> int:
