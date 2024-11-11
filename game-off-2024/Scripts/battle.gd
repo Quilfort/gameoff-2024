@@ -2,7 +2,7 @@ extends Node2D
 
 # Game configuration
 var MAX_NUMBER = BattleData.MAX_NUMBER
-var game_started = BattleData.game_started    
+var game_active = BattleData.game_active    
 
 # Player
 var player_number = BattleData.player_number
@@ -36,7 +36,7 @@ func _ready():
 	setup_game()
 
 func _process(delta):
-	if game_started and !is_player_turn:
+	if game_active and !is_player_turn:
 		computer_timer += delta
 		if computer_timer >= computer_delay:
 			computer_timer = 0
@@ -88,6 +88,11 @@ func which_player_starts():
 		$InstructionLabel.text = "Computer will guess in 2 seconds..."
 		await get_tree().create_timer(2.0).timeout
 
+func finish_game():
+	game_active = false
+	await get_tree().create_timer(5.0).timeout
+	get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
+
 func update_history_display():
 	var player_history_text = "Player Guesses:\n"
 	for guess_info in player_guess_history:
@@ -129,9 +134,7 @@ func check_guess(guess: int):
 	update_history_display()
 	
 	if guess == computer_number:
-		await get_tree().create_timer(5.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
-		return
+		finish_game()
 		
 	is_player_turn = false 
 	$InstructionLabel.text = "Computer will guess in 2 seconds..."
@@ -173,19 +176,7 @@ func computer_guesses():
 	update_history_display()
 	
 	if guess == player_number:
-		await get_tree().create_timer(5.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
-		return
-
-func _on_submit_button_pressed():
-	if !game_started:
-		print("NOT STARTED")
-	elif is_player_turn:
-		var guess = $GuessInput.text.to_int()
-		if guess < 1 or guess > MAX_NUMBER:
-			$PlayerResultLabel.text = "Please enter a number between 1 and %d." % MAX_NUMBER
-			return
-		check_guess(guess)
+		finish_game()
 
 # Handle Computer Strategy Logic
 func even_strategy() -> int:
@@ -248,3 +239,15 @@ func smart_computer_guess() -> int:
 		_:
 			last_guess = randi() % (computer_max - computer_min + 1) + computer_min
 			return last_guess
+
+## Buttons
+
+func _on_submit_button_pressed():
+	if !game_active:
+		print("Game is not active")
+	elif is_player_turn:
+		var guess = $GuessInput.text.to_int()
+		if guess < 1 or guess > MAX_NUMBER:
+			$PlayerResultLabel.text = "Please enter a number between 1 and %d." % MAX_NUMBER
+			return
+		check_guess(guess)

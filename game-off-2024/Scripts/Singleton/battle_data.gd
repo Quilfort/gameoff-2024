@@ -4,7 +4,7 @@ extends Node
 var MAX_NUMBER = 500
 
 # Battle Settings
-var game_started = false
+var game_active = false
 
 # Player
 var player_number = 0
