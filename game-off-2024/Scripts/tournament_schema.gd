@@ -3,7 +3,6 @@ extends Node2D
 var MAX_PLAYERS = GameData.MAX_PLAYERS
 var computer_opponents = [] 
 var upcoming_matches = [] 
-var player = {"id": 0, "name": PlayerData.player_name, "computer_strategy": "player"}
 
 func _ready():
 	# Check if the draft has already been completed
@@ -32,7 +31,7 @@ func start_draft():
 	
 	# Add the player to the list
 	var participants = computer_opponents.duplicate()
-	participants.append(player)
+	participants.append(PlayerData.player)
 	
 	# Randomize and pair participants
 	var pairings = create_duos(participants)
@@ -73,7 +72,7 @@ func _on_next_battle_button_pressed() -> void:
 		print("Match:", pairing)
 		var winner = null
 		# Check if the Player is in team1 or team2 of the current pairing
-		if pairing.team1.id == 0 || pairing.team2.id == 0:
+		if pairing.team1 == PlayerData.player || pairing.team2 == PlayerData.player:
 			print("Player is in team")
 			if randi() % 2 == 0:
 				winner = pairing.team1  # team1 wins

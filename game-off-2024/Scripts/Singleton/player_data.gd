@@ -1,3 +1,7 @@
 extends Node
 
-var player_name = "Daisy 2"
+var player = {
+	"id": 0,
+	"name": "Player",
+	"computer_strategy": "player"
+}

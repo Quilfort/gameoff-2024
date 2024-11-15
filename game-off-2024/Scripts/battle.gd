@@ -103,7 +103,7 @@ func finish_game(number, winner):
 	get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
 
 func update_history_display():
-	var player_history_text = PlayerData.player_name + " Guesses:\n"
+	var player_history_text = PlayerData.player.name + " Guesses:\n"
 	for guess_info in player_guess_history:
 		player_history_text += str(guess_info.guess) + " - " + guess_info.result + "\n"
 	
@@ -143,7 +143,7 @@ func check_guess(guess: int):
 	update_history_display()
 	
 	if guess == computer_number:
-		finish_game(computer_number, PlayerData.player_name)
+		finish_game(computer_number, PlayerData.player.name)
 		
 	is_player_turn = false 
 	$InstructionLabel.text = "Computer will guess in 2 seconds..."
