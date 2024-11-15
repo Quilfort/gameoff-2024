@@ -11,6 +11,7 @@ func _ready():
 		GameData.DRAFT_COMPLETED = true
 	else:
 		print("Draft already completed. Skipping draft.")
+		display_schedule()
 
 # Function to display the tournament schedule
 func display_schedule():
@@ -65,7 +66,7 @@ func create_duos(participants):
 
 func _on_next_battle_button_pressed() -> void:
 	
-	var winners = []
+	BattleData.battle_winners = []
 	
 	# Simulate each match
 	for pairing in GameData.next_matches:
@@ -91,15 +92,15 @@ func _on_next_battle_button_pressed() -> void:
 				winner = pairing.team2  # team2 wins
 		
 		print("Winner:", winner.name)
-		winners.append(winner)
+		BattleData.battle_winners.append(winner)
 	
 	# If no matches left, print completion
-	if winners.size() == 0:
+	if BattleData.battle_winners.size() == 0:
 		print("No more matches!")
 		return
 	
 	# Generate the next round pairings
-	var next_round = create_duos(winners)
+	var next_round = create_duos(BattleData.battle_winners)
 	print("Next Round Pairings:", next_round)
 	
 	# Update tournament matches with the new round

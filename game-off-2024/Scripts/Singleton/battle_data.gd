@@ -13,3 +13,4 @@ var computer_strategy = null
 
 # Battle History
 var battle_history = []
+var battle_winners = []
