@@ -52,9 +52,10 @@ func draft_opponents():
 	# Select MAX_PLAYERS - 1 computers
 	return all_computers.slice(0, MAX_PLAYERS - 1)
 	
-# Function to create random duos
+# Function to create duos
 func create_duos(participants):
-	participants.shuffle()  # Shuffle the participants list
+	if !GameData.DRAFT_COMPLETED:
+		participants.shuffle()  # Shuffle the participants list
 	var pairings = []
 	
 	# Pair participants into duos
@@ -63,27 +64,48 @@ func create_duos(participants):
 			pairings.append({"team1": participants[i], "team2": participants[i + 1]})
 	return pairings
 
-
 func _on_next_battle_button_pressed() -> void:
-
-	print(GameData.next_matches)
-
-
-
-
-
-
-	# for pairing in GameData.next_matches:
-	# 	print(pairing);
-	# 	# Check if the Player is in team1 or team2 of the current pairing
-	# 	if pairing.team1.id == 0:  # Player is in team1
-	# 		BattleData.computer = pairing.team2  # Set opponent as team2
-	# 		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
-	# 		return
-	# 	elif pairing.team2.id == 0:  # Player is in team2
-	# 		BattleData.computer = pairing.team1  # Set opponent as team1
-	# 		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
-	# 		return
 	
-	# # If no matching pairing is found, you could print a message or handle it in some way
-	# print("No battle found for the Player in the tournament matches.")
+	var winners = []
+	
+	# Simulate each match
+	for pairing in GameData.next_matches:
+		print("Match:", pairing)
+		var winner = null
+		# Check if the Player is in team1 or team2 of the current pairing
+		if pairing.team1.id == 0 || pairing.team2.id == 0:
+			print("Player is in team")
+			if randi() % 2 == 0:
+				winner = pairing.team1  # team1 wins
+			else:
+				winner = pairing.team2  # team2 wins
+			#BattleData.computer = pairing.team2  # Set opponent as team2
+			#BattleData.computer = pairing.team1  # Set opponent as team1
+			#get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+			#return	
+		else:
+			print("Computer vs Computer")
+			# Determine the winner using a random coin flip
+			if randi() % 2 == 0:
+				winner = pairing.team1  # team1 wins
+			else:
+				winner = pairing.team2  # team2 wins
+		
+		print("Winner:", winner.name)
+		winners.append(winner)
+	
+	# If no matches left, print completion
+	if winners.size() == 0:
+		print("No more matches!")
+		return
+	
+	# Generate the next round pairings
+	var next_round = create_duos(winners)
+	print("Next Round Pairings:", next_round)
+	
+	# Update tournament matches with the new round
+	GameData.tournament_matches.append(next_round)
+	GameData.next_matches = next_round  # Set next matches to the next round
+	
+	print("Updated Tournament Matches:", GameData.tournament_matches)
+	print("Next Matches:", GameData.next_matches)
