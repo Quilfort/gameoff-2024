@@ -1,7 +1,6 @@
 extends Node2D
 
 # Game configuration
-var MAX_NUMBER = GameData.MAX_NUMBER
 var game_active = BattleData.game_active    
 
 # Player
@@ -11,15 +10,13 @@ var player_attempts = 0
 var is_player_turn = false 
 
 #Computer
-var computer_name = BattleData.computer.name
 var computer_attempts = 0
 var computer_timer = 0     
 var computer_delay = 2.0
 
 # Computer Strategy
-var computer_strategy = BattleData.computer.computer_strategy
 var computer_min = 1
-var computer_max = MAX_NUMBER
+var computer_max = GameData.MAX_NUMBER
 var computer_previous_guesses = []
 
 # Variables for storing guess history
@@ -32,8 +29,10 @@ var half_guess_difference = 0
 var is_guess_too_low = false
 var is_guess_too_high = false
 
+
 func _ready():
 	setup_game()
+
 
 func _process(delta):
 	if game_active and !is_player_turn:
@@ -42,20 +41,20 @@ func _process(delta):
 			computer_timer = 0
 			computer_guesses()
 			is_player_turn = true
-			$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % MAX_NUMBER
+			$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % GameData.MAX_NUMBER
+
 
 func reset_game():
 	setup_game()
 
+
 func setup_game():
-	computer_number = randi() % MAX_NUMBER + 1
-	print("Computer Number:\t:",computer_number)
-	print("Player Number:\t",BattleData.player_number)
+	computer_number = randi() % GameData.MAX_NUMBER + 1
 	player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
 	computer_min = 1
-	computer_max = MAX_NUMBER
+	computer_max = GameData.MAX_NUMBER
 	computer_previous_guesses.clear()
 	player_guess_history.clear()
 	computer_guess_history.clear()
@@ -71,6 +70,12 @@ func setup_game():
 	$PlayerHistoryLabel.text = ""
 	$ComputerHistoryLabel.text = ""
 	$GuessInput.clear()
+
+	#Debug Print Numbers
+	print("Computer Number:\t\t",computer_number)
+	print("Player Number:\t\t",BattleData.player_number)
+
+	#Logic to determine who starts
 	which_player_starts()
 	
 	
@@ -81,15 +86,17 @@ func which_player_starts():
 	# Update Battle Status Label based on who starts
 	if is_player_turn:
 		$BattleStatusLabel.text = "You start! Make a guess."
-		$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % MAX_NUMBER
+		$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % GameData.MAX_NUMBER
 	else:
 		$BattleStatusLabel.text = "Computer starts guessing..."
 		$InstructionLabel.text = "Computer will guess in 2 seconds..."
 		await get_tree().create_timer(2.0).timeout
 
+
 func finish_game(number, winner):
 	# Set game_active to false to prevent further guesses
 	game_active = false
+
 	# Store player and computer histories in BattleData.battle_history
 	BattleData.battle_history = {
 		"player": player_guess_history,
@@ -101,6 +108,7 @@ func finish_game(number, winner):
 	await get_tree().create_timer(5.0).timeout
 	get_tree().change_scene_to_file("res://Scenes/after_battle.tscn")
 
+
 func update_history_display():
 	var player_history_text = PlayerData.player.name + " Guesses:\n"
 	for guess_info in player_guess_history:
@@ -108,11 +116,12 @@ func update_history_display():
 	
 	$PlayerHistoryLabel.text = player_history_text  # Update the player history label
 
-	var computer_history_text = "Computer Guesses:\n"
+	var computer_history_text = BattleData.computer.name + " Guesses:\n"
 	for guess_info in computer_guess_history:
 		computer_history_text += str(guess_info.guess) + " - " + guess_info.result + "\n"
 	
 	$ComputerHistoryLabel.text = computer_history_text  # Update the computer history label
+
 
 func check_guess(guess: int):
 	if !is_player_turn:
@@ -123,11 +132,11 @@ func check_guess(guess: int):
 	
 	if guess < computer_number:
 		result = "Too low!"
-		$BattleStatusLabel.text = "Wait for computer's turn..."
+		$BattleStatusLabel.text = "Wait for " + BattleData.computer.name + " 's turn..."
 		$PlayerResultLabel.text = result
 	elif guess > computer_number:
 		result = "Too high!"
-		$BattleStatusLabel.text = "Wait for computer's turn..."
+		$BattleStatusLabel.text = "Wait for " + BattleData.computer.name + " 's turn..."
 		$PlayerResultLabel.text = result
 	else:
 		result = "Correct!"
@@ -145,8 +154,9 @@ func check_guess(guess: int):
 		finish_game(computer_number, PlayerData.player)
 		
 	is_player_turn = false 
-	$InstructionLabel.text = "Computer will guess in 2 seconds..."
+	$InstructionLabel.text = BattleData.computer.name + " will guess in 2 seconds..."
 	$GuessInput.clear()
+
 
 func computer_guesses():
 	var guess = smart_computer_guess()
@@ -154,7 +164,7 @@ func computer_guesses():
 	computer_attempts += 1
 	var result = ""
 	
-	$ComputerGuessLabel.text = "Computer guessed: " + str(guess)
+	$ComputerGuessLabel.text = BattleData.computer.name + " guessed: " + str(guess)
 	
 	is_guess_too_low = false
 	is_guess_too_high = false
@@ -187,6 +197,7 @@ func computer_guesses():
 	if guess == player_number:
 		finish_game(player_number, BattleData.computer)
 
+
 # Handle Computer Strategy Logic
 func even_strategy() -> int:
 	var possible_numbers = []
@@ -201,7 +212,8 @@ func even_strategy() -> int:
 		last_guess = computer_min + (computer_max - computer_min) / 2.0
 	
 	return last_guess
-	
+
+
 func uneven_strategy() -> int:
 	var possible_numbers = []
 	for i in range(computer_min, computer_max + 1):
@@ -215,11 +227,12 @@ func uneven_strategy() -> int:
 		last_guess = computer_min + (computer_max - computer_min) / 2.0
 	
 	return last_guess
-	
+
+
 func half_guess() -> int:
 	if last_guess == 0:
 		# First guess: Start at half of MAX_NUMBER
-		last_guess = ceil(float(MAX_NUMBER) / 2)
+		last_guess = ceil(float(GameData.MAX_NUMBER) / 2)
 	else:
 		# Adjust the range based on the previous guess feedback
 		if is_guess_too_low:
@@ -237,8 +250,9 @@ func half_guess() -> int:
 	last_guess = clamp(last_guess, computer_min, computer_max)
 	return last_guess
 
+
 func smart_computer_guess() -> int:
-	match computer_strategy:
+	match BattleData.computer.computer_strategy:
 		"even":
 			return even_strategy()
 		"uneven":
@@ -249,14 +263,14 @@ func smart_computer_guess() -> int:
 			last_guess = randi() % (computer_max - computer_min + 1) + computer_min
 			return last_guess
 
-## Buttons
 
+## Button
 func _on_submit_button_pressed():
 	if !game_active:
 		print("Game is not active")
 	elif is_player_turn:
 		var guess = $GuessInput.text.to_int()
-		if guess < 1 or guess > MAX_NUMBER:
-			$PlayerResultLabel.text = "Please enter a number between 1 and %d." % MAX_NUMBER
+		if guess < 1 or guess > GameData.MAX_NUMBER:
+			$PlayerResultLabel.text = "Please enter a number between 1 and %d." % GameData.MAX_NUMBER
 			return
 		check_guess(guess)
