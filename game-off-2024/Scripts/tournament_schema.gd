@@ -51,8 +51,6 @@ func start_draft():
 	var pairings = create_duos_draft(participants)
 	GameData.tournament_matches = [pairings]
 	GameData.next_matches = pairings
-	# print("Full Matches")
-	# print(GameData.tournament_matches)
 	
 	# Display the pairings in the TournamentScheduleLabel
 	display_schedule()

@@ -24,6 +24,37 @@ var half_guess = {
 	"computer_strategy": "half_guess"
 }
 
+var penny = {
+	"id": 5,
+	"name": "Penny P",
+	"computer_strategy": "default"
+}
+
+var david = {
+	"id": 6,
+	"name": "David D",
+	"computer_strategy": "default"
+}
+
+var jeffrey = {
+	"id": 7,
+	"name": "Jeffrey J",
+	"computer_strategy": "default"
+}
+
+var justin = {
+	"id": 8,
+	"name": "Justin J",
+	"computer_strategy": "default"
+}
+
+var peter = {
+	"id": 9,
+	"name": "Peter P",
+	"computer_strategy": "default"
+}
+
+
 # Function to dynamically return all computer data as a list
 func get_all_computers():
 	var computers = []

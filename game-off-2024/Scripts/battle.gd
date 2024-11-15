@@ -49,7 +49,8 @@ func reset_game():
 
 func setup_game():
 	computer_number = randi() % MAX_NUMBER + 1
-	print(computer_number)
+	print("Computer Number:\t:",computer_number)
+	print("Player Number:\t",BattleData.player_number)
 	player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
@@ -70,8 +71,6 @@ func setup_game():
 	$PlayerHistoryLabel.text = ""
 	$ComputerHistoryLabel.text = ""
 	$GuessInput.clear()
-	print("Computer Name: ", computer_name )
-	print("Strategy: ", computer_strategy )
 	which_player_starts()
 	
 	
