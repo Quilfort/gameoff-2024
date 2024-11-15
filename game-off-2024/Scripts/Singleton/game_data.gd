@@ -8,3 +8,4 @@ var MAX_PLAYERS = 4
 var DRAFT_COMPLETED = false
 var tournament_matches = []
 var next_matches = []
+var tournament_champion = null

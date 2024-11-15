@@ -17,18 +17,22 @@ func _ready():
 func display_schedule():
 	var schedule_text = "Tournament Schedule:\n\n"
 	
-	# Iterate through each round in the tournament matches
-	for round_index in range(GameData.tournament_matches.size()):
-		var round_matches = GameData.tournament_matches[round_index]
-		schedule_text += "Round %d:\n" % (round_index + 1)
-		
-		# Iterate through matches in the current round
-		for match in round_matches:
-			var team1 = match["team1"].name
-			var team2 = match["team2"].name
-			schedule_text += "  %s vs %s\n" % [team1, team2]
-		
-		schedule_text += "\n"  # Add spacing between rounds
+	if !GameData.tournament_champion:
+		# Iterate through each round in the tournament matches
+		for round_index in range(GameData.tournament_matches.size()):
+			var round_matches = GameData.tournament_matches[round_index]
+			schedule_text += "Round %d:\n" % (round_index + 1)
+			
+			# Iterate through matches in the current round
+			for match in round_matches:
+				var team1 = match["team1"].name
+				var team2 = match["team2"].name
+				schedule_text += "  %s vs %s\n" % [team1, team2]
+			
+			schedule_text += "\n"  # Add spacing between rounds
+	else:
+		schedule_text += "Champion: \n"
+		schedule_text += GameData.tournament_champion.name
 	
 	# Set the text to the TournamentScheduleLabel
 	$TournamentScheduleLabel.text = schedule_text

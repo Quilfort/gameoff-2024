@@ -20,29 +20,25 @@ func update_other_match_in_round():
 		
 		print("Winner:", winner.name)
 		BattleData.battle_winners.append(winner)
-	# If no matches left, print completion
-	if BattleData.battle_winners.size() == 0:
-		print("No more matches!")
-		return
 	
 	# Generate the next round pairings
 	var next_round = create_duos(BattleData.battle_winners)
-	print("Next Round Pairings:", next_round)
-	
 	# Update tournament matches with the new round
 	GameData.tournament_matches.append(next_round)
-	GameData.next_matches = next_round  # Set next matches to the next round
+	print("NEXT ROUND \n", next_round)
+	if next_round.size() > 0:
+		GameData.next_matches = next_round  # Set next matches to the next round
+	else:
+		GameData.tournament_champion = BattleData.battle_winners[0]
+		print("CHAMPIONS: \n", GameData.tournament_champion)
 
-# Change this name	
 func display_round_result():
 	$BattleResultLabel.text = BattleData.battle_history.winner.name + " wins!"
-	print(BattleData.battle_history)
-	print("Updated Tournament Matches:", GameData.tournament_matches)
-	print("Next Matches:", GameData.next_matches)
+	# print("Updated Tournament Matches:", GameData.tournament_matches)
+	# print("Next Matches:", GameData.next_matches)
 
 func _on_continue_button_pressed() -> void:
 	reset_battle_data()
-	print(BattleData.battle_history)
 	get_tree().change_scene_to_file("res://Scenes/tournament.tscn")
 
 
