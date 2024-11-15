@@ -13,15 +13,24 @@ func _ready():
 		print("Draft already completed. Skipping draft.")
 		display_schedule()
 
-# Function to display the tournament schedule
+# Function to display the tournament schedule with rounds
 func display_schedule():
 	var schedule_text = "Tournament Schedule:\n\n"
 	
-	for match in GameData.tournament_matches:
-		var team1 = match["team1"].name
-		var team2 = match["team2"].name
-		schedule_text += "%s vs %s\n" % [team1, team2]
+	# Iterate through each round in the tournament matches
+	for round_index in range(GameData.tournament_matches.size()):
+		var round_matches = GameData.tournament_matches[round_index]
+		schedule_text += "Round %d:\n" % (round_index + 1)
+		
+		# Iterate through matches in the current round
+		for match in round_matches:
+			var team1 = match["team1"].name
+			var team2 = match["team2"].name
+			schedule_text += "  %s vs %s\n" % [team1, team2]
+		
+		schedule_text += "\n"  # Add spacing between rounds
 	
+	# Set the text to the TournamentScheduleLabel
 	$TournamentScheduleLabel.text = schedule_text
 
 ## DRAFT
@@ -35,8 +44,8 @@ func start_draft():
 	participants.append(PlayerData.player)
 	
 	# Randomize and pair participants
-	var pairings = create_duos(participants)
-	GameData.tournament_matches = pairings
+	var pairings = create_duos_draft(participants)
+	GameData.tournament_matches = [pairings]
 	GameData.next_matches = pairings
 	# print("Full Matches")
 	# print(GameData.tournament_matches)
@@ -53,9 +62,8 @@ func draft_opponents():
 	return all_computers.slice(0, MAX_PLAYERS - 1)
 	
 # Function to create duos
-func create_duos(participants):
-	if !GameData.DRAFT_COMPLETED:
-		participants.shuffle()  # Shuffle the participants list
+func create_duos_draft(participants):
+	participants.shuffle()  # Shuffle the participants list
 	var pairings = []
 	
 	# Pair participants into duos
@@ -65,47 +73,19 @@ func create_duos(participants):
 	return pairings
 
 func _on_next_battle_button_pressed() -> void:
-	
-	BattleData.battle_winners = []
-	
 	# Simulate each match
 	for pairing in GameData.next_matches:
 		print("Match:", pairing)
-		var winner = null
 		# Check if the Player is in team1 or team2 of the current pairing
 		if pairing.team1 == PlayerData.player || pairing.team2 == PlayerData.player:
 			print("Player is in team")
-			if randi() % 2 == 0:
-				winner = pairing.team1  # team1 wins
+			if pairing.team1 == PlayerData.player:
+				BattleData.computer = pairing.team2  # Set opponent as team2
 			else:
-				winner = pairing.team2  # team2 wins
-			#BattleData.computer = pairing.team2  # Set opponent as team2
-			#BattleData.computer = pairing.team1  # Set opponent as team1
-			#get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
-			#return	
-		else:
-			print("Computer vs Computer")
-			# Determine the winner using a random coin flip
-			if randi() % 2 == 0:
-				winner = pairing.team1  # team1 wins
-			else:
-				winner = pairing.team2  # team2 wins
-		
-		print("Winner:", winner.name)
-		BattleData.battle_winners.append(winner)
+				BattleData.computer = pairing.team1  # Set opponent as team1
+			get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+			return
 	
-	# If no matches left, print completion
-	if BattleData.battle_winners.size() == 0:
-		print("No more matches!")
-		return
+	# Sim full matches if player is eliminated (Of do this in after_battle.gd)
 	
-	# Generate the next round pairings
-	var next_round = create_duos(BattleData.battle_winners)
-	print("Next Round Pairings:", next_round)
 	
-	# Update tournament matches with the new round
-	GameData.tournament_matches.append(next_round)
-	GameData.next_matches = next_round  # Set next matches to the next round
-	
-	print("Updated Tournament Matches:", GameData.tournament_matches)
-	print("Next Matches:", GameData.next_matches)

@@ -6,5 +6,5 @@ var MAX_PLAYERS = 4
 
 # Tournament
 var DRAFT_COMPLETED = false
-var tournament_matches = null
-var next_matches = null
+var tournament_matches = []
+var next_matches = []

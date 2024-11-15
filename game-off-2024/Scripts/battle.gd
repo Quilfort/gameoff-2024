@@ -143,7 +143,7 @@ func check_guess(guess: int):
 	update_history_display()
 	
 	if guess == computer_number:
-		finish_game(computer_number, PlayerData.player.name)
+		finish_game(computer_number, PlayerData.player)
 		
 	is_player_turn = false 
 	$InstructionLabel.text = "Computer will guess in 2 seconds..."
@@ -186,7 +186,7 @@ func computer_guesses():
 	update_history_display()
 	
 	if guess == player_number:
-		finish_game(player_number, BattleData.computer.name)
+		finish_game(player_number, BattleData.computer)
 
 # Handle Computer Strategy Logic
 func even_strategy() -> int:
