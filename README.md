@@ -29,7 +29,7 @@ Instructions on how to download and run the game will be added soon.
 
 ## License
 
-This project is licensed under the Apache License 2.0. See the [LICENSE](https://choosealicense.com/licenses/apache-2.0/) file for details.
+TBD
 
 ---
 

@@ -1,7 +1,8 @@
 extends Node2D
 
 var MAX_PLAYERS = GameData.MAX_PLAYERS
-var computer_opponents = []  # List to store selected computers
+var computer_opponents = [] 
+var upcoming_matches = [] 
 var player = {"id": 0, "name": PlayerData.player_name, "computer_strategy": "player"}
 
 func _ready():
@@ -22,7 +23,6 @@ func display_schedule():
 		schedule_text += "%s vs %s\n" % [team1, team2]
 	
 	$TournamentScheduleLabel.text = schedule_text
-	print(schedule_text)  # For debugging/logging
 
 ## DRAFT
 # Function to handle the entire draft process
@@ -38,7 +38,8 @@ func start_draft():
 	var pairings = create_duos(participants)
 	GameData.tournament_matches = pairings
 	GameData.next_matches = pairings
-	print(GameData.tournament_matches)
+	# print("Full Matches")
+	# print(GameData.tournament_matches)
 	
 	# Display the pairings in the TournamentScheduleLabel
 	display_schedule()
@@ -64,16 +65,25 @@ func create_duos(participants):
 
 
 func _on_next_battle_button_pressed() -> void:
-	for pairing in GameData.next_matches:
-		# Check if the Player is in team1 or team2 of the current pairing
-		if pairing.team1.id == 0:  # Player is in team1
-			BattleData.computer = pairing.team2  # Set opponent as team2
-			get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
-			return
-		elif pairing.team2.id == 0:  # Player is in team2
-			BattleData.computer = pairing.team1  # Set opponent as team1
-			get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
-			return
+
+	print(GameData.next_matches)
+
+
+
+
+
+
+	# for pairing in GameData.next_matches:
+	# 	print(pairing);
+	# 	# Check if the Player is in team1 or team2 of the current pairing
+	# 	if pairing.team1.id == 0:  # Player is in team1
+	# 		BattleData.computer = pairing.team2  # Set opponent as team2
+	# 		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+	# 		return
+	# 	elif pairing.team2.id == 0:  # Player is in team2
+	# 		BattleData.computer = pairing.team1  # Set opponent as team1
+	# 		get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
+	# 		return
 	
-	# If no matching pairing is found, you could print a message or handle it in some way
-	print("No battle found for the Player in the tournament matches.")
+	# # If no matching pairing is found, you could print a message or handle it in some way
+	# print("No battle found for the Player in the tournament matches.")
