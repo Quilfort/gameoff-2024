@@ -27,6 +27,10 @@ This project is being developed as part of GitHub’s **Game Off 2024** annual g
 
 Instructions on how to download and run the game will be added soon.
 
+## Assets
+
+Template assest from [here](https://cogabushi.itch.io/free-20-fantasy-characters-pack)
+
 ## License
 
 TBD
