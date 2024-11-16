@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://5v8ykpbewox1"]
 
 [ext_resource type="Script" path="res://Scripts/tournament_schema.gd" id="1_gf848"]
+[ext_resource type="Texture2D" uid="uid://u27xega1h531" path="res://Assets/Background/bg_tournament_blur.png" id="2_gyj41"]
 [ext_resource type="Script" path="res://Scripts/tournament_bracket.gd" id="2_sfcib"]
-[ext_resource type="Texture2D" uid="uid://bg2ohx7gv04bi" path="res://Assets/Background/bg_tournament.png" id="3_6ne7e"]
 
 [node name="Tournament" type="Node2D"]
 script = ExtResource("1_gf848")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(560, 330)
-texture = ExtResource("3_6ne7e")
+[node name="BGTournament" type="Sprite2D" parent="."]
+position = Vector2(530, 330)
+texture = ExtResource("2_gyj41")
 
 [node name="TournamentScheduleLabel" type="Label" parent="."]
 offset_left = 50.0

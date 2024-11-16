@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://crkesognymeql"]
+[gd_scene load_steps=3 format=3 uid="uid://crkesognymeql"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_owltm"]
+[ext_resource type="Texture2D" uid="uid://5efckeydjmxo" path="res://Assets/Background/bg_battle_blur.png" id="2_ut80p"]
 
 [node name="Battle" type="Node2D"]
 position = Vector2(60, 77)
 script = ExtResource("1_owltm")
+
+[node name="BGBattle" type="Sprite2D" parent="."]
+position = Vector2(470, 253)
+texture = ExtResource("2_ut80p")
 
 [node name="BattleStatusLabel" type="Label" parent="."]
 offset_left = 576.0
