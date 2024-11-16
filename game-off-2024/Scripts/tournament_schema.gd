@@ -4,6 +4,8 @@ var MAX_PLAYERS = GameData.MAX_PLAYERS
 var computer_opponents = []
 var upcoming_matches = []
 
+@onready var bracket_view = $TournamentBracket
+@onready var schedule_label = $TournamentScheduleLabel
 
 func _ready():
 	# Check if the draft has already been completed
@@ -13,31 +15,6 @@ func _ready():
 	else:
 		print("Draft already completed. Skipping draft.")
 		display_schedule()
-
-
-# Function to display the tournament schedule with rounds
-func display_schedule():
-	var schedule_text = "Tournament Schedule:\n\n"
-
-	if !GameData.tournament_champion:
-		# Iterate through each round in the tournament matches
-		for round_index in range(GameData.tournament_matches.size()):
-			var round_matches = GameData.tournament_matches[round_index]
-			schedule_text += "Round %d:\n" % (round_index + 1)
-
-			# Iterate through matches in the current round
-			for match in round_matches:
-				var team1 = match["team1"].name
-				var team2 = match["team2"].name
-				schedule_text += "  %s vs %s\n" % [team1, team2]
-
-			schedule_text += "\n"  # Add spacing between rounds
-	else:
-		schedule_text += "Champion: \n"
-		schedule_text += GameData.tournament_champion.name
-
-	# Set the text to the TournamentScheduleLabel
-	$TournamentScheduleLabel.text = schedule_text
 
 
 ## DRAFT
@@ -68,16 +45,27 @@ func draft_opponents():
 	return all_computers.slice(0, MAX_PLAYERS - 1)
 
 
-# Function to create duos
-func create_duos_draft(participants):
-	participants.shuffle()  # Shuffle the participants list
-	var pairings = []
 
-	# Pair participants into duos
-	for i in range(0, participants.size(), 2):
-		if i + 1 < participants.size():
-			pairings.append({"team1": participants[i], "team2": participants[i + 1]})
-	return pairings
+func display_schedule():
+	# Update the text label
+		if bracket_view:
+			bracket_view.update_bracket()
+		else:
+			var schedule_text = "Tournament Schedule:\n\n"
+			if !GameData.tournament_champion:
+				for round_index in range(GameData.tournament_matches.size()):
+					var round_matches = GameData.tournament_matches[round_index]
+					schedule_text += "Round %d:\n" % (round_index + 1)
+					for match in round_matches:
+						var team1 = match["team1"].name
+						var team2 = match["team2"].name
+						schedule_text += "  %s vs %s\n" % [team1, team2]
+					schedule_text += "\n"
+			else:
+				schedule_text += "Champion: \n"
+				schedule_text += GameData.tournament_champion.name
+			
+			schedule_label.text = schedule_text
 
 
 func _on_next_battle_button_pressed() -> void:
@@ -93,3 +81,15 @@ func _on_next_battle_button_pressed() -> void:
 				BattleData.computer = pairing.team1  # Set opponent as team1
 			get_tree().change_scene_to_file("res://Scenes/before_battle.tscn")
 			return
+
+
+# Function to create duos
+func create_duos_draft(participants):
+	participants.shuffle()  # Shuffle the participants list
+	var pairings = []
+
+	# Pair participants into duos
+	for i in range(0, participants.size(), 2):
+		if i + 1 < participants.size():
+			pairings.append({"team1": participants[i], "team2": participants[i + 1]})
+	return pairings
