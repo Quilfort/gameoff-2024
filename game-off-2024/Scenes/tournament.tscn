@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5v8ykpbewox1"]
+[gd_scene load_steps=5 format=3 uid="uid://5v8ykpbewox1"]
 
 [ext_resource type="Script" path="res://Scripts/tournament_schema.gd" id="1_gf848"]
 [ext_resource type="Texture2D" uid="uid://u27xega1h531" path="res://Assets/Background/bg_tournament_blur.png" id="2_gyj41"]
 [ext_resource type="Script" path="res://Scripts/tournament_bracket.gd" id="2_sfcib"]
+[ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="4_yxh1a"]
 
 [node name="Tournament" type="Node2D"]
 script = ExtResource("1_gf848")
@@ -23,8 +24,13 @@ script = ExtResource("2_sfcib")
 
 [node name="NextBattleButton" type="Button" parent="."]
 offset_left = 976.0
-offset_top = 50.0
+offset_top = 500.0
 offset_right = 1046.0
-offset_bottom = 70.0
+offset_bottom = 520.0
+
+[node name="UI" parent="." instance=ExtResource("4_yxh1a")]
+unique_name_in_owner = true
+offset_left = 1152.0
+offset_right = 1152.0
 
 [connection signal="pressed" from="NextBattleButton" to="." method="_on_next_battle_button_pressed"]

@@ -4,8 +4,10 @@ var MAX_PLAYERS = GameData.MAX_PLAYERS
 var computer_opponents = []
 var upcoming_matches = []
 
+@onready var ui = %UI;
 @onready var bracket_view = $TournamentBracket
 @onready var schedule_label = $TournamentScheduleLabel
+
 
 func _ready():
 	# Check if the draft has already been completed

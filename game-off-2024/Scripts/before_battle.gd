@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var ui = %UI;
+
 var player_number = 0
 
 
@@ -8,8 +10,13 @@ func _ready():
 
 
 func setup_game():
+	setup_ui()
 	BattleData.game_active = false
 	$StartLabel.text = "Choice your Pokemon between 1 and %d." % GameData.MAX_NUMBER
+
+
+func setup_ui():
+	ui.update_player_info()
 
 
 func _on_start_button_pressed() -> void:
