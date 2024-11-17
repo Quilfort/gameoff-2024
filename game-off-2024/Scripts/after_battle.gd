@@ -1,12 +1,18 @@
 extends Node2D
 
+@onready var ui = %UI;
+
 #Bool for the computer games
 var continue_game = true
 
-
 func _ready():
+	setup_ui()
 	display_round_result()
 	update_other_match_in_round()
+
+
+func setup_ui():
+	ui.setup_ui(true)
 
 
 # Update Logic for next matches

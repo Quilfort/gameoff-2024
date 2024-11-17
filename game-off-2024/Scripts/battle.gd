@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var ui = %UI;
+
 # Game configuration
 var game_active = BattleData.game_active    
 
@@ -32,6 +34,15 @@ var is_guess_too_high = false
 
 func _ready():
 	setup_game()
+	setup_ui()
+
+
+func reset_game():
+	setup_game()
+	setup_ui()
+
+func setup_ui():
+	ui.setup_ui(true)	
 
 
 func _process(delta):
@@ -44,8 +55,7 @@ func _process(delta):
 			$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % GameData.MAX_NUMBER
 
 
-func reset_game():
-	setup_game()
+
 
 
 func setup_game():

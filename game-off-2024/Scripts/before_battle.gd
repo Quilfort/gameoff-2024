@@ -16,7 +16,7 @@ func setup_game():
 
 
 func setup_ui():
-	ui.update_player_info()
+	ui.setup_ui(true)
 
 
 func _on_start_button_pressed() -> void:
