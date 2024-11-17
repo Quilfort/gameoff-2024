@@ -23,7 +23,9 @@ func setup_ui():
 			battle_field.visible = false
 			update_tournament_ui()
 		"battle":
+			player_info_box.visible = true
 			battle_field.visible = true
+			update_player_info()
 		_:
 			player_info_box.visible = true
 			battle_field.visible = false

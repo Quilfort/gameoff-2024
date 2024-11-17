@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://d360y0a5qn3dt"]
+[gd_scene load_steps=8 format=3 uid="uid://d360y0a5qn3dt"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_du2co"]
+[ext_resource type="Texture2D" uid="uid://dmnl36c55plcn" path="res://UI/GUI.png" id="2_2yvvi"]
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="2_628rw"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="3_iu310"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ij4a2"]
+texture = ExtResource("2_2yvvi")
+region_rect = Rect2(48, 96, 32, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hitqs"]
 bg_color = Color(0.427171, 0.633141, 0.732023, 1)
@@ -43,14 +48,10 @@ offset_bottom = 648.0
 
 [node name="Panel" type="Panel" parent="BattleUI"]
 layout_mode = 0
-offset_left = 50.0
-offset_right = 250.0
-offset_bottom = 450.0
-
-[node name="TextureRect" type="TextureRect" parent="BattleUI/Panel"]
-layout_mode = 1
-offset_right = 200.0
-offset_bottom = 450.0
+offset_left = 25.0
+offset_right = 325.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ij4a2")
 
 [node name="PlayerInfo" type="Node" parent="."]
 
