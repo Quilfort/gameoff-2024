@@ -25,7 +25,7 @@ func calculate_tournament_dimensions():
 	total_rounds = floor(log(GameData.MAX_PLAYERS) / log(2))
 	bracket_width = (total_rounds) * (MATCH_BOX_WIDTH + HORIZONTAL_SPACING)
 	# Calculate height based on number of first round matches
-	bracket_height = (GameData.MAX_PLAYERS / 2) * VERTICAL_BASE_SPACING
+	bracket_height = (GameData.MAX_PLAYERS / 2.0) * VERTICAL_BASE_SPACING
 
 func create_bracket_visualization():
 	# Position bracket in top-right corner with padding
@@ -69,7 +69,7 @@ func create_round(round_index: int):
 		# Only draw connection lines for completed matches that lead to existing next-round matches
 		if round_index < GameData.tournament_matches.size() - 1:
 			var next_round_matches = GameData.tournament_matches[round_index + 1]
-			var next_match_index = floor(match_index / 2)
+			var next_match_index = floor(match_index / 2.0)
 			if next_match_index < next_round_matches.size():
 				draw_connection_lines(match_node, round_index, match_index)
 
@@ -116,8 +116,8 @@ func draw_connection_lines(match_node: Node2D, round_index: int, match_index: in
 	line.width = 2.0
 	
 	# Calculate start and end positions
-	var start_pos = match_node.position + Vector2(MATCH_BOX_WIDTH, MATCH_BOX_HEIGHT/2)
-	var next_match_index = floor(match_index / 2)
+	var start_pos = match_node.position + Vector2(MATCH_BOX_WIDTH, MATCH_BOX_HEIGHT/2.0)
+	var next_match_index = floor(match_index / 2.0)
 	var next_round_spacing = VERTICAL_BASE_SPACING * pow(2, round_index + 1)
 	var next_matches_in_round = GameData.tournament_matches[round_index + 1].size()
 	var next_total_height = (next_matches_in_round - 1) * next_round_spacing
@@ -126,7 +126,7 @@ func draw_connection_lines(match_node: Node2D, round_index: int, match_index: in
 	
 	var end_pos = Vector2(
 		start_pos.x + HORIZONTAL_SPACING,
-		next_y + MATCH_BOX_HEIGHT/2
+		next_y + MATCH_BOX_HEIGHT/2.0
 	)
 	
 	# Draw bezier curve
