@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d360y0a5qn3dt"]
+[gd_scene load_steps=5 format=3 uid="uid://d360y0a5qn3dt"]
 
 [ext_resource type="Texture2D" uid="uid://bytu64gfia17j" path="res://Assets/Characters/Penny/A_18_Avatar.png" id="1_o4rpa"]
+[ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="2_0sti5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hitqs"]
 bg_color = Color(0.427171, 0.633141, 0.732023, 1)
@@ -32,11 +33,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayerInfoBox" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 24.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
 offset_top = 24.0
-offset_right = 274.0
+offset_right = -24.0
 offset_bottom = 124.0
+grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hitqs")
 
 [node name="Avatar Frame" type="Panel" parent="PlayerInfoBox"]
@@ -66,3 +71,51 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_o4rpa")
 expand_mode = 1
+
+[node name="Nickname" type="Label" parent="PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 115.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0sti5")
+text = "Penny"
+
+[node name="NumberText" type="Label" parent="PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -10.0
+offset_right = 115.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_0sti5")
+text = "Number"
+
+[node name="ViewInfo" type="Button" parent="PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -42.0
+offset_right = -11.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_0sti5")
+text = "Info"
