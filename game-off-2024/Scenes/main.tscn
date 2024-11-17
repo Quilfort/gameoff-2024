@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://d360y0a5qn3dt"]
+
+[ext_resource type="Texture2D" uid="uid://bytu64gfia17j" path="res://Assets/Characters/Penny/A_18_Avatar.png" id="1_o4rpa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hitqs"]
+bg_color = Color(0.427171, 0.633141, 0.732023, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.612567, 0.861211, 0.788726, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 4
+shadow_offset = Vector2(0, 4.29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oqi0"]
+bg_color = Color(0.991164, 0.991164, 0.991164, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerInfoBox" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 274.0
+offset_bottom = 124.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hitqs")
+
+[node name="Avatar Frame" type="Panel" parent="PlayerInfoBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -40.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5oqi0")
+
+[node name="Avatar" type="TextureRect" parent="PlayerInfoBox/Avatar Frame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_o4rpa")
+expand_mode = 1

@@ -22,9 +22,9 @@ position = Vector2(50, 50)
 script = ExtResource("2_sfcib")
 
 [node name="NextBattleButton" type="Button" parent="."]
-offset_left = 960.0
-offset_top = 570.0
-offset_right = 1030.0
-offset_bottom = 590.0
+offset_left = 976.0
+offset_top = 50.0
+offset_right = 1046.0
+offset_bottom = 70.0
 
 [connection signal="pressed" from="NextBattleButton" to="." method="_on_next_battle_button_pressed"]
