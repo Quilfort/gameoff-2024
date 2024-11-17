@@ -1,10 +1,13 @@
 extends Control
 class_name UI
 
+# Player Info Box
 @onready var player_info_box = $PlayerInfo/PlayerInfoBox
 @onready var nickname_label = $PlayerInfo/PlayerInfoBox/Nickname
 @onready var number_label = $PlayerInfo/PlayerInfoBox/NumberText
 @onready var avatar_image = $"PlayerInfo/PlayerInfoBox/Avatar Frame/Avatar"
+#Tournament UI
+#Battle UI
 @onready var battle_field = $BattleUI
 
 var number = 0
@@ -37,6 +40,7 @@ func get_scene_name() -> String:
 		print("No current scene found!")
 		return ""
 
+
 func update_player_info():
 	nickname_label.text = BattleData.computer.name
 	
@@ -51,3 +55,6 @@ func update_player_info():
 func update_tournament_ui():
 	print("Tournament UI")
 	#Update Top Bar with options of players? 
+
+func update_battle_ui():
+	print("Live")
