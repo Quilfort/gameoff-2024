@@ -16,7 +16,7 @@ func setup_game():
 
 
 func setup_ui():
-	ui.setup_ui(true)
+	ui.setup_ui()
 
 
 func _on_start_button_pressed() -> void:

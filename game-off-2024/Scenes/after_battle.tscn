@@ -12,6 +12,9 @@ script = ExtResource("1_27w7t")
 position = Vector2(530, 330)
 texture = ExtResource("2_072no")
 
+[node name="UI" parent="." instance=ExtResource("3_ohkj5")]
+unique_name_in_owner = true
+
 [node name="BattleResultLabel" type="Label" parent="."]
 offset_left = 576.0
 offset_top = 100.0
@@ -25,10 +28,5 @@ offset_right = 626.0
 offset_bottom = 220.0
 theme = ExtResource("3_wb1wx")
 text = "Continue"
-
-[node name="UI" parent="." instance=ExtResource("3_ohkj5")]
-unique_name_in_owner = true
-offset_left = 1152.0
-offset_right = 1152.0
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

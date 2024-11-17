@@ -12,7 +12,7 @@ func _ready():
 
 
 func setup_ui():
-	ui.setup_ui(true)
+	ui.setup_ui()
 
 
 # Update Logic for next matches

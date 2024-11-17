@@ -18,10 +18,10 @@ func _ready():
 		print("Draft already completed. Skipping draft.")
 		display_schedule()
 	
-	ui.setup_ui(false);
+	setup_ui();
 
 func setup_ui():
-	ui.setup_ui(false)
+	ui.setup_ui()
 
 ## DRAFT
 # Function to handle the entire draft process

@@ -1,23 +1,41 @@
 extends Control
 class_name UI
 
-@onready var player_info_box = $PlayerInfoBox
-@onready var nickname_label = $PlayerInfoBox/Nickname
-@onready var number_label = $PlayerInfoBox/NumberText
-@onready var avatar_image = $"PlayerInfoBox/Avatar Frame/Avatar"
+@onready var player_info_box = $PlayerInfo/PlayerInfoBox
+@onready var nickname_label = $PlayerInfo/PlayerInfoBox/Nickname
+@onready var number_label = $PlayerInfo/PlayerInfoBox/NumberText
+@onready var avatar_image = $"PlayerInfo/PlayerInfoBox/Avatar Frame/Avatar"
+@onready var battle_field = $BattleUI
 
 var number = 0
 var nickname =  "Temp"
 
 
-func setup_ui(show_player_info):
-	if show_player_info:
-		$PlayerInfoBox.visible = show_player_info
-		update_player_info()
-	else:
-		$PlayerInfoBox.visible = show_player_info
-		update_tournament_ui()
+func setup_ui():
+	var scene = get_scene_name()
+	
+	match scene:
+		"tournament":
+			player_info_box.visible = false
+			battle_field.visible = false
+			update_tournament_ui()
+		"battle":
+			battle_field.visible = true
+		_:
+			player_info_box.visible = true
+			battle_field.visible = false
+			update_player_info()
 
+func get_scene_name() -> String:
+	var current_scene = get_tree().get_current_scene()
+	if current_scene:
+		var scene_path = current_scene.get_scene_file_path()
+		var scene_name = scene_path.get_file().get_basename()
+		print("Current scene name:", scene_name)
+		return scene_name
+	else:
+		print("No current scene found!")
+		return ""
 
 func update_player_info():
 	nickname_label.text = BattleData.computer.name

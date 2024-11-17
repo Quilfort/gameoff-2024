@@ -42,7 +42,7 @@ func reset_game():
 	setup_ui()
 
 func setup_ui():
-	ui.setup_ui(true)	
+	ui.setup_ui()	
 
 
 func _process(delta):
