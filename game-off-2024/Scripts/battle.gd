@@ -55,9 +55,6 @@ func _process(delta):
 			$InstructionLabel.text = "Your turn! Make a guess (1-%d):" % GameData.MAX_NUMBER
 
 
-
-
-
 func setup_game():
 	computer_number = randi() % GameData.MAX_NUMBER + 1
 	player_attempts = 0

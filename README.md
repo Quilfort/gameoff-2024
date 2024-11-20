@@ -29,8 +29,13 @@ Instructions on how to download and run the game will be added soon.
 
 ## Assets
 
+### Assets
+
 Template assest from [here](https://cogabushi.itch.io/free-20-fantasy-characters-pack)
-GUI https://mounirtohami.itch.io/pixel-art-gui-elements
+
+### GUI
+
+https://mounirtohami.itch.io/pixel-art-gui-elements
 
 ## License
 
