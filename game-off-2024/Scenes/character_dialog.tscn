@@ -29,6 +29,7 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Character" type="Sprite2D" parent="CanvasLayer/BottomLeft"]
+unique_name_in_owner = true
 position = Vector2(-200, -230)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_fosp2")
@@ -44,6 +45,7 @@ grow_vertical = 0
 theme = ExtResource("3_f21dm")
 
 [node name="DialogText" type="RichTextLabel" parent="CanvasLayer/DialogBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_rogng")
 bbcode_enabled = true
@@ -61,11 +63,12 @@ offset_bottom = -150.0
 grow_vertical = 0
 theme = ExtResource("3_f21dm")
 
-[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/SpeakerBox"]
+[node name="SpeakerBoxShape" type="Polygon2D" parent="CanvasLayer/SpeakerBox"]
 color = Color(0.137255, 0.372549, 1, 0.588235)
 polygon = PackedVector2Array(0, 0, 180, 0, 200, 50, 0, 50)
 
 [node name="SpeakerLabel" type="Label" parent="CanvasLayer/SpeakerBox"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

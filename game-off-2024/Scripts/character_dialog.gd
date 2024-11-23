@@ -1,3 +1,9 @@
 extends Node2D
 
-#https://www.youtube.com/watch?v=ZXgeI25GBRU&ab_channel=AniceMenhour
+func setup_character_dialog():
+	init_text()
+
+
+func init_text():
+	%SpeakerLabel.text = BattleData.computer.name
+	%DialogText.text = BattleData.computer.computer_strategy
