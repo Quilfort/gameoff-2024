@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xhmfb0131pue"]
 
 [ext_resource type="Script" path="res://Scripts/character_dialog.gd" id="1_ljt1r"]
-[ext_resource type="Texture2D" path="res://Assets/Characters/Even/A_2.png" id="2_fosp2"]
+[ext_resource type="Texture2D" uid="uid://drik2ac5avkii" path="res://Assets/Characters/Comp3/Comp3.png" id="2_grssj"]
 [ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_f21dm"]
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="4_l0ein"]
 
@@ -32,7 +32,7 @@ grow_vertical = 0
 unique_name_in_owner = true
 position = Vector2(-200, -230)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_fosp2")
+texture = ExtResource("2_grssj")
 
 [node name="DialogBox" type="PanelContainer" parent="CanvasLayer"]
 custom_minimum_size = Vector2(0, 150)

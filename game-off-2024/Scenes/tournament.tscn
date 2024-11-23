@@ -1,17 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://5v8ykpbewox1"]
+[gd_scene load_steps=5 format=3 uid="uid://5v8ykpbewox1"]
 
 [ext_resource type="Script" path="res://Scripts/tournament_schema.gd" id="1_gf848"]
-[ext_resource type="Texture2D" uid="uid://u27xega1h531" path="res://Assets/Background/bg_tournament_blur.png" id="2_gyj41"]
 [ext_resource type="Script" path="res://Scripts/tournament_bracket.gd" id="2_sfcib"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="4_6vfnb"]
 [ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="4_yxh1a"]
 
 [node name="Tournament" type="Node2D"]
 script = ExtResource("1_gf848")
-
-[node name="BGTournament" type="Sprite2D" parent="."]
-position = Vector2(530, 330)
-texture = ExtResource("2_gyj41")
 
 [node name="UI" parent="." instance=ExtResource("4_yxh1a")]
 unique_name_in_owner = true

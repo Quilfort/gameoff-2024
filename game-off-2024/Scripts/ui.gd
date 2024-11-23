@@ -24,23 +24,58 @@ func setup_ui():
 	
 	match scene:
 		"tournament":
-			player_info_box.visible = false
-			battle_field.visible = false
 			update_tournament_ui()
 		"before_battle":
-			set_background("res://Assets/Background/bg_tournament_blur.png")
-			player_info_box.visible = true
-			battle_field.visible = false
-			update_player_info()
+			update_before_battle_ui()
 		"battle":
-			player_info_box.visible = true
-			battle_field.visible = true
-			update_player_info()
+			update_battle_ui()
+		"after_battle":
+			update_after_battle_ui()
 		_:
 			player_info_box.visible = true
 			battle_field.visible = false
 			update_player_info()
 
+
+func update_player_info():
+	#Set Name
+	nickname_label.text = BattleData.computer.name
+	
+	# Set Avatar
+	var texture = load(BattleData.computer.avatar_path)
+	
+	if texture:
+		avatar_image.texture = texture
+	else:
+		print("Failed to load texture from path:", BattleData.computer.avatar_path)
+
+
+func update_tournament_ui():
+	set_background("res://Assets/Background/bg_tournament_blur.png")
+	player_info_box.visible = false
+	battle_field.visible = false
+
+
+func update_before_battle_ui():
+	set_background("res://Assets/Background/bg_tournament_blur.png")
+	player_info_box.visible = true
+	battle_field.visible = false
+	update_player_info()
+
+
+func update_battle_ui():
+	set_background("res://Assets/Background/bg_battle_blur.png")
+	player_info_box.visible = true
+	battle_field.visible = true
+	update_player_info()
+	print("Live")
+
+
+func update_after_battle_ui():
+	set_background("res://Assets/Background/bg_tournament_blur.png")
+	player_info_box.visible = true
+	battle_field.visible = false
+	update_player_info()
 
 func get_scene_name() -> String:
 	var current_scene = get_tree().get_current_scene()
@@ -62,22 +97,3 @@ func set_background(background_path):
 		background_image.texture = texture
 	else:
 		print("Failed to load texture from path:", background_path)
-
-
-func update_player_info():
-	nickname_label.text = BattleData.computer.name
-	
-	var texture = load(BattleData.computer.avatar_path)
-	
-	if texture:
-		avatar_image.texture = texture
-	else:
-		print("Failed to load texture from path:", BattleData.computer.avatar_path)
-
-
-func update_tournament_ui():
-	print("Tournament UI")
-	#Update Top Bar with options of players? 
-
-func update_battle_ui():
-	print("Live")
