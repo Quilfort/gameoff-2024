@@ -141,11 +141,10 @@ var comp_tutorial = {
 }
 
 
-# Function to dynamically return all computer data as a list
 func get_all_computers():
 	var computers = []
 	for property in get_property_list():
 		var computer = get(property.name)
-		if typeof(computer) == TYPE_DICTIONARY:
-				computers.append(computer)
+		if typeof(computer) == TYPE_DICTIONARY and computer.id != 20:
+			computers.append(computer)
 	return computers
