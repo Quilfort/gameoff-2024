@@ -1,11 +1,16 @@
 extends Control
 class_name UI
 
+
+# Background
+@onready var background_image = $CanvasLayer/Background
+
 # Player Info Box
 @onready var player_info_box = $PlayerInfo/PlayerInfoBox
 @onready var nickname_label = $PlayerInfo/PlayerInfoBox/Nickname
 @onready var number_label = $PlayerInfo/PlayerInfoBox/NumberText
 @onready var avatar_image = $"PlayerInfo/PlayerInfoBox/Avatar Frame/Avatar"
+
 #Tournament UI
 #Battle UI
 @onready var battle_field = $BattleUI
@@ -22,6 +27,11 @@ func setup_ui():
 			player_info_box.visible = false
 			battle_field.visible = false
 			update_tournament_ui()
+		"before_battle":
+			set_background("res://Assets/Background/bg_tournament_blur.png")
+			player_info_box.visible = true
+			battle_field.visible = false
+			update_player_info()
 		"battle":
 			player_info_box.visible = true
 			battle_field.visible = true
@@ -30,6 +40,7 @@ func setup_ui():
 			player_info_box.visible = true
 			battle_field.visible = false
 			update_player_info()
+
 
 func get_scene_name() -> String:
 	var current_scene = get_tree().get_current_scene()
@@ -41,6 +52,16 @@ func get_scene_name() -> String:
 	else:
 		print("No current scene found!")
 		return ""
+
+
+func set_background(background_path):
+	# Update All Background later with new paths
+	var texture = load(background_path)
+	
+	if texture:
+		background_image.texture = texture
+	else:
+		print("Failed to load texture from path:", background_path)
 
 
 func update_player_info():

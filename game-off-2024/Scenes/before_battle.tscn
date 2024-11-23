@@ -1,17 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://byxxtiah36xw1"]
 
 [ext_resource type="Script" path="res://Scripts/before_battle.gd" id="1_oxnch"]
-[ext_resource type="Texture2D" uid="uid://u27xega1h531" path="res://Assets/Background/bg_tournament_blur.png" id="2_orwjv"]
 [ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="3_uss4f"]
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="3_y5ce3"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="4_8cw4k"]
+[ext_resource type="PackedScene" uid="uid://xhmfb0131pue" path="res://Scenes/character_dialog.tscn" id="6_vnly6"]
 
 [node name="BeforeBattle" type="Node2D"]
 script = ExtResource("1_oxnch")
-
-[node name="BGBeforeBattle" type="Sprite2D" parent="."]
-position = Vector2(530, 330)
-texture = ExtResource("2_orwjv")
 
 [node name="UI" parent="." instance=ExtResource("3_uss4f")]
 unique_name_in_owner = true
@@ -36,5 +32,7 @@ offset_right = 270.0
 offset_bottom = 330.0
 theme = ExtResource("4_8cw4k")
 text = "Start"
+
+[node name="CharacterDialog" parent="." instance=ExtResource("6_vnly6")]
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
