@@ -1,7 +1,6 @@
 extends Control
 class_name UI
 
-
 # Background
 @onready var background_image = $CanvasLayer/Background
 
@@ -68,7 +67,6 @@ func update_battle_ui():
 	player_info_box.visible = true
 	battle_field.visible = true
 	update_player_info()
-	print("Live")
 
 
 func update_after_battle_ui():
@@ -90,7 +88,6 @@ func get_scene_name() -> String:
 
 
 func set_background(background_path):
-	# Update All Background later with new paths
 	var texture = load(background_path)
 	
 	if texture:
