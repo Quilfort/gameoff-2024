@@ -1,12 +1,98 @@
-[gd_scene load_steps=3 format=3 uid="uid://xhmfb0131pue"]
+[gd_scene load_steps=7 format=3 uid="uid://xhmfb0131pue"]
 
 [ext_resource type="Script" path="res://Scripts/character_dialog.gd" id="1_ljt1r"]
 [ext_resource type="Texture2D" uid="uid://jvbwe6723kdf" path="res://Assets/Characters/Even/A_2.png" id="2_fosp2"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_f21dm"]
+[ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="4_l0ein"]
+
+[sub_resource type="Theme" id="Theme_rogng"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwlpy"]
+font = ExtResource("4_l0ein")
+font_size = 25
 
 [node name="CharacterDialog" type="Node2D"]
 script = ExtResource("1_ljt1r")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(922, 371)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BottomLeft" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Character" type="Sprite2D" parent="CanvasLayer/BottomLeft"]
+position = Vector2(-200, -230)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_fosp2")
+
+[node name="DialogBox" type="PanelContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(0, 150)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_f21dm")
+
+[node name="DialogText" type="RichTextLabel" parent="CanvasLayer/DialogBox"]
+layout_mode = 2
+theme = SubResource("Theme_rogng")
+bbcode_enabled = true
+text = "This is a line of [wave]dialog[/wave]"
+
+[node name="SpeakerBox" type="Control" parent="CanvasLayer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = -150.0
+grow_vertical = 0
+theme = ExtResource("3_f21dm")
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer/SpeakerBox"]
+color = Color(0.137255, 0.372549, 1, 0.588235)
+polygon = PackedVector2Array(0, 0, 180, 0, 200, 50, 0, 50)
+
+[node name="SpeakerLabel" type="Label" parent="CanvasLayer/SpeakerBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -11.5
+offset_right = 22.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name"
+label_settings = SubResource("LabelSettings_bwlpy")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Cursor" type="Polygon2D" parent="CanvasLayer/Control"]
+position = Vector2(-15, -10)
+polygon = PackedVector2Array(0, 0, 30, 15, 0, 30)
