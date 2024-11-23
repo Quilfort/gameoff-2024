@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccdusvqy4sfhs"
-path="res://.godot/imported/A_18.png-cddc5cb1bb7e4ab09fcede70064a19b7.ctex"
+uid="uid://b5xdb6p06kx5s"
+path="res://.godot/imported/Comp5_Shadow.png-9eb31432e43d896bb90d3fa201b4cea1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Penny/A_18.png"
-dest_files=["res://.godot/imported/A_18.png-cddc5cb1bb7e4ab09fcede70064a19b7.ctex"]
+source_file="res://Assets/Characters/Comp5/Comp5_Shadow.png"
+dest_files=["res://.godot/imported/Comp5_Shadow.png-9eb31432e43d896bb90d3fa201b4cea1.ctex"]
 
 [params]
 

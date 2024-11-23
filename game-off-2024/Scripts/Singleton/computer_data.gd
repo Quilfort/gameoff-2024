@@ -1,66 +1,143 @@
 extends Node
 
-var normal = {
+var comp1 = {
 	"id": 1,
 	"name": "Normal",
 	"computer_strategy": "normal",
-	"avatar_path": "res://Assets/Characters/Penny/A_18_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var uneven = {
+var comp2 = {
 	"id": 2,
 	"name": "Uneven",
 	"computer_strategy": "uneven",
-	"avatar_path": "res://Assets/Characters/Half_Guess/A_16_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var even = {
+var comp3 = {
 	"id": 3,
 	"name": "Even",
 	"computer_strategy": "even",
-	"avatar_path": "res://Assets/Characters/Even/A_2_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var half_guess = {
+var comp4 = {
 	"id": 4,
 	"name": "Half_Guess",
 	"computer_strategy": "half_guess",
-	"avatar_path": "res://Assets/Characters/Half_Guess/A_16_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var penny = {
+var comp5 = {
 	"id": 5,
 	"name": "Penny P",
 	"computer_strategy": "default",
 	"avatar_path": "res://Assets/Characters/Penny/A_18_Avatar.png"
 }
 
-var david = {
+var comp6 = {
 	"id": 6,
 	"name": "David D",
 	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Even/A_2_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var jeffrey = {
+var comp7 = {
 	"id": 7,
 	"name": "Jeffrey J",
 	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Penny/A_18_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var justin = {
+var comp8 = {
 	"id": 8,
 	"name": "Justin J",
 	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Even/A_2_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
-var peter = {
+var comp9 = {
 	"id": 9,
 	"name": "Peter P",
 	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Half_Guess/A_16_Avatar.png"
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp10 = {
+	"id": 10,
+	"name": "Peter P",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp11 = {
+	"id": 11,
+	"name": "Peter P",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp12 = {
+	"id": 12,
+	"name": "Peter P",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp13 = {
+	"id": 13,
+	"name": "Peter P",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp14 = {
+	"id": 14,
+	"name": "Peter P",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp15 = {
+	"id": 15,
+	"name": "Peter P",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp16 = {
+	"id": 16,
+	"name": "P16",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp17 = {
+	"id": 17,
+	"name": "P17",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp18 = {
+	"id": 18,
+	"name": "Comp18",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp19 = {
+	"id": 19,
+	"name": "Comp19",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
+}
+
+var comp_tutorial = {
+	"id": 20,
+	"name": "Tutorial",
+	"computer_strategy": "default",
+	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
 
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beq3gpvv4en7q"
-path="res://.godot/imported/A_16_Shadow.png-4df2d89dfcb1be3729f991978e607649.ctex"
+uid="uid://5lsjmobcdeck"
+path="res://.godot/imported/Comp4_Avatar.png-5b3b6c4014811135b8841f50166fc685.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Half_Guess/A_16_Shadow.png"
-dest_files=["res://.godot/imported/A_16_Shadow.png-4df2d89dfcb1be3729f991978e607649.ctex"]
+source_file="res://Assets/Characters/Comp4/Comp4_Avatar.png"
+dest_files=["res://.godot/imported/Comp4_Avatar.png-5b3b6c4014811135b8841f50166fc685.ctex"]
 
 [params]
 
