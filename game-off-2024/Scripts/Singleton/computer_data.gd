@@ -65,7 +65,7 @@ var comp9 = {
 
 var comp10 = {
 	"id": 10,
-	"name": "Peter P",
+	"name": "Jace StreetWise",
 	"computer_strategy": "default",
 	"avatar_path": "res://Assets/Characters/Comp4/Comp4_Avatar.png"
 }
