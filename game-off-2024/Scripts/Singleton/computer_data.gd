@@ -30,7 +30,7 @@ var comp4 = {
 
 var comp5 = {
 	"id": 5,
-	"name": "Penny P",
+	"name": "Penny Blackwater",
 	"computer_strategy": "default",
 	"avatar_path": "res://Assets/Characters/Penny/A_18_Avatar.png"
 }
