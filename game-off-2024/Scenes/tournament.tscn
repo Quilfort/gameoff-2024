@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://5v8ykpbewox1"]
+[gd_scene load_steps=6 format=3 uid="uid://5v8ykpbewox1"]
 
 [ext_resource type="Script" path="res://Scripts/tournament_schema.gd" id="1_gf848"]
 [ext_resource type="Script" path="res://Scripts/tournament_bracket.gd" id="2_sfcib"]
+[ext_resource type="PackedScene" uid="uid://xhmfb0131pue" path="res://Scenes/character_dialog.tscn" id="3_oh7jm"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="4_6vfnb"]
 [ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="4_yxh1a"]
 
@@ -9,6 +10,9 @@
 script = ExtResource("1_gf848")
 
 [node name="UI" parent="." instance=ExtResource("4_yxh1a")]
+unique_name_in_owner = true
+
+[node name="CharacterDialog" parent="." instance=ExtResource("3_oh7jm")]
 unique_name_in_owner = true
 
 [node name="TournamentScheduleLabel" type="Label" parent="."]
@@ -22,6 +26,7 @@ position = Vector2(50, 50)
 script = ExtResource("2_sfcib")
 
 [node name="NextBattleButton" type="Button" parent="."]
+unique_name_in_owner = true
 offset_left = 976.0
 offset_top = 500.0
 offset_right = 1046.0

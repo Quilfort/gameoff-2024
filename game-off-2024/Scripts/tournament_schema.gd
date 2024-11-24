@@ -17,6 +17,7 @@ func _ready():
 
 func setup_ui():
 	%UI.setup_ui()
+	%CharacterDialog.setup_character_dialog()
 
 ## DRAFT
 # Function to handle the entire draft process
@@ -49,6 +50,9 @@ func draft_opponents():
 
 func display_schedule():
 	# Update the text label
+	if GameData.tournament_champion:
+		display_champion()
+	else:
 		if $TournamentBracket:
 			$TournamentBracket.update_bracket()
 		else:
@@ -68,6 +72,9 @@ func display_schedule():
 			
 			$TournamentScheduleLabel.text = schedule_text
 
+
+func display_champion():
+	%NextBattleButton.visible = false
 
 func _on_next_battle_button_pressed() -> void:
 	# Simulate each match
