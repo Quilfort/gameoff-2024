@@ -52,7 +52,7 @@ func update_tournament_ui():
 
 
 func update_before_battle_ui():
-	set_background("res://Assets/Background/bg_tournament_blur.png")
+	#set_background("res://Assets/Background/bg_tournament_blur.png")
 	player_info_box.visible = true
 	update_player_info()
 

@@ -12,7 +12,18 @@ func _ready():
 func setup_general_ui():
 	%CharacterDialog.setup_character_dialog()
 	%UI.setup_ui()
+	%UI.set_background("res://Assets/Background/bg_tournament.png")
+	%Results.visible = false;
 
+
+# Add visibility check to input handling
+func _input(event):
+	var dialog_visible = %CharacterDialog.get_node("%CanvasLayer").visible
+	
+	if !dialog_visible:
+		# Show UI elements once dialog is hidden
+		%UI.set_background("res://Assets/Background/bg_tournament_blur.png")
+		%Results.visible = true;
 
 # Update Logic for next matches
 func update_other_match_in_round():
@@ -75,7 +86,7 @@ func player_eliminated():
 
 
 func display_round_result():
-	$BattleResultLabel.text = BattleData.battle_history.winner.name + " wins!"
+	%BattleResultLabel.text = BattleData.battle_history.winner.name + " wins!"
 
 
 func _on_continue_button_pressed() -> void:

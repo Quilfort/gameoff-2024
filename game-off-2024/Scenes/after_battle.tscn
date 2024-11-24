@@ -14,18 +14,26 @@ unique_name_in_owner = true
 [node name="CharacterDialog" parent="." instance=ExtResource("3_tpkio")]
 unique_name_in_owner = true
 
-[node name="BattleResultLabel" type="Label" parent="."]
-offset_left = 576.0
+[node name="Results" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 476.0
 offset_top = 100.0
-offset_right = 646.0
-offset_bottom = 130.0
+offset_right = 676.0
+offset_bottom = 300.0
 
-[node name="ContinueButton" type="Button" parent="."]
-offset_left = 576.0
-offset_top = 200.0
-offset_right = 626.0
-offset_bottom = 220.0
+[node name="BattleResultLabel" type="Label" parent="Results"]
+unique_name_in_owner = true
+offset_right = 70.0
+offset_bottom = 30.0
+
+[node name="ContinueButton" type="Button" parent="Results"]
+unique_name_in_owner = true
+offset_top = 100.0
+offset_right = 73.0
+offset_bottom = 128.0
 theme = ExtResource("3_wb1wx")
 text = "Continue"
 
-[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Results/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -7,8 +7,16 @@ func _ready():
 	setup_game()
 
 
-func setup_game():
+# Add visibility check to input handling
+func _input(event):
+	var dialog_visible = %CharacterDialog.get_node("%CanvasLayer").visible
 	
+	if !dialog_visible:
+		# Show UI elements once dialog is hidden
+		%UI.set_background("res://Assets/Background/bg_tournament_blur.png")
+		%PlayerChoice.visible = true
+
+func setup_game():	
 	setup_general_ui()
 	BattleData.game_active = false
 	%StartLabel.text = "Choose thy number wisely, between 1 and %d. \nThy claim to the throne rests upon this fateful choice!" % GameData.MAX_NUMBER
@@ -17,6 +25,8 @@ func setup_game():
 func setup_general_ui():
 	%CharacterDialog.setup_character_dialog()
 	%UI.setup_ui()
+	%UI.set_background("res://Assets/Background/bg_tournament.png")
+	%PlayerChoice.visible = false
 
 
 func _on_start_button_pressed() -> void:
