@@ -1,5 +1,25 @@
 extends Node2D
 
+var is_dialog_visible = true
+
+func _ready():
+	# Make sure the dialog is visible initially
+	set_dialog_visible(true)
+	# Enable input processing
+	set_process_input(true)
+
+func _input(event):
+	# Check for mouse click or touch input
+	if event is InputEventMouseButton or event is InputEventScreenTouch:
+		if event.pressed:
+			# Hide the entire CanvasLayer when screen is clicked
+			set_dialog_visible(false)
+
+func set_dialog_visible(visible: bool):
+	is_dialog_visible = visible
+	# Hide/show the entire CanvasLayer
+	%CanvasLayer.visible = visible
+
 func setup_character_dialog():
 	var scene = get_scene_name()
 	
@@ -18,16 +38,13 @@ func setup_character_dialog():
 		_:
 			init_text()
 
-
 func update_before_battle_dialog():
 	%SpeakerLabel.text = get_first_name()
 	%DialogText.text = BattleData.computer.before_battle_text
 
-
 func update_battle_dialog():
 	%SpeakerLabel.text = get_first_name()
 	%DialogText.text = BattleData.computer.battle_text
-
 
 func update_after_battle_dialog():
 	%SpeakerLabel.text = get_first_name()
@@ -37,7 +54,6 @@ func update_after_battle_dialog():
 	else:
 		%DialogText.text = BattleData.computer.victory_text
 
-
 func init_character():
 	var texture = load(BattleData.computer.character_path)
 	
@@ -46,14 +62,11 @@ func init_character():
 	else:
 		print("Failed to load texture from path:", BattleData.computer.character_path)
 
-
 func init_text():
 	%SpeakerLabel.text = "Hello"
 	%DialogText.text = "Something went wrong"
 
-
 func get_first_name():
-	# Split name and return first name or full_name 
 	var full_name = BattleData.computer.name
 	var name_parts = full_name.split(" ")
 	
@@ -61,7 +74,6 @@ func get_first_name():
 		return name_parts[0]
 	else:
 		return full_name
-
 
 func get_scene_name() -> String:
 	var current_scene = get_tree().get_current_scene()
@@ -73,3 +85,7 @@ func get_scene_name() -> String:
 	else:
 		print("No current scene found!")
 		return ""
+
+# Optional: Function to show dialog again if needed
+func show_dialog():
+	set_dialog_visible(true)
