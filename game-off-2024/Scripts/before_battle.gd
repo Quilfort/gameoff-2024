@@ -1,8 +1,5 @@
 extends Node2D
 
-@onready var ui = %UI;
-@onready var character_dialog = %CharacterDialog;
-
 var player_number = 0
 
 
@@ -18,8 +15,8 @@ func setup_game():
 
 
 func setup_general_ui():
-	character_dialog.setup_character_dialog()
-	ui.setup_ui()
+	%CharacterDialog.setup_character_dialog()
+	%UI.setup_ui()
 
 
 func _on_start_button_pressed() -> void:

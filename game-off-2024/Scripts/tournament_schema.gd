@@ -4,11 +4,6 @@ var MAX_PLAYERS = GameData.MAX_PLAYERS
 var computer_opponents = []
 var upcoming_matches = []
 
-@onready var ui = %UI;
-@onready var bracket_view = $TournamentBracket
-@onready var schedule_label = $TournamentScheduleLabel
-
-
 func _ready():
 	# Check if the draft has already been completed
 	if !GameData.DRAFT_COMPLETED:
@@ -21,7 +16,7 @@ func _ready():
 	setup_ui();
 
 func setup_ui():
-	ui.setup_ui()
+	%UI.setup_ui()
 
 ## DRAFT
 # Function to handle the entire draft process
@@ -54,8 +49,8 @@ func draft_opponents():
 
 func display_schedule():
 	# Update the text label
-		if bracket_view:
-			bracket_view.update_bracket()
+		if $TournamentBracket:
+			$TournamentBracket.update_bracket()
 		else:
 			var schedule_text = "Tournament Schedule:\n\n"
 			if !GameData.tournament_champion:
@@ -71,7 +66,7 @@ func display_schedule():
 				schedule_text += "Champion: \n"
 				schedule_text += GameData.tournament_champion.name
 			
-			schedule_label.text = schedule_text
+			$TournamentScheduleLabel.text = schedule_text
 
 
 func _on_next_battle_button_pressed() -> void:

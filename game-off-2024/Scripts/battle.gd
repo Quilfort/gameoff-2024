@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var ui = %UI;
-
 # Game configuration
 var game_active = BattleData.game_active    
 
@@ -42,7 +40,7 @@ func reset_game():
 	setup_ui()
 
 func setup_ui():
-	ui.setup_ui()	
+	%UI.setup_ui()	
 
 
 func _process(delta):
