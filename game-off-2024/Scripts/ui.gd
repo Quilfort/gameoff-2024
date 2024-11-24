@@ -11,8 +11,6 @@ class_name UI
 @onready var avatar_image = $"PlayerInfo/PlayerInfoBox/Avatar Frame/Avatar"
 
 #Tournament UI
-#Battle UI
-@onready var battle_field = $BattleUI
 
 var number = 0
 var nickname =  "Temp"
@@ -32,7 +30,6 @@ func setup_ui():
 			update_after_battle_ui()
 		_:
 			player_info_box.visible = true
-			battle_field.visible = false
 			update_player_info()
 
 
@@ -52,27 +49,23 @@ func update_player_info():
 func update_tournament_ui():
 	set_background("res://Assets/Background/bg_tournament_blur.png")
 	player_info_box.visible = false
-	battle_field.visible = false
 
 
 func update_before_battle_ui():
 	set_background("res://Assets/Background/bg_tournament_blur.png")
 	player_info_box.visible = true
-	battle_field.visible = false
 	update_player_info()
 
 
 func update_battle_ui():
 	set_background("res://Assets/Background/bg_battle_blur.png")
 	player_info_box.visible = true
-	battle_field.visible = true
 	update_player_info()
 
 
 func update_after_battle_ui():
 	set_background("res://Assets/Background/bg_tournament_blur.png")
 	player_info_box.visible = true
-	battle_field.visible = false
 	update_player_info()
 
 func get_scene_name() -> String:

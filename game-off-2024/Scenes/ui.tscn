@@ -45,19 +45,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BattleUI" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_top = 135.0
-offset_right = 1152.0
-offset_bottom = 648.0
-
-[node name="Panel" type="Panel" parent="BattleUI"]
-layout_mode = 0
-offset_left = 25.0
-offset_right = 325.0
-offset_bottom = 500.0
-
 [node name="PlayerInfo" type="Node" parent="."]
 
 [node name="PlayerInfoBox" type="Panel" parent="PlayerInfo"]
