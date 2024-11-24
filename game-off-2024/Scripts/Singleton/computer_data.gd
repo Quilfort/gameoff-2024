@@ -242,63 +242,63 @@ var comp16 = {
 }
 
 var comp17 = {
-	"id": 17,
-	"name": "Eryndor Flamescar",
-	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Comp17/Comp17_Avatar.png",
-	"character_path": "res://Assets/Characters/Comp17/Comp17.png",
-	"before_battle_text": "The fury of the inferno awaits you. Shall we dance?",
-	"battle_text": "Feel the searing blaze of my wrath!",
-	"initiative_win_text": "",
-	"initiative_lose_text": "",
-	"victory_text": "Ashes to ashes, I stand victorious!",
-	"defeat_text": "Even flames can falter, but I will return brighter!",
-	"champion_text": "The inferno crowns me as its rightful champion!"
+   "id": 17,
+   "name": "TheGoat",
+   "computer_strategy": "default",
+   "avatar_path": "res://Assets/Characters/Comp17/Comp17_Avatar.png",
+   "character_path": "res://Assets/Characters/Comp17/Comp17.png",
+   "before_battle_text": "Baa! Baaa-haaahh!",
+   "battle_text": "Maaah! Maaahhh!!",
+   "initiative_win_text": "Baa! Baaaaaah!",
+   "initiative_lose_text": "Maaaaah! Maaaaahhh!",
+   "victory_text": "Baa-haa! Baaa-haaa!",
+   "defeat_text": "Maaahh... Maaaahhh!",
+   "champion_text": "Baaaahh! I AM THE GOAT!"
 }
 
 var comp18 = {
-	"id": 18,
-	"name": "Alyndra Windwhisper",
-	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Comp18/Comp18_Avatar.png",
-	"character_path": "res://Assets/Characters/Comp18/Comp18.png",
-	"before_battle_text": "The winds carry tidings of your doom. Let’s begin.",
-	"battle_text": "Feel the slicing gale of my fury!",
-	"initiative_win_text": "",
-	"initiative_lose_text": "",
-	"victory_text": "The winds have spoken, and they declare my triumph!",
-	"defeat_text": "The breeze has turned, but I’ll soar again.",
-	"champion_text": "The winds sing my name as the true champion!"
+   "id": 18,
+   "name": "Sir Bone",
+   "computer_strategy": "default",
+   "avatar_path": "res://Assets/Characters/Comp18/Comp18_Avatar.png",
+   "character_path": "res://Assets/Characters/Comp18/Comp18.png",
+   "before_battle_text": "Ah, my dear friend, I do hope you’ve prepared for what’s to come. Shall we begin?",
+   "battle_text": "Do brace yourself, old sport! The battle shall be most thrilling, I dare say!",
+   "initiative_win_text": "Oh, splendid! I do believe the odds are in my favour, don’t you think?",
+   "initiative_lose_text": "A bit of a setback, I must say. But no matter, we’ll carry on!",
+   "victory_text": "Ah, victory, my good fellow! Quite a delightful affair, wouldn’t you agree?",
+   "defeat_text": "Oh, well done indeed. Perhaps we can enjoy a nice cup of tea together after this little scuffle?",
+   "champion_text": "And so, it is I who shall wear the crown! A true champion of unparalleled grace!"
 }
 
 var comp19 = {
-	"id": 19,
-	"name": "Darius Stormclaw",
-	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/Comp19/Comp19_Avatar.png",
-	"character_path": "res://Assets/Characters/Comp19/Comp19.png",
-	"before_battle_text": "The storm gathers, and it hungers for victory. Let’s clash!",
-	"battle_text": "The storm is upon you—prepare to be swept away!",
-	"initiative_win_text": "",
-	"initiative_lose_text": "",
-	"victory_text": "Thunder roars in triumph! Another victory is mine.",
-	"defeat_text": "The storm falters, but it always returns stronger.",
-	"champion_text": "I am the tempest incarnate, the champion of all storms!"
+   "id": 19,
+   "name": "Grimshaw Rotfury",
+   "computer_strategy": "default",
+   "avatar_path": "res://Assets/Characters/Comp19/Comp19_Avatar.png",
+   "character_path": "res://Assets/Characters/Comp19/Comp19.png",
+   "before_battle_text": "You might think you can bury me, but I’ll rise... and storm your battlefield!",
+   "battle_text": "What’s the matter? Not feeling ‘dead’ enough yet? Here comes the storm!",
+   "initiative_win_text": "I might be dead, but I’m *dying* to win this!",
+   "initiative_lose_text": "I’m falling apart, but don’t worry, I’ll come back for you!",
+   "victory_text": "Another soul claimed! The storm rages on, and I remain unbroken!",
+   "defeat_text": "You might’ve beaten me, but I’ll crawl back for a rematch, sooner than you think.",
+   "champion_text": "The storm can rage all it wants, but I’m already dead... and unbeatable!"
 }
 
 var comp_tutorial = {
-	"id": 20,
-	"name": "Arin Sagewood",
-	"computer_strategy": "default",
-	"avatar_path": "res://Assets/Characters/CompTutorial/CompTutorial_Avatar.png",
-	"character_path": "res://Assets/Characters/CompTutorial/CompTutorial.png",
-	"before_battle_text": "I’ll show you the ropes. Let’s start with the basics.",
-	"battle_text": "The veil lifts, and the moon’s wrath descends!",
-	"initiative_win_text": "",
-	"initiative_lose_text": "",
-	"victory_text": "The moonlight shines brightest upon my victory!",
-	"defeat_text": "The moon wanes, but it always returns to its full glory.",
-	"champion_text": "The moon crowns me its eternal champion!"
+   "id": 20,
+   "name": "King Ardyn",
+   "computer_strategy": "default",
+   "avatar_path": "res://Assets/Characters/CompTutorial/CompTutorial_Avatar.png",
+   "character_path": "res://Assets/Characters/CompTutorial/CompTutorial.png",
+   "before_battle_text": "I will defend my throne with all I’ve learned. Let’s begin your training.",
+   "battle_text": "Prepare yourself. The crown may be heavy, but my will is stronger!",
+   "initiative_win_text": "Victory is the first lesson of many. Keep up!",
+   "initiative_lose_text": "Don’t mistake this loss. A king always learns from his failures.",
+   "victory_text": "The throne stands firm, and so do I. Another lesson completed.",
+   "defeat_text": "The throne may slip from my grasp today, but it will always call me back.",
+   "champion_text": "As king, I reign supreme in both battle and wisdom!"
 }
 
 
