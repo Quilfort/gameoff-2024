@@ -103,7 +103,6 @@ func finish_game(number, winner):
 	game_active = false
 	
 	PlayerData.player.total_attempts += player_attempts
-	print("TOtal:\t\t ", PlayerData.player.total_attempts)
 
 	# Store player and computer histories in BattleData.battle_history
 	BattleData.battle_history = {

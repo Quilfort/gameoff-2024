@@ -10,7 +10,6 @@ func _ready():
 		start_draft()
 		GameData.DRAFT_COMPLETED = true
 	else:
-		print("Draft already completed. Skipping draft.")
 		display_schedule()
 	
 	setup_ui();
@@ -79,10 +78,8 @@ func display_champion():
 func _on_next_battle_button_pressed() -> void:
 	# Simulate each match
 	for pairing in GameData.next_matches:
-		print("Match:", pairing)
 		# Check if the Player is in team1 or team2 of the current pairing
 		if pairing.team1 == PlayerData.player || pairing.team2 == PlayerData.player:
-			print("Player is in team")
 			if pairing.team1 == PlayerData.player:
 				BattleData.computer = pairing.team2  # Set opponent as team2
 			else:

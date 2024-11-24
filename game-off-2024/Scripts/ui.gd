@@ -73,7 +73,6 @@ func get_scene_name() -> String:
 	if current_scene:
 		var scene_path = current_scene.get_scene_file_path()
 		var scene_name = scene_path.get_file().get_basename()
-		print("Current scene name:", scene_name)
 		return scene_name
 	else:
 		print("No current scene found!")

@@ -44,14 +44,11 @@ func player_not_eliminated():
 		GameData.next_matches = next_round  # Set next matches to the next round
 	else:
 		GameData.tournament_champion = BattleData.battle_winners[0]
-		print("CHAMPIONS: \n", GameData.tournament_champion)
 
 
 func player_eliminated():
 	if continue_game:
 		while BattleData.battle_winners.size() > 1:  # Continue until there's only one winner
-			print("Simulating computer matches...")
-
 			# Generate the next round pairings from the current winners
 			var next_round = create_duos(BattleData.battle_winners)
 
@@ -60,7 +57,6 @@ func player_eliminated():
 
 			# Simulate the matches for the next round
 			for pairing in next_round:
-				print("Computer vs Computer")
 				var winner = null
 
 				if randi() % 2 == 0:
@@ -68,7 +64,6 @@ func player_eliminated():
 				else:
 					winner = pairing.team2
 
-				print("Winner:", winner.name)
 				BattleData.battle_winners.append(winner)
 
 			# Update the tournament matches and next matches
@@ -77,7 +72,6 @@ func player_eliminated():
 
 		# Declare the champion
 		GameData.tournament_champion = BattleData.battle_winners[0]
-		print("CHAMPION: \n", GameData.tournament_champion.name)
 
 
 func display_round_result():
