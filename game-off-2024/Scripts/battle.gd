@@ -101,6 +101,9 @@ func which_player_starts():
 func finish_game(number, winner):
 	# Set game_active to false to prevent further guesses
 	game_active = false
+	
+	PlayerData.player.total_attempts += player_attempts
+	print("TOtal:\t\t ", PlayerData.player.total_attempts)
 
 	# Store player and computer histories in BattleData.battle_history
 	BattleData.battle_history = {

@@ -61,11 +61,13 @@ func update_champion():
 	%SpeakerLabel.text = get_first_name(GameData.tournament_champion.name)
 	
 	if GameData.tournament_champion == PlayerData.player:
-		%DialogText.text = "You won the throne, good job\n You won in %d guesses" % PlayerData.player.total_attempts
+		%DialogText.text = "Congratulations, you have claimed the throne, champion!\nAnd you did it in %d guesses!" % PlayerData.player.total_attempts
 		%Character.visible = false
+		# Go to credits or main menu
 	else:
 		%DialogText.text = GameData.tournament_champion.champion_text
 		init_character(GameData.tournament_champion.character_path)
+		# Restart game or main menu
 
 
 func init_character(character_path):
