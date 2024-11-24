@@ -10,6 +10,7 @@ func _ready():
 
 
 func setup_general_ui():
+	%CharacterDialog.setup_character_dialog()
 	%UI.setup_ui()
 
 
@@ -20,7 +21,6 @@ func update_other_match_in_round():
 		if pairing.team1 == PlayerData.player || pairing.team2 == PlayerData.player:
 			winner = BattleData.battle_history.winner
 		else:
-			print("Computer vs Computer")
 			if randi() % 2 == 0:
 				winner = pairing.team1
 			else:
@@ -35,7 +35,6 @@ func update_other_match_in_round():
 
 
 func player_not_eliminated():
-	print("Player is still in the winners!")
 	# Generate the next round pairings
 	var next_round = create_duos(BattleData.battle_winners)
 
@@ -49,7 +48,6 @@ func player_not_eliminated():
 
 
 func player_eliminated():
-	print("Player has been eliminated.")
 	if continue_game:
 		while BattleData.battle_winners.size() > 1:  # Continue until there's only one winner
 			print("Simulating computer matches...")
