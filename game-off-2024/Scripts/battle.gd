@@ -40,17 +40,32 @@ func reset_game():
 	setup_ui()
 
 func setup_ui():
-	%UI.setup_ui()	
+	%UI.setup_ui()
+	%UI.set_background("res://Assets/Background/bg_battle.png")
 
 
 func _process(delta):
-	if game_active and !is_player_turn:
+	# Get reference to CharacterDialog's CanvasLayer
+	var dialog_visible = %CharacterDialog.get_node("%CanvasLayer").visible
+	
+	# If dialog is hidden and game is active, handle computer turns
+	if !dialog_visible and game_active and !is_player_turn:
 		computer_timer += delta
 		if computer_timer >= computer_delay:
 			computer_timer = 0
 			computer_guesses()
 			is_player_turn = true
 			%InstructionLabel.text = "Your turn! Make a guess (1-%d):" % GameData.MAX_NUMBER
+
+
+# Add visibility check to input handling
+func _input(event):
+	var dialog_visible = %CharacterDialog.get_node("%CanvasLayer").visible
+	
+	if !dialog_visible:
+		# Show UI elements once dialog is hidden
+		%UI.set_background("res://Assets/Background/bg_battle_blur.png")
+		visibility_battle_field(true)
 
 
 func setup_game():
@@ -65,6 +80,9 @@ func setup_game():
 	computer_guess_history.clear()
 	is_guess_too_high = false
 	half_guess_difference = 0
+	
+	#Hide elements
+	visibility_battle_field(false)
 	
 	# Strings
 	%InstructionLabel.text = ""
@@ -283,3 +301,16 @@ func _on_submit_button_pressed():
 			%PlayerResultLabel.text = "Please enter a number between 1 and %d." % GameData.MAX_NUMBER
 			return
 		check_guess(guess)
+
+func visibility_battle_field(visible: bool):
+	#%InstructionLabel.visible = visible
+	#%PlayerResultLabel.visible = visible
+	#%ComputerGuessLabel.visible = visible
+	#%ComputerResultLabel.visible = visible
+	%BattleStatusLabel.visible = visible
+	%PlayerHistoryLabel.visible = visible
+	%ComputerHistoryLabel.visible = visible
+	#%GuessInput.visible = visible
+	#%SubmitButton.visible = visible
+	%PlayerSpace.visible = visible
+	%ComputerSpace.visible = visible

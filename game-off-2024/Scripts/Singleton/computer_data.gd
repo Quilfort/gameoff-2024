@@ -189,7 +189,7 @@ var comp13 = {
 	"character_path": "res://Assets/Characters/Comp13/Comp13.png",
 	"before_battle_text": "I am the shield of nature, and nature’s wrath is cold as ice. Prepare yourself!",
 	"battle_text": "The forest is my armor, the winter my sword. Face the storm of nature!",
-	"initiative_win_text": "You may have won the first move, but nature always strikes last.",
+	"initiative_win_text": "I have won the first move, because nature always strikes first.",
 	"initiative_lose_text": "The winds of nature may bend, but they do not break. I will not fall easily.",
 	"victory_text": "Another enemy frozen by nature’s might. The forest shields me once more!",
 	"defeat_text": "The chill may fade... but I am the shield of nature, and I will rise again.",
