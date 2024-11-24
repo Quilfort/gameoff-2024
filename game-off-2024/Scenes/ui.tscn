@@ -48,9 +48,9 @@ grow_vertical = 2
 [node name="PlayerInfo" type="Node" parent="."]
 
 [node name="PlayerInfoBox" type="Panel" parent="PlayerInfo"]
-offset_left = 10.0
+offset_left = 50.0
 offset_top = 10.0
-offset_right = 260.0
+offset_right = 300.0
 offset_bottom = 110.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hitqs")
 

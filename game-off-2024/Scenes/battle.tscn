@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://crkesognymeql"]
+[gd_scene load_steps=6 format=3 uid="uid://crkesognymeql"]
 
 [ext_resource type="Script" path="res://Scripts/battle.gd" id="1_owltm"]
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="3_3vlpl"]
+[ext_resource type="PackedScene" uid="uid://xhmfb0131pue" path="res://Scenes/character_dialog.tscn" id="3_72pqt"]
 [ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="3_lc2nu"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="3_rjimk"]
 
@@ -9,6 +10,9 @@
 script = ExtResource("1_owltm")
 
 [node name="UI" parent="." instance=ExtResource("3_lc2nu")]
+unique_name_in_owner = true
+
+[node name="CharacterDialog" parent="." instance=ExtResource("3_72pqt")]
 unique_name_in_owner = true
 
 [node name="BattleStatusLabel" type="Label" parent="."]

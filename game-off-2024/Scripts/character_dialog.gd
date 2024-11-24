@@ -9,10 +9,15 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
-	# Check for mouse click or touch input
-	if event is InputEventMouseButton or event is InputEventScreenTouch:
+	# Check for left mouse button
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			# Hide the entire CanvasLayer when left mouse button is clicked
+			set_dialog_visible(false)
+	# Check for touch input (for mobile)
+	elif event is InputEventScreenTouch:
 		if event.pressed:
-			# Hide the entire CanvasLayer when screen is clicked
+			# Hide the entire CanvasLayer when screen is touched
 			set_dialog_visible(false)
 
 func set_dialog_visible(visible: bool):
@@ -32,22 +37,21 @@ func setup_character_dialog():
 		"before_battle":
 			update_before_battle_dialog()
 			init_character(BattleData.computer.character_path)
-		"battle":
-			update_battle_dialog()
-			init_character(BattleData.computer.character_path)
 		"after_battle":
 			update_after_battle_dialog()
 			init_character(BattleData.computer.character_path)
 		_:
-			init_text()
+			set_dialog_visible(false)
 
 func update_before_battle_dialog():
 	%SpeakerLabel.text = get_first_name(BattleData.computer.name)
 	%DialogText.text = BattleData.computer.before_battle_text
 
-func update_battle_dialog():
+func update_battle_dialog(initiative_text):
+	set_dialog_visible(true)
 	%SpeakerLabel.text = get_first_name(BattleData.computer.name)
-	%DialogText.text = BattleData.computer.battle_text
+	%DialogText.text = initiative_text
+	init_character(BattleData.computer.character_path)
 
 func update_after_battle_dialog():
 	%SpeakerLabel.text = get_first_name(BattleData.computer.name)

@@ -90,9 +90,11 @@ func which_player_starts():
 	
 	# Update Battle Status Label based on who starts
 	if is_player_turn:
+		%CharacterDialog.update_battle_dialog(BattleData.computer.initiative_lose_text)
 		%BattleStatusLabel.text = "You start! Make a guess."
 		%InstructionLabel.text = "Your turn! Make a guess (1-%d):" % GameData.MAX_NUMBER
 	else:
+		%CharacterDialog.update_battle_dialog(BattleData.computer.initiative_win_text)
 		%BattleStatusLabel.text = "Computer starts guessing..."
 		%InstructionLabel.text = "Computer will guess in 2 seconds..."
 		await get_tree().create_timer(2.0).timeout
