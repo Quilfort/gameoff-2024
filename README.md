@@ -1,4 +1,4 @@
-# Guess the Number (Working Title)
+# The 500 Numbers Throne (Working Title)
 
 > **Note:** This README is a work in progress, as is the game itself.
 
@@ -17,11 +17,15 @@ This project is being developed as part of GitHub’s **Game Off 2024** annual g
 - **Event Duration**: November 1st - December 1st, 2024
 - **Theme**: Build a game from scratch or continue work on an in-progress project.
 
-## How to Play (Planned Features)
+## How to Play
 
 1. **Guessing Battles**: Take turns with your opponent, guessing each other's chosen number.
-2. **Power-ups**: Use special abilities to aid in your guesses or counter your opponent’s moves.
-3. **Secret Strategies**: Learn hidden patterns and strategies for a strategic advantage.
+2. **Secret Strategies**: See hidden patterns and strategies for a strategic advantage.
+
+# Planned Features
+
+1. **Power-ups**: Use special abilities to aid in your guesses or counter your opponent’s moves.
+2. **Secret Strategies**: Ability to learn the strategies
 
 ## Installation (To be added)
 
