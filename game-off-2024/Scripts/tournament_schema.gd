@@ -5,6 +5,7 @@ var computer_opponents = []
 var upcoming_matches = []
 
 func _ready():
+	GameData.game_active = true;
 	# Check if the draft has already been completed
 	if !GameData.DRAFT_COMPLETED:
 		start_draft()
@@ -14,9 +15,35 @@ func _ready():
 	
 	setup_ui();
 
+
 func setup_ui():
 	%UI.setup_ui()
 	%CharacterDialog.setup_character_dialog()
+
+
+func _input(event):
+	# Check for left mouse button
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			# Hide the entire CanvasLayer when left mouse button is clicked
+			game_over()
+	# Check for touch input (for mobile)
+	elif event is InputEventScreenTouch:
+		if event.pressed:
+			# Hide the entire CanvasLayer when screen is touched
+			game_over()
+
+
+func game_over():
+	if !GameData.game_active && GameData.tournament_champion:
+		if GameData.tournament_champion == PlayerData.player:
+			#code for credits
+			print("player")
+			get_tree().change_scene_to_file("res://Scenes/restart_menu.tscn")
+		else:
+			print("computer")
+			get_tree().change_scene_to_file("res://Scenes/restart_menu.tscn")
+
 
 ## DRAFT
 # Function to handle the entire draft process
@@ -73,6 +100,7 @@ func display_schedule():
 
 
 func display_champion():
+	GameData.game_active = false;
 	%NextBattleButton.visible = false
 
 func _on_next_battle_button_pressed() -> void:

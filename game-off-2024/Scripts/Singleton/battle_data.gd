@@ -1,7 +1,7 @@
 extends Node
 
 # Battle Settings
-var game_active = false
+var battle_active = false
 
 # Player Information
 var player_number = 0

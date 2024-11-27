@@ -55,6 +55,7 @@ offset_top = 350.0
 offset_right = 566.0
 offset_bottom = 390.0
 theme = ExtResource("3_0elsg")
+theme_override_font_sizes/font_size = 24
 text = "No"
 
 [node name="SkipTutorialButton" type="Button" parent="Control"]
@@ -64,6 +65,7 @@ offset_top = 350.0
 offset_right = 726.0
 offset_bottom = 390.0
 theme = ExtResource("3_0elsg")
+theme_override_font_sizes/font_size = 24
 text = "Yes"
 
 [connection signal="pressed" from="Control/GoTutorialButton" to="." method="_on_go_tutorial_button_pressed"]

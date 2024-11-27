@@ -1,7 +1,7 @@
 extends Node2D
 
 # Game configuration
-var game_active = BattleData.game_active    
+var battle_active = BattleData.battle_active    
 
 # Player
 var player_number = BattleData.player_number
@@ -49,7 +49,7 @@ func _process(delta):
 	var dialog_visible = %CharacterDialog.get_node("%CanvasLayer").visible
 	
 	# If dialog is hidden and game is active, handle computer turns
-	if !dialog_visible and game_active and !is_player_turn:
+	if !dialog_visible and battle_active and !is_player_turn:
 		computer_timer += delta
 		if computer_timer >= computer_delay:
 			computer_timer = 0
@@ -119,8 +119,8 @@ func which_player_starts():
 
 
 func finish_game(number, winner):
-	# Set game_active to false to prevent further guesses
-	game_active = false
+	# Set battle_active to false to prevent further guesses
+	battle_active = false
 	
 	PlayerData.player.total_attempts += player_attempts
 
@@ -293,7 +293,7 @@ func smart_computer_guess() -> int:
 
 ## Button
 func _on_submit_button_pressed():
-	if !game_active:
+	if !battle_active:
 		print("Game is not active")
 	elif is_player_turn:
 		var guess = %GuessInput.text.to_int()

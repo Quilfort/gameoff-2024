@@ -96,7 +96,7 @@ func _on_continue_button_pressed() -> void:
 
 func reset_battle_data():
 	BattleData.battle_history = []
-	BattleData.game_active = false
+	BattleData.battle_active = false
 	BattleData.player_number = 0
 	BattleData.computer = null
 	BattleData.battle_winners = []
