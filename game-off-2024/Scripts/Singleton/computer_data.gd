@@ -12,7 +12,10 @@ var comp1 = {
 	"initiative_lose_text": "A bold move... but I will still prevail!",
 	"victory_text": "Fate favors me, as it always should. Another step closer to my destiny!",
 	"defeat_text": "You may have won, but this is far from over. Remember my name!",
-	"champion_text": "Bow down! I am the rightful ruler, and this proves it!"
+	"champion_text": "Bow down! I am the rightful ruler, and this proves it!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp2 = {
@@ -27,7 +30,10 @@ var comp2 = {
 	"initiative_lose_text": "You’re bold—I like that. Let’s make this interesting.",
 	"victory_text": "Such sweet surrender... You didn’t stand a chance, love.",
 	"defeat_text": "You win this time. Here, take my rose as a token... for now.",
-	"champion_text": "The whispers were right—I’m irresistible even in victory!"
+	"champion_text": "The whispers were right—I’m irresistible even in victory!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp3 = {
@@ -57,7 +63,10 @@ var comp4 = {
 	"initiative_lose_text": "It matters not. Your efforts are meaningless.",
 	"victory_text": "Another step closer to reclaiming the throne for my kind.",
 	"defeat_text": "You have delayed the inevitable. Humanity's reign will end.",
-	"champion_text": "The throne is mine, as it was always destined to be."
+	"champion_text": "The throne is mine, as it was always destined to be.",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp5 = {
@@ -72,7 +81,10 @@ var comp5 = {
 	"initiative_lose_text": "Oh, you’re going first? Okay! I'll just watch and learn.",
 	"victory_text": "Yay, I won! Wait... what did I win again?",
 	"defeat_text": "That was so much fun! Can we have snacks now?",
-	"champion_text": "Me? A champion? Oh, this is so exciting! Do I get cake?"
+	"champion_text": "Me? A champion? Oh, this is so exciting! Do I get cake?",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp6 = {
@@ -87,7 +99,10 @@ var comp6 = {
 	"initiative_lose_text": "A delay, nothing more. You cannot escape.",
 	"victory_text": "The best remain standing. You were never a match.",
 	"defeat_text": "Even the best stumble... but shadows always return.",
-	"champion_text": "The throne is mine. I no longer hide in the shadows."
+	"champion_text": "The throne is mine. I no longer hide in the shadows.",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp7 = {
@@ -102,7 +117,10 @@ var comp7 = {
 	"initiative_lose_text": "You move first. May your actions reflect wisdom.",
 	"victory_text": "This victory is for everyone, no matter their kind.",
 	"defeat_text": "Please, use your power wisely. The world depends on it.",
-	"champion_text": "A united world starts here. Let us walk this path together."
+	"champion_text": "A united world starts here. Let us walk this path together.",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp8 = {
@@ -117,7 +135,10 @@ var comp8 = {
 	"initiative_lose_text": "You may have the first move, but I will take control soon enough!",
 	"victory_text": "Victory is mine! Power is the only truth.",
 	"defeat_text": "The stars turned their back on me this time... but I’ll take what is mine eventually.",
-	"champion_text": "I am the one who will rule, with power beyond the stars!"
+	"champion_text": "I am the one who will rule, with power beyond the stars!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp9 = {
@@ -133,6 +154,9 @@ var comp9 = {
 	"victory_text": "I told you. The world will burn, and I will reign.",
 	"defeat_text": "You may have won this time, but next time, the fires of hell will consume you.",
 	"champion_text": "I am the queen of devils! Let the world burn in my name!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 
 }
 
@@ -148,7 +172,10 @@ var comp10 = {
 	"initiative_lose_text": "It matters not, I’ll rise and burn brighter next time!",
 	"victory_text": "Another victory to stoke the eternal flames!",
 	"defeat_text": "The fire flickers, but it will never die. I’ll return.",
-	"champion_text": "I am the eternal flame, and none can extinguish my glory!"
+	"champion_text": "I am the eternal flame, and none can extinguish my glory!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp11 = {
@@ -163,7 +190,10 @@ var comp11 = {
 	"initiative_lose_text": "It’s just a momentary setback. I’ll find my way to victory!",
 	"victory_text": "Victory shines brightly in my hands!",
 	"defeat_text": "Your strength eclipsed mine today, but dawn always returns.",
-	"champion_text": "I am the champion... but the throne belongs to my brother, David. He will rule, and I’ll find peace."
+	"champion_text": "I am the champion... but the throne belongs to my brother, David. He will rule, and I’ll find peace.",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp12 = {
@@ -178,7 +208,10 @@ var comp12 = {
 	"initiative_lose_text": "The wind shifts, but I will find my way again.",
 	"victory_text": "The storm has spoken, and it declares my triumph!",
 	"defeat_text": "The wind subsides, but I will return stronger than ever.",
-	"champion_text": "I am the storm incarnate. No one can stand against my thunder!"
+	"champion_text": "I am the storm incarnate. No one can stand against my thunder!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp13 = {
@@ -193,7 +226,10 @@ var comp13 = {
 	"initiative_lose_text": "The winds of nature may bend, but they do not break. I will not fall easily.",
 	"victory_text": "Another enemy frozen by nature’s might. The forest shields me once more!",
 	"defeat_text": "The chill may fade... but I am the shield of nature, and I will rise again.",
-	"champion_text": "I am the guardian of the woods, the frost shall crown me the eternal shield of nature!"
+	"champion_text": "I am the guardian of the woods, the frost shall crown me the eternal shield of nature!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my strategy!",
 }
 
 var comp14 = {
@@ -208,7 +244,10 @@ var comp14 = {
    "initiative_lose_text": "Don’t think for a second you’ve outflown me… I’ll rise again!",
    "victory_text": "The woods cheer my victory—this throne is mine to protect!",
    "defeat_text": "A bird can fall, but the forest always picks itself up. I’ll be back!",
-   "champion_text": "I am the king of the woods, the heart of nature’s might!"
+   "champion_text": "I am the king of the woods, the heart of nature’s might!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "This is my strategy!",
 }
 
 var comp15 = {
@@ -223,7 +262,10 @@ var comp15 = {
    "initiative_lose_text": "The stars may flicker, but their path will always return to me.",
    "victory_text": "The light of the stars shines bright. Victory is mine!",
    "defeat_text": "The night may have won, but the dawn always rises again.",
-   "champion_text": "I am the chosen of the stars, the celestial champion of light!"
+   "champion_text": "I am the chosen of the stars, the celestial champion of light!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "This is my strategy!",
 }
 
 var comp16 = {
@@ -238,7 +280,10 @@ var comp16 = {
    "initiative_lose_text": "You think this is victory? The darkness is always watching.",
    "victory_text": "Another soul claimed by the shadows. Victory is mine.",
    "defeat_text": "You may have won today, but I’ll find you in your sleep... and then you will truly know fear.",
-   "champion_text": "I am the true king of darkness, unchallenged and eternal!"
+   "champion_text": "I am the true king of darkness, unchallenged and eternal!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "This is my strategy!",
 }
 
 var comp17 = {
@@ -253,7 +298,10 @@ var comp17 = {
    "initiative_lose_text": "Maaaaah! Maaaaahhh!",
    "victory_text": "Baa-haa! Baaa-haaa!",
    "defeat_text": "Maaahh... Maaaahhh!",
-   "champion_text": "Baaaahh! I AM THE GOAT!"
+   "champion_text": "Baaaahh! I AM THE GOAT!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "This is my strategy!",
 }
 
 var comp18 = {
@@ -283,7 +331,10 @@ var comp19 = {
    "initiative_lose_text": "I’m falling apart, but don’t worry, I’ll come back for you!",
    "victory_text": "Another soul claimed! The storm rages on, and I remain unbroken!",
    "defeat_text": "You might’ve beaten me, but I’ll crawl back for a rematch, sooner than you think.",
-   "champion_text": "The storm can rage all it wants, but I’m already dead... and unbeatable!"
+   "champion_text": "The storm can rage all it wants, but I’m already dead... and unbeatable!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "This is my strategy!",
 }
 
 var comp_tutorial = {
@@ -298,7 +349,10 @@ var comp_tutorial = {
    "initiative_lose_text": "Don’t mistake this loss. A king always learns from his failures.",
    "victory_text": "The throne stands firm, and so do I. Another lesson completed.",
    "defeat_text": "The throne may slip from my grasp today, but it will always call me back.",
-   "champion_text": "As king, I reign supreme in both battle and wisdom!"
+   "champion_text": "As king, I reign supreme in both battle and wisdom!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "This is my strategy!",
 }
 
 
