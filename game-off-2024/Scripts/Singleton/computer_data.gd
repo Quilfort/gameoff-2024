@@ -77,7 +77,7 @@ var comp5 = {
 
 var comp6 = {
 	"id": 6,
-	"name": "David Shadowthorn",
+	"name": "David Shadowtorn",
 	"computer_strategy": "default",
 	"avatar_path": "res://Assets/Characters/Comp6/Comp6_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp6/Comp6.png",
@@ -153,7 +153,7 @@ var comp10 = {
 
 var comp11 = {
 	"id": 11,
-	"name": "Freya Shadowthorn",
+	"name": "Freya Shadowtorn",
 	"computer_strategy": "default",
 	"avatar_path": "res://Assets/Characters/Comp11/Comp11_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp11/Comp11.png",

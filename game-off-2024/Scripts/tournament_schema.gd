@@ -39,7 +39,7 @@ func game_over():
 		if GameData.tournament_champion == PlayerData.player:
 			#code for credits
 			print("player")
-			get_tree().change_scene_to_file("res://Scenes/restart_menu.tscn")
+			get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 		else:
 			print("computer")
 			get_tree().change_scene_to_file("res://Scenes/restart_menu.tscn")

@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx4icv2b4br81"]
+
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="1_ts8xb"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="2_8giaj"]
+[ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="3_51n4l"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_ts8xb")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChampionTextLabel" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 276.0
+offset_top = 25.0
+offset_right = 976.0
+offset_bottom = 225.0
+theme = ExtResource("2_8giaj")
+text = "Glory is yours, 1234567890123456!
+You have claimed the 500 Numbers Throne.
+
+Rule the kingdom with honor for the next 10 years."
+
+[node name="CreditsLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 250.0
+offset_right = 976.0
+offset_bottom = 450.0
+theme = ExtResource("2_8giaj")
+theme_override_font_sizes/normal_font_size = 24
+text = "Game Developer:
+Quilfort
+
+Assets from:
+cogabushi on itch.io
+"
+
+[node name="MainMenuButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 406.0
+offset_top = 450.0
+offset_right = 546.0
+offset_bottom = 490.0
+theme = ExtResource("3_51n4l")
+theme_override_font_sizes/font_size = 24
+text = "Main Menu"
+
+[node name="ExitButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 450.0
+offset_right = 746.0
+offset_bottom = 490.0
+theme = ExtResource("3_51n4l")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[connection signal="pressed" from="Control/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/ExitButton" to="." method="_on_exit_button_pressed"]
