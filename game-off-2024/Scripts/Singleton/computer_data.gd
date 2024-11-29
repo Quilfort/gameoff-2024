@@ -15,7 +15,7 @@ var comp1 = {
 	"champion_text": "Bow down! I am the rightful ruler, and this proves it!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "This is my default strategy!",
 }
 
 var comp2 = {
@@ -33,7 +33,7 @@ var comp2 = {
 	"champion_text": "The whispers were right—I’m irresistible even in victory!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "This is my uneven strategy!",
 }
 
 var comp3 = {
@@ -48,7 +48,10 @@ var comp3 = {
 	"initiative_lose_text": "Your turn first? Okay, I’ll learn from watching you!",
 	"victory_text": "Wow, I actually won! That was amazing—you’re really good!",
 	"defeat_text": "You were incredible! I’ve got so much to learn... but I’ll get better!",
-	"champion_text": "Champion? Me? Oh wow! I just wanted to have fun!"
+	"champion_text": "Champion? Me? Oh wow! I just wanted to have fun!",
+	"info_welcome_text": "This is my secret info!",
+	"info_fun_fact_text": "This is my fun fact!",
+	"info_strategy_text": "This is my even strategy!",
 }
 
 var comp4 = {
@@ -66,13 +69,13 @@ var comp4 = {
 	"champion_text": "The throne is mine, as it was always destined to be.",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "This is my always gues half strategy!",
 }
 
 var comp5 = {
 	"id": 5,
 	"name": "Penny Blackwater",
-	"computer_strategy": "default",
+	"computer_strategy": "random",
 	"avatar_path": "res://Assets/Characters/Comp5/Comp5_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp5/Comp5.png",
 	"before_battle_text": "Hi there! Oh wait... is this where the fight is? Yay!",
@@ -84,13 +87,13 @@ var comp5 = {
 	"champion_text": "Me? A champion? Oh, this is so exciting! Do I get cake?",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "This is my random strategy!",
 }
 
 var comp6 = {
 	"id": 6,
 	"name": "David Shadowtorn",
-	"computer_strategy": "default",
+	"computer_strategy": "preference_for_4_and_5_strategy",
 	"avatar_path": "res://Assets/Characters/Comp6/Comp6_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp6/Comp6.png",
 	"before_battle_text": "Silent steps. Sharp blade. Your time ends here.",
@@ -102,13 +105,13 @@ var comp6 = {
 	"champion_text": "The throne is mine. I no longer hide in the shadows.",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer prioritizes guessing numbers that contain the digits 4 or 5 (e.g., 4, 5, 14, 15, 24, 25, etc.)",
 }
 
 var comp7 = {
 	"id": 7,
 	"name": "Elara Dawnlight",
-	"computer_strategy": "even",
+	"computer_strategy": "preference_for_1_and_6_strategy",
 	"avatar_path": "res://Assets/Characters/Comp7/Comp7_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp7/Comp7.png",
 	"before_battle_text": "I fight not for myself, but for a world united in peace.",
@@ -120,13 +123,13 @@ var comp7 = {
 	"champion_text": "A united world starts here. Let us walk this path together.",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer prioritizes guessing numbers that contain the digits 1 or 6 (e.g., 4, 5, 14, 15, 24, 25, etc.)",
 }
 
 var comp8 = {
 	"id": 8,
 	"name": "Serah Dawnlight",
-	"computer_strategy": "even",
+	"computer_strategy": "range_split_strategy",
 	"avatar_path": "res://Assets/Characters/Comp8/Comp8_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp8/Comp8.png",
 	"before_battle_text": "My sister Elara may fight for peace, but I fight for power. Let’s see who truly deserves the throne.",
@@ -138,13 +141,13 @@ var comp8 = {
 	"champion_text": "I am the one who will rule, with power beyond the stars!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer alternates between guessing numbers near the smallest and largest edges, expanding its guesses by up to 30 units while staying within the valid range for increased unpredictability.",
 }
 
 var comp9 = {
 	"id": 9,
 	"name": "Lilith Inferno",
-	"computer_strategy": "default",
+	"computer_strategy": "proximity_bias_strategy",
 	"avatar_path": "res://Assets/Characters/Comp9/Comp9_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp9/Comp9.png",
 	"before_battle_text": "Underestimate me, and you will regret it. I will set this world ablaze!",
@@ -156,14 +159,14 @@ var comp9 = {
 	"champion_text": "I am the queen of devils! Let the world burn in my name!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer prioritizes guessing numbers closest to the midpoint of the remaining range to efficiently narrow down the possibilities.",
 
 }
 
 var comp10 = {
 	"id": 10,
 	"name": "Kael Ardyn",
-	"computer_strategy": "default",
+	"computer_strategy": "pi_explorer_strategy",
 	"avatar_path": "res://Assets/Characters/Comp10/Comp10_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp10/Comp10.png",
 	"before_battle_text": "The flames of destiny burn within me. Let’s fight!",
@@ -175,13 +178,13 @@ var comp10 = {
 	"champion_text": "I am the eternal flame, and none can extinguish my glory!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer guesses numbers that are closest to multiples of Pi (π) within the current range, adding a mathematical twist to the guessing pattern.",
 }
 
 var comp11 = {
 	"id": 11,
 	"name": "Freya Shadowtorn",
-	"computer_strategy": "uneven",
+	"computer_strategy": "proximity_bias_strategy",
 	"avatar_path": "res://Assets/Characters/Comp11/Comp11_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp11/Comp11.png",
 	"before_battle_text": "The light shall guide me to victory. Let’s begin.",
@@ -199,7 +202,7 @@ var comp11 = {
 var comp12 = {
 	"id": 12,
 	"name": "Zephyr Windlord",
-	"computer_strategy": "default",
+	"computer_strategy": "proximity_bias_strategy",
 	"avatar_path": "res://Assets/Characters/Comp12/Comp12_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp12/Comp12.png",
 	"before_battle_text": "The wind whispers of victory. Prepare yourself!",
@@ -217,7 +220,7 @@ var comp12 = {
 var comp13 = {
 	"id": 13,
 	"name": "Sylva Greenhart",
-	"computer_strategy": "default",
+	"computer_strategy": "proximity_bias_strategy",
 	"avatar_path": "res://Assets/Characters/Comp13/Comp13_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp13/Comp13.png",
 	"before_battle_text": "I am the shield of nature, and nature’s wrath is cold as ice. Prepare yourself!",
@@ -235,7 +238,7 @@ var comp13 = {
 var comp14 = {
    "id": 14,
    "name": "Thalric Greenhart",
-   "computer_strategy": "uneven",
+   "computer_strategy": "proximity_bias_strategy",
    "avatar_path": "res://Assets/Characters/Comp14/Comp14_Avatar.png",
    "character_path": "res://Assets/Characters/Comp14/Comp14.png",
    "before_battle_text": "My bird brain is ready to soar. Prepare to face the wind’s fury!",
@@ -253,7 +256,7 @@ var comp14 = {
 var comp15 = {
    "id": 15,
    "name": "Zelora Dawncrest",
-  	"computer_strategy": "uneven",
+   "computer_strategy": "proximity_bias_strategy",
    "avatar_path": "res://Assets/Characters/Comp15/Comp15_Avatar.png",
    "character_path": "res://Assets/Characters/Comp15/Comp15.png",
    "before_battle_text": "The stars above guide my every step, and they will not falter now.",
@@ -289,7 +292,7 @@ var comp16 = {
 var comp17 = {
    "id": 17,
    "name": "TheGoat",
-   "computer_strategy": "half_guess",
+   "computer_strategy": "proximity_bias_strategy",
    "avatar_path": "res://Assets/Characters/Comp17/Comp17_Avatar.png",
    "character_path": "res://Assets/Characters/Comp17/Comp17.png",
    "before_battle_text": "Baa! Baaa-haaahh!",
