@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d360y0a5qn3dt"]
+[gd_scene load_steps=7 format=3 uid="uid://d360y0a5qn3dt"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_du2co"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="2_1nlk1"]
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="2_628rw"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="3_iu310"]
 
@@ -128,3 +129,85 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("3_iu310")
 text = "Info"
+
+[node name="PlayerInfoScreen" type="Node" parent="."]
+
+[node name="PlayerStrategy" type="Control" parent="PlayerInfoScreen"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerStrategyPanel" type="Panel" parent="PlayerInfoScreen/PlayerStrategy"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WelcomeText" type="RichTextLabel" parent="PlayerInfoScreen/PlayerStrategy/PlayerStrategyPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -260.0
+offset_right = 250.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1nlk1")
+text = "Welcome:
+This is a text"
+
+[node name="FunFactText" type="RichTextLabel" parent="PlayerInfoScreen/PlayerStrategy/PlayerStrategyPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -100.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1nlk1")
+text = "Fun Fact:
+This is a text"
+
+[node name="StrategyText" type="RichTextLabel" parent="PlayerInfoScreen/PlayerStrategy/PlayerStrategyPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 50.0
+offset_right = 250.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1nlk1")
+text = "Strategy
+This is a text
+s
+s"
+
+[connection signal="pressed" from="PlayerInfo/PlayerInfoBox/ViewInfoButton" to="." method="_on_view_info_button_pressed"]

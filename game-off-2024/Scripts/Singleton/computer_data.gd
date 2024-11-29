@@ -13,9 +13,9 @@ var comp1 = {
 	"victory_text": "Fate favors me, as it always should. Another step closer to my destiny!",
 	"defeat_text": "You may have won, but this is far from over. Remember my name!",
 	"champion_text": "Bow down! I am the rightful ruler, and this proves it!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my default strategy!",
+	"info_welcome_text": "Celeste Ardyn, ready to face the rightful ruler?",
+	"info_fun_fact_text": "Celeste has a burning desire for power, but her confidence is unmatched.",
+	"info_strategy_text": "Celeste plays it safe with balanced strategies, so expect a calculated approach.",	
 }
 
 var comp2 = {
@@ -31,9 +31,9 @@ var comp2 = {
 	"victory_text": "Such sweet surrender... You didn’t stand a chance, love.",
 	"defeat_text": "You win this time. Here, take my rose as a token... for now.",
 	"champion_text": "The whispers were right—I’m irresistible even in victory!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my uneven strategy!",
+  	"info_welcome_text": "Ravyn Thorn, ready for a dance with a demon?",
+  	"info_fun_fact_text": "Ravyn loves the thrill of the hunt, but don’t let that charm fool you.",
+  	"info_strategy_text": "Ravyn favors odd numbers, so expect a focus on uneven guesses. Stay sharp!",
 }
 
 var comp3 = {
@@ -49,9 +49,9 @@ var comp3 = {
 	"victory_text": "Wow, I actually won! That was amazing—you’re really good!",
 	"defeat_text": "You were incredible! I’ve got so much to learn... but I’ll get better!",
 	"champion_text": "Champion? Me? Oh wow! I just wanted to have fun!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my even strategy!",
+	"info_welcome_text": "Kaia Solis, ready to have some fun?",
+	"info_fun_fact_text": "Kaia carries a tube everywhere—no one knows what’s inside, but it’s always a surprise!",
+	"info_strategy_text": "Kaia prefers even numbers, so expect her to focus on guessing those. Stay alert for her even-numbered guesses!"
 }
 
 var comp4 = {
@@ -67,9 +67,9 @@ var comp4 = {
 	"victory_text": "Another step closer to reclaiming the throne for my kind.",
 	"defeat_text": "You have delayed the inevitable. Humanity's reign will end.",
 	"champion_text": "The throne is mine, as it was always destined to be.",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my always gues half strategy!",
+	"info_welcome_text": "Peter Duskbane, ready to challenge humanity?",
+	"info_fun_fact_text": "Peter believes the throne is his by right, and he won’t stop until it's reclaimed.",
+	"info_strategy_text": "Peter guesses by halving the number—always cutting the range in half. Watch for his methodical approach!"
 }
 
 var comp5 = {
@@ -85,9 +85,9 @@ var comp5 = {
 	"victory_text": "Yay, I won! Wait... what did I win again?",
 	"defeat_text": "That was so much fun! Can we have snacks now?",
 	"champion_text": "Me? A champion? Oh, this is so exciting! Do I get cake?",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my random strategy!",
+	"info_welcome_text": "Penny Blackwater, ready to have some fun?",
+	"info_fun_fact_text": "Penny is friends with David! They love to have fun together, even during battles.",
+	"info_strategy_text": "Penny’s strategy is completely random—expect the unexpected at any moment!"
 }
 
 var comp6 = {
@@ -103,9 +103,9 @@ var comp6 = {
 	"victory_text": "The best remain standing. You were never a match.",
 	"defeat_text": "Even the best stumble... but shadows always return.",
 	"champion_text": "The throne is mine. I no longer hide in the shadows.",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer prioritizes guessing numbers that contain the digits 4 or 5 (e.g., 4, 5, 14, 15, 24, 25, etc.)",
+	"info_welcome_text": "David Shadowtorn, ready to face your fate?",
+	"info_fun_fact_text": "David prefers to keep to the shadows with Penny, but his blade is sharp when he emerges.",
+	"info_strategy_text": "David focuses on numbers with 4 or 5 in them—watch for his preference towards these digits."
 }
 
 var comp7 = {
@@ -121,9 +121,9 @@ var comp7 = {
 	"victory_text": "This victory is for everyone, no matter their kind.",
 	"defeat_text": "Please, use your power wisely. The world depends on it.",
 	"champion_text": "A united world starts here. Let us walk this path together.",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer prioritizes guessing numbers that contain the digits 1 or 6 (e.g., 4, 5, 14, 15, 24, 25, etc.)",
+	"info_welcome_text": "Elara Dawnlight, ready to unite the world?",
+	"info_fun_fact_text": "Elara fights for peace, always thinking of the greater good.",
+	"info_strategy_text": "Elara favors numbers with 1 or 6 in them—look out for these digits in her guesses."
 }
 
 var comp8 = {
@@ -139,9 +139,9 @@ var comp8 = {
 	"victory_text": "Victory is mine! Power is the only truth.",
 	"defeat_text": "The stars turned their back on me this time... but I’ll take what is mine eventually.",
 	"champion_text": "I am the one who will rule, with power beyond the stars!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer alternates between guessing numbers near the smallest and largest edges, expanding its guesses by up to 30 units while staying within the valid range for increased unpredictability.",
+	"info_welcome_text": "Serah Dawnlight, ready to claim the power of the stars?",
+	"info_fun_fact_text": "Serah is driven by a hunger for power, always seeking to dominate.",
+	"info_strategy_text": "Serah alternates between guessing numbers near the smallest and largest edges, expanding by up to a random range for unpredictable results."
 }
 
 var comp9 = {
@@ -157,10 +157,9 @@ var comp9 = {
 	"victory_text": "I told you. The world will burn, and I will reign.",
 	"defeat_text": "You may have won this time, but next time, the fires of hell will consume you.",
 	"champion_text": "I am the queen of devils! Let the world burn in my name!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer prioritizes guessing numbers closest to the midpoint of the remaining range to efficiently narrow down the possibilities.",
-
+	"info_welcome_text": "Lilith Inferno, ready to set the world ablaze?",
+	"info_fun_fact_text": "Lilith is a force of destruction, leaving nothing but ashes in her wake.",
+	"info_strategy_text": "Lilith focuses on guessing numbers closest to the midpoint of the range to quickly narrow down the possibilities."
 }
 
 var comp10 = {
@@ -176,9 +175,9 @@ var comp10 = {
 	"victory_text": "Another victory to stoke the eternal flames!",
 	"defeat_text": "The fire flickers, but it will never die. I’ll return.",
 	"champion_text": "I am the eternal flame, and none can extinguish my glory!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer guesses numbers that are closest to multiples of Pi (π) within the current range, adding a mathematical twist to the guessing pattern.",
+	"info_welcome_text": "Kael Ardyn, the eternal flame, ready to fight for destiny.",
+	"info_fun_fact_text": "Kael believes in the eternal flame, burning brightly with destiny's fire.",
+	"info_strategy_text": "Kael guesses numbers closest to multiples of Pi (π) within the current range, adding a mathematical twist to the guessing pattern."
 }
 
 var comp11 = {
@@ -194,9 +193,9 @@ var comp11 = {
 	"victory_text": "Victory shines brightly in my hands!",
 	"defeat_text": "Your strength eclipsed mine today, but dawn always returns.",
 	"champion_text": "I am the champion... but the throne belongs to my brother, David. He will rule, and I’ll find peace.",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer guesses a number within a range of 10 numbers higher or lower than the player’s guess, adjusting for the boundaries of the possible number range, and defaults to a random guess if the range is not feasible.",
+	"info_welcome_text": "Freya Shadowtorn, guided by light to victory?",
+	"info_fun_fact_text": "Freya believes in her brother David and the power of light, even in the darkest of times.",
+	"info_strategy_text": "Freya guesses a number within a range of 10 numbers higher or lower than the player’s guess, adjusting for the boundaries of the possible range.",
 }
 
 var comp12 = {
@@ -212,9 +211,9 @@ var comp12 = {
 	"victory_text": "The storm has spoken, and it declares my triumph!",
 	"defeat_text": "The wind subsides, but I will return stronger than ever.",
 	"champion_text": "I am the storm incarnate. No one can stand against my thunder!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "The computer chooses a number between 1 and GameData.MAX_NUMBER that contains a “0” in it, falling back to a random number if no valid choices are found.",
+	"info_welcome_text": "Zephyr Windlord, the storm's chosen one, ready for battle.",
+	"info_fun_fact_text": "Zephyr believes the wind guides his every move.",
+	"info_strategy_text": "Zephyr always picks a number with a ‘0’ in it", 
 }
 
 var comp13 = {
@@ -230,9 +229,9 @@ var comp13 = {
 	"victory_text": "Another enemy frozen by nature’s might. The forest shields me once more!",
 	"defeat_text": "The chill may fade... but I am the shield of nature, and I will rise again.",
 	"champion_text": "I am the guardian of the woods, the frost shall crown me the eternal shield of nature!",
-	"info_welcome_text": "This is my secret info!",
-	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This strategy ensures the computer always selects a number that contains at least two identical digits (e.g., 11, 22, 202, 211, etc.) and is greater than or equal to 11.",
+	"info_welcome_text": "Sylva Greenhart, the shield of nature, stands ready.",
+	"info_fun_fact_text": "Sylva draws strength from the forest and the winter winds.",
+	"info_strategy_text": "Sylva always picks a number with two matching digits"
 }
 
 var comp14 = {
@@ -248,9 +247,9 @@ var comp14 = {
    "victory_text": "The woods cheer my victory—this throne is mine to protect!",
    "defeat_text": "A bird can fall, but the forest always picks itself up. I’ll be back!",
    "champion_text": "I am the king of the woods, the heart of nature’s might!",
-   "info_welcome_text": "This is my secret info!",
-   "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This strategy ensures that the computer selects a number that is a multiple of 5, within the range from 1 to GameData.MAX_NUMBER.",
+   "info_welcome_text": "Thalric Greenhart, master of the woods, awaits your challenge!",
+	"info_fun_fact_text": "Thalric has a deep connection with nature, and his bird instincts never fail him.",
+	"info_strategy_text": "Thalric always picks a number that's a multiple of 5. If it's in the range, he’ll go for it!"
 }
 
 var comp15 = {
@@ -266,7 +265,7 @@ var comp15 = {
    "victory_text": "The light of the stars shines bright. Victory is mine!",
    "defeat_text": "The night may have won, but the dawn always rises again.",
    "champion_text": "I am the chosen of the stars, the celestial champion of light!",
-   "info_welcome_text": "Quality over Quantity",
+   "info_welcome_text": "Zelora's motto is Quality over Quantity",
    "info_fun_fact_text": "Loves the Letter Q",
    "info_strategy_text": "QQQQQQQQ\nQQQQQQQ!",
 }
@@ -284,9 +283,9 @@ var comp16 = {
    "victory_text": "Another soul claimed by the shadows. Victory is mine.",
    "defeat_text": "You may have won today, but I’ll find you in your sleep... and then you will truly know fear.",
    "champion_text": "I am the true king of darkness, unchallenged and eternal!",
-   "info_welcome_text": "This is my secret info!",
-   "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This strategy makes the computer choose a number formed by repeating a random digit (e.g., 1, 11, 111, etc.) until it surpasses the maximum allowed number.",
+   "info_welcome_text": "Draegon Darkbane, master of darkness, awaits your soul.",
+   "info_fun_fact_text": "Draegon’s power grows stronger the more he is underestimated—beware!",
+   "info_strategy_text": "Draegon selects numbers with repeating digits",
 }
 
 var comp17 = {
@@ -302,9 +301,9 @@ var comp17 = {
    "victory_text": "Baa-haa! Baaa-haaa!",
    "defeat_text": "Maaahh... Maaaahhh!",
    "champion_text": "Baaaahh! I AM THE GOAT!",
-   "info_welcome_text": "This is my secret info!",
-   "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This strategy makes the computer choose a number that contains only unique digits, ensuring no repeated digits in the number.",
+   "info_welcome_text": "Baa-haa! Baaa-haaa!",
+   "info_fun_fact_text": "Fun Baaaahh!!",
+   "info_strategy_text": "TheGoat always picks numbers where no digit repeats. Every choice is unique, just like me!"
 }
 
 var comp18 = {
@@ -320,9 +319,9 @@ var comp18 = {
    "victory_text": "Ah, victory, my good fellow! Quite a delightful affair, wouldn’t you agree?",
    "defeat_text": "Oh, well done indeed. Perhaps we can enjoy a nice cup of tea together after this little scuffle?",
    "champion_text": "And so, it is I who shall wear the crown! A true champion of unparalleled grace!",
-   "info_welcome_text": "This is my secret info!",
-   "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "The strategy chooses a number where the first and last digits are the same, selecting double-digit numbers like 11, 22, 33 if MAX_NUMBER is below 100, or finding numbers like 101, 111, 121 if MAX_NUMBER is 100 or higher.",
+   "info_welcome_text": "Prepare yourself for a gentleman’s duel! I do declare this battle will be most entertaining!",
+   "info_fun_fact_text": "I once won a game of chess using only pawns. Quite the strategist, wouldn't you say?",
+   "info_strategy_text": "Sir Bone always selects numbers where the first and last digits are the same."
 }
 
 var comp19 = {
@@ -338,8 +337,8 @@ var comp19 = {
    "victory_text": "Another soul claimed! The storm rages on, and I remain unbroken!",
    "defeat_text": "You might’ve beaten me, but I’ll crawl back for a rematch, sooner than you think.",
    "champion_text": "The storm can rage all it wants, but I’m already dead... and unbeatable!",
-   "info_welcome_text": "This is my secret info!",
-   "info_fun_fact_text": "This is my fun fact!",
+   "info_welcome_text": "I’m not just some rotting corpse—you’ll regret underestimating me!",
+   "info_fun_fact_text": "Fun fact: I’m already dead, and I’m still haunting you!",
    "info_strategy_text": "T + H + R + O + N + E",
 }
 

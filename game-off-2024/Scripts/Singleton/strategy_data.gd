@@ -33,7 +33,7 @@ func choose_computer_number():
 		"choose_unique_digits_strategy":
 			choose_unique_digits_strategy()
 		"choose_throne_number":
-			BattleData.computer_number = 34 # T8+ H4 + R7 + O6 + N6 + E3
+			BattleData.computer_number = 80 # T=20, H=8, R=18, O=15, N=14, E=5
 		_: 
 			print("Default")
 			BattleData.computer_number = randi() % GameData.MAX_NUMBER + 1
@@ -193,7 +193,6 @@ func choose_same_first_last_digit_strategy() -> int:
 
 ## Guesses
 func smart_computer_guess() -> int:
-
 	var strategy = BattleData.computer.computer_strategy
 	if strategy == "random":
 		strategy = guess_strategies[randi() % guess_strategies.size()]
@@ -211,7 +210,7 @@ func smart_computer_guess() -> int:
 			return range_split_strategy()
 		"preference_for_4_and_5_strategy":
 			return preference_for_4_and_5_strategy()
-		"preference_for_1_and_6_strategy()":
+		"preference_for_1_and_6_strategy":
 			return preference_for_1_and_6_strategy()	
 		"pi_explorer_strategy":
 			return pi_explorer_strategy()
@@ -366,7 +365,7 @@ func preference_for_1_and_6_strategy() -> int:
 		if i not in BattleData.computer_previous_guesses:
 			possible_numbers.append(i)
 	
-	# Filter numbers that contain 4 or 5 in their digits
+	# Filter numbers that contain 1 or 6 in their digits
 	var preferred_numbers = []
 	for num in possible_numbers:
 		if str(num).find("1") != -1 or str(num).find("6") != -1:

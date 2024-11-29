@@ -10,11 +10,20 @@ class_name UI
 @onready var number_label = $PlayerInfo/PlayerInfoBox/NumberText
 @onready var avatar_image = $"PlayerInfo/PlayerInfoBox/Avatar Frame/Avatar"
 
-#Tournament UI
+func _input(event):
+	# Check for left mouse button
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			# Hide the entire CanvasLayer when left mouse button is clicked
+			set_player_info_visible(false)
+	# Check for touch input (for mobile)
+	elif event is InputEventScreenTouch:
+		if event.pressed:
+			# Hide the entire CanvasLayer when screen is touched
+			set_player_info_visible(false)
 
-var number = 0
-var nickname =  "Temp"
-
+func _ready():
+	set_player_info_visible(false)
 
 func setup_ui():
 	var scene = get_scene_name()
@@ -86,3 +95,18 @@ func set_background(background_path):
 		background_image.texture = texture
 	else:
 		print("Failed to load texture from path:", background_path)
+
+func set_player_info_visible(new_visibility):
+	%PlayerStrategy.visible = new_visibility
+
+func set_player_info():
+	print("Setting player info")
+	print(BattleData.computer)
+	%WelcomeText.text = BattleData.computer.info_welcome_text
+	%FunFactText.text = BattleData.computer.info_fun_fact_text
+	%StrategyText.text = BattleData.computer.info_strategy_text
+
+
+func _on_view_info_button_pressed() -> void:
+	set_player_info()
+	set_player_info_visible(true)

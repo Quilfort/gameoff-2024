@@ -20,10 +20,10 @@ func _input(event):
 			# Hide the entire CanvasLayer when screen is touched
 			set_dialog_visible(false)
 
-func set_dialog_visible(visible: bool):
-	is_dialog_visible = visible
+func set_dialog_visible(new_visibility: bool):
+	is_dialog_visible = new_visibility
 	# Hide/show the entire CanvasLayer
-	%CanvasLayer.visible = visible
+	%CanvasLayer.visible = new_visibility
 
 func setup_character_dialog():
 	var scene = get_scene_name()
