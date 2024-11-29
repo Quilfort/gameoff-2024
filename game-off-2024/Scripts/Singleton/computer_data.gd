@@ -3,7 +3,7 @@ extends Node
 var comp1 = {
 	"id": 1,
 	"name": "Celeste Ardyn",
-	"computer_strategy": "normal",
+	"computer_strategy": "default",
 	"avatar_path": "res://Assets/Characters/Comp1/Comp1_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp1/Comp1.png",
 	"before_battle_text": "The throne is mine by right. Do you dare defy me?",
@@ -108,7 +108,7 @@ var comp6 = {
 var comp7 = {
 	"id": 7,
 	"name": "Elara Dawnlight",
-	"computer_strategy": "default",
+	"computer_strategy": "even",
 	"avatar_path": "res://Assets/Characters/Comp7/Comp7_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp7/Comp7.png",
 	"before_battle_text": "I fight not for myself, but for a world united in peace.",
@@ -126,7 +126,7 @@ var comp7 = {
 var comp8 = {
 	"id": 8,
 	"name": "Serah Dawnlight",
-	"computer_strategy": "default",
+	"computer_strategy": "even",
 	"avatar_path": "res://Assets/Characters/Comp8/Comp8_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp8/Comp8.png",
 	"before_battle_text": "My sister Elara may fight for peace, but I fight for power. Let’s see who truly deserves the throne.",
@@ -181,7 +181,7 @@ var comp10 = {
 var comp11 = {
 	"id": 11,
 	"name": "Freya Shadowtorn",
-	"computer_strategy": "default",
+	"computer_strategy": "uneven",
 	"avatar_path": "res://Assets/Characters/Comp11/Comp11_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp11/Comp11.png",
 	"before_battle_text": "The light shall guide me to victory. Let’s begin.",
@@ -235,7 +235,7 @@ var comp13 = {
 var comp14 = {
    "id": 14,
    "name": "Thalric Greenhart",
-   "computer_strategy": "default",
+   "computer_strategy": "uneven",
    "avatar_path": "res://Assets/Characters/Comp14/Comp14_Avatar.png",
    "character_path": "res://Assets/Characters/Comp14/Comp14.png",
    "before_battle_text": "My bird brain is ready to soar. Prepare to face the wind’s fury!",
@@ -253,7 +253,7 @@ var comp14 = {
 var comp15 = {
    "id": 15,
    "name": "Zelora Dawncrest",
-   "computer_strategy": "default",
+  	"computer_strategy": "uneven",
    "avatar_path": "res://Assets/Characters/Comp15/Comp15_Avatar.png",
    "character_path": "res://Assets/Characters/Comp15/Comp15.png",
    "before_battle_text": "The stars above guide my every step, and they will not falter now.",
@@ -271,7 +271,7 @@ var comp15 = {
 var comp16 = {
    "id": 16,
    "name": "Draegon Darkbane",
-   "computer_strategy": "default",
+   "computer_strategy": "even",
    "avatar_path": "res://Assets/Characters/Comp16/Comp16_Avatar.png",
    "character_path": "res://Assets/Characters/Comp16/Comp16.png",
    "before_battle_text": "Your fear echoes through the abyss. It will consume you.",
@@ -289,7 +289,7 @@ var comp16 = {
 var comp17 = {
    "id": 17,
    "name": "TheGoat",
-   "computer_strategy": "default",
+   "computer_strategy": "half_guess",
    "avatar_path": "res://Assets/Characters/Comp17/Comp17_Avatar.png",
    "character_path": "res://Assets/Characters/Comp17/Comp17.png",
    "before_battle_text": "Baa! Baaa-haaahh!",
@@ -307,7 +307,7 @@ var comp17 = {
 var comp18 = {
    "id": 18,
    "name": "Sir Bone",
-   "computer_strategy": "default",
+   "computer_strategy": "uneven",
    "avatar_path": "res://Assets/Characters/Comp18/Comp18_Avatar.png",
    "character_path": "res://Assets/Characters/Comp18/Comp18.png",
    "before_battle_text": "Ah, my dear friend, I do hope you’ve prepared for what’s to come. Shall we begin?",
@@ -322,7 +322,7 @@ var comp18 = {
 var comp19 = {
    "id": 19,
    "name": "Grimshaw Rotfury",
-   "computer_strategy": "default",
+   "computer_strategy": "half_guess",
    "avatar_path": "res://Assets/Characters/Comp19/Comp19_Avatar.png",
    "character_path": "res://Assets/Characters/Comp19/Comp19.png",
    "before_battle_text": "You might think you can bury me, but I’ll rise... and storm your battlefield!",
@@ -340,7 +340,7 @@ var comp19 = {
 var comp_tutorial = {
    "id": 20,
    "name": "King Ardyn",
-   "computer_strategy": "default",
+   "computer_strategy": "tutorial",
    "avatar_path": "res://Assets/Characters/CompTutorial/CompTutorial_Avatar.png",
    "character_path": "res://Assets/Characters/CompTutorial/CompTutorial.png",
    "before_battle_text": "I will defend my throne with all I’ve learned. Let’s begin your training.",

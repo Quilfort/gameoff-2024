@@ -22,6 +22,7 @@ BattleData="*res://Scripts/Singleton/battle_data.gd"
 ComputerData="*res://Scripts/Singleton/computer_data.gd"
 GameData="*res://Scripts/Singleton/game_data.gd"
 PlayerData="*res://Scripts/Singleton/player_data.gd"
+StrategyData="*res://Scripts/Singleton/strategy_data.gd"
 
 [display]
 
