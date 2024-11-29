@@ -232,11 +232,11 @@ func _on_submit_button_pressed():
 	if !battle_active:
 		print("Game is not active")
 	elif is_player_turn:
-		var guess = %GuessInput.text.to_int()
-		if guess < 1 or guess > GameData.MAX_NUMBER:
+		BattleData.player_guess = %GuessInput.text.to_int()
+		if BattleData.player_guess < 1 or BattleData.player_guess > GameData.MAX_NUMBER:
 			%PlayerResultLabel.text = "Please enter a number between 1 and %d." % GameData.MAX_NUMBER
 			return
-		check_guess(guess)
+		check_guess(BattleData.player_guess)
 
 func visibility_battle_field(visible: bool):
 	#%InstructionLabel.visible = visible

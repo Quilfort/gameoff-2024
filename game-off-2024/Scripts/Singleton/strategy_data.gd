@@ -5,7 +5,7 @@ var prox_midpoint = 0
 func smart_computer_guess() -> int:
 	var debug = true
 	if debug:
-		return pi_explorer_strategy()
+		return guess_within_player_range()
 
 
 	match BattleData.computer.computer_strategy:
@@ -25,6 +25,8 @@ func smart_computer_guess() -> int:
 			return preference_for_1_and_6_strategy()	
 		"pi_explorer_strategy":
 			return pi_explorer_strategy()
+		"guess_within_player_range":
+			return guess_within_player_range()
 		_:
 			print("Default")
 			BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
@@ -221,4 +223,23 @@ func pi_explorer_strategy() -> int:
 		# Default to a random guess if no suitable Pi multiple is found
 		BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
 	
+	return BattleData.last_guess
+
+func guess_within_player_range() -> int:
+	print("Guess Within Range Strategy")
+	
+	# Check if the player's guess is 0 or the range is not possible
+	if BattleData.player_guess == 0 or (BattleData.player_guess - 10 < BattleData.computer_min and BattleData.player_guess + 10 > BattleData.computer_max):
+		# If the player's guess is 0 or the range is not possible, guess randomly
+		BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
+		print("Random Guess: ", BattleData.last_guess)
+		return BattleData.last_guess
+
+	# Calculate the valid range based on the player's guess
+	var lower_bound = max(BattleData.computer_min, BattleData.player_guess - 10)
+	var upper_bound = min(BattleData.computer_max, BattleData.player_guess + 10)
+
+	# The computer guesses a random number within the valid range
+	BattleData.last_guess = randi() % (upper_bound - lower_bound + 1) + lower_bound
+
 	return BattleData.last_guess

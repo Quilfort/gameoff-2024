@@ -184,7 +184,7 @@ var comp10 = {
 var comp11 = {
 	"id": 11,
 	"name": "Freya Shadowtorn",
-	"computer_strategy": "proximity_bias_strategy",
+	"computer_strategy": "guess_within_player_range",
 	"avatar_path": "res://Assets/Characters/Comp11/Comp11_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp11/Comp11.png",
 	"before_battle_text": "The light shall guide me to victory. Let’s begin.",
@@ -196,7 +196,7 @@ var comp11 = {
 	"champion_text": "I am the champion... but the throne belongs to my brother, David. He will rule, and I’ll find peace.",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer guesses a number within a range of 10 numbers higher or lower than the player’s guess, adjusting for the boundaries of the possible number range, and defaults to a random guess if the range is not feasible.",
 }
 
 var comp12 = {
