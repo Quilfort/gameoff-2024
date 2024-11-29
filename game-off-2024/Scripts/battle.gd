@@ -14,21 +14,11 @@ var computer_attempts = 0
 var computer_timer = 0     
 var computer_delay = 2.0
 
-# Computer Strategy
-var computer_min = 1
-var computer_max = GameData.MAX_NUMBER
-var computer_previous_guesses = []
+
 
 # Variables for storing guess history
 var player_guess_history = []
 var computer_guess_history = []
-
-# Flags for half_guess strategy
-var last_guess = 0
-var half_guess_difference = 0
-var is_guess_too_low = false
-var is_guess_too_high = false
-
 
 func _ready():
 	setup_game()
@@ -73,13 +63,23 @@ func setup_game():
 	player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
-	computer_min = 1
-	computer_max = GameData.MAX_NUMBER
-	computer_previous_guesses.clear()
+
+	# Computer Strategy (Find another thing later)
+	BattleData.computer_previous_guesses = []
+	BattleData.computer_previous_guesses.clear()
+
 	player_guess_history.clear()
 	computer_guess_history.clear()
-	is_guess_too_high = false
-	half_guess_difference = 0
+
+	# Refactor later
+	BattleData.computer_min = 1
+	BattleData.computer_max = GameData.MAX_NUMBER
+	# Flags for half_guess strategy
+	BattleData.last_guess = 0
+	BattleData.half_guess_difference = 0
+	BattleData.is_guess_too_low = false
+	BattleData.is_guess_too_high = false
+
 	
 	#Hide elements
 	visibility_battle_field(false)
@@ -95,8 +95,10 @@ func setup_game():
 	%GuessInput.clear()
 
 	#Debug Print Numbers
+	print("Computer Strategy:\t",BattleData.computer.computer_strategy)
 	print("Computer Number:\t\t",computer_number)
 	print("Player Number:\t\t",BattleData.player_number)
+
 
 	#Logic to determine who starts
 	which_player_starts()
@@ -187,27 +189,27 @@ func check_guess(guess: int):
 
 func computer_guesses():
 	var guess = smart_computer_guess()
-	computer_previous_guesses.append(guess)
+	BattleData.computer_previous_guesses.append(guess)
 	computer_attempts += 1
 	var result = ""
 	
 	%ComputerGuessLabel.text = BattleData.computer.name + " guessed: " + str(guess)
 	
-	is_guess_too_low = false
-	is_guess_too_high = false
+	BattleData.is_guess_too_low = false
+	BattleData.is_guess_too_high = false
 	
 	if guess < player_number:
 		result = "Too low!"
 		%BattleStatusLabel.text = "Your turn"
 		%ComputerResultLabel.text = "Computer guessed too low!"
-		computer_min = guess + 1
-		is_guess_too_low = true
+		BattleData.computer_min = guess + 1
+		BattleData.is_guess_too_low = true
 	elif guess > player_number:
 		result = "Too high!"
 		%BattleStatusLabel.text = "Your turn"
 		%ComputerResultLabel.text = "Computer guessed too high!"
-		computer_max = guess - 1
-		is_guess_too_high = true
+		BattleData.computer_max = guess - 1
+		BattleData.is_guess_too_high = true
 	else:
 		result = "Correct!"
 		%BattleStatusLabel.text = "You lost"
@@ -228,54 +230,54 @@ func computer_guesses():
 # Handle Computer Strategy Logic
 func even_strategy() -> int:
 	var possible_numbers = []
-	for i in range(computer_min, computer_max + 1):
-		if i not in computer_previous_guesses and i % 2 == 0:
+	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
+		if i not in BattleData.computer_previous_guesses and i % 2 == 0:
 			possible_numbers.append(i)
 	
 	if possible_numbers.size() > 0:
-		last_guess = possible_numbers[randi() % possible_numbers.size()]
+		BattleData.last_guess = possible_numbers[randi() % possible_numbers.size()]
 	else:
 		# If no even options left, revert to any remaining number
-		last_guess = computer_min + (computer_max - computer_min) / 2.0
+		BattleData.last_guess = BattleData.computer_min + (BattleData.computer_max - BattleData.computer_min) / 2.0
 	
-	return last_guess
+	return BattleData.last_guess
 
 
 func uneven_strategy() -> int:
 	var possible_numbers = []
-	for i in range(computer_min, computer_max + 1):
-		if i not in computer_previous_guesses and i % 2 == 1:
+	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
+		if i not in BattleData.computer_previous_guesses and i % 2 == 1:
 			possible_numbers.append(i)
 	
 	if possible_numbers.size() > 0:
-		last_guess = possible_numbers[randi() % possible_numbers.size()]
+		BattleData.last_guess = possible_numbers[randi() % possible_numbers.size()]
 	else:
 		# If no odd options left, revert to any remaining number
-		last_guess = computer_min + (computer_max - computer_min) / 2.0
+		BattleData.last_guess = BattleData.computer_min + (BattleData.computer_max - BattleData.computer_min) / 2.0
 	
-	return last_guess
+	return BattleData.last_guess
 
 
 func half_guess() -> int:
-	if last_guess == 0:
+	if BattleData.last_guess == 0:
 		# First guess: Start at half of MAX_NUMBER
-		last_guess = ceil(float(GameData.MAX_NUMBER) / 2)
+		BattleData.last_guess = ceil(float(GameData.MAX_NUMBER) / 2)
 	else:
 		# Adjust the range based on the previous guess feedback
-		if is_guess_too_low:
-			computer_min = last_guess + 1
-		elif is_guess_too_high:
-			computer_max = last_guess - 1
+		if BattleData.is_guess_too_low:
+			BattleData.computer_min = BattleData.last_guess + 1
+		elif BattleData.is_guess_too_high:
+			BattleData.computer_max = BattleData.last_guess - 1
 
 		# Recalculate half of the current search range based on the adjusted min-max range
-		half_guess_difference = ceil(float(computer_max - computer_min) / 2)
+		BattleData.half_guess_difference = ceil(float(BattleData.computer_max - BattleData.computer_min) / 2)
 		
 		# Set the next guess to the midpoint of the updated range
-		last_guess = computer_min + half_guess_difference
+		BattleData.last_guess = BattleData.computer_min + BattleData.half_guess_difference
 	
 	# Clamp to ensure the guess is within bounds
-	last_guess = clamp(last_guess, computer_min, computer_max)
-	return last_guess
+	BattleData.last_guess = clamp(BattleData.last_guess, BattleData.computer_min, BattleData.computer_max)
+	return BattleData.last_guess
 
 
 func smart_computer_guess() -> int:
@@ -287,8 +289,8 @@ func smart_computer_guess() -> int:
 		"half_guess":
 			return half_guess()
 		_:
-			last_guess = randi() % (computer_max - computer_min + 1) + computer_min
-			return last_guess
+			BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
+			return BattleData.last_guess
 
 
 ## Button

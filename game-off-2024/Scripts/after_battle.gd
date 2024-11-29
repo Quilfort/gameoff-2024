@@ -100,6 +100,13 @@ func reset_battle_data():
 	BattleData.player_number = 0
 	BattleData.computer = null
 	BattleData.battle_winners = []
+	BattleData.computer_min = 0
+	BattleData.computer_max = 0
+	BattleData.last_guess = 0
+	BattleData.half_guess_difference = 0
+	BattleData.is_guess_too_low = false
+	BattleData.is_guess_too_high = false
+	BattleData.computer_previous_guesses = []	
 
 
 # Function to create duos
