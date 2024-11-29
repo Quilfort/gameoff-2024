@@ -28,6 +28,11 @@ func setup_general_ui():
 	%UI.set_background("res://Assets/Background/bg_tournament.png")
 	%PlayerChoice.visible = false
 
+func set_computer_number():
+	StrategyData.choose_computer_number()
+
+
+
 
 func _on_start_button_pressed() -> void:
 	if !BattleData.battle_active:
@@ -37,6 +42,7 @@ func _on_start_button_pressed() -> void:
 			return
 		BattleData.battle_active = true
 		BattleData.player_number = player_number
-		# Set Computer Data
 		%GuessInput.clear()
+		# Set Computer Data
+		set_computer_number()
 		get_tree().change_scene_to_file("res://Scenes/battle.tscn")

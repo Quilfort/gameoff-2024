@@ -107,6 +107,8 @@ func reset_battle_data():
 	BattleData.is_guess_too_low = false
 	BattleData.is_guess_too_high = false
 	BattleData.computer_previous_guesses = []	
+	BattleData.player_guess = 0	
+	BattleData.computer_number = 0
 
 
 # Function to create duos

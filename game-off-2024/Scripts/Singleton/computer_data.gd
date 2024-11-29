@@ -202,7 +202,7 @@ var comp11 = {
 var comp12 = {
 	"id": 12,
 	"name": "Zephyr Windlord",
-	"computer_strategy": "proximity_bias_strategy",
+	"computer_strategy": "choose_with_zero",
 	"avatar_path": "res://Assets/Characters/Comp12/Comp12_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp12/Comp12.png",
 	"before_battle_text": "The wind whispers of victory. Prepare yourself!",
@@ -214,13 +214,13 @@ var comp12 = {
 	"champion_text": "I am the storm incarnate. No one can stand against my thunder!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "The computer chooses a number between 1 and GameData.MAX_NUMBER that contains a “0” in it, falling back to a random number if no valid choices are found.",
 }
 
 var comp13 = {
 	"id": 13,
 	"name": "Sylva Greenhart",
-	"computer_strategy": "proximity_bias_strategy",
+	"computer_strategy": "choose_double_digit_strategy",
 	"avatar_path": "res://Assets/Characters/Comp13/Comp13_Avatar.png",
 	"character_path": "res://Assets/Characters/Comp13/Comp13.png",
 	"before_battle_text": "I am the shield of nature, and nature’s wrath is cold as ice. Prepare yourself!",
@@ -232,13 +232,13 @@ var comp13 = {
 	"champion_text": "I am the guardian of the woods, the frost shall crown me the eternal shield of nature!",
 	"info_welcome_text": "This is my secret info!",
 	"info_fun_fact_text": "This is my fun fact!",
-	"info_strategy_text": "This is my strategy!",
+	"info_strategy_text": "This strategy ensures the computer always selects a number that contains at least two identical digits (e.g., 11, 22, 202, 211, etc.) and is greater than or equal to 11.",
 }
 
 var comp14 = {
    "id": 14,
    "name": "Thalric Greenhart",
-   "computer_strategy": "proximity_bias_strategy",
+   "computer_strategy": "choose_multiple_of_5_strategy",
    "avatar_path": "res://Assets/Characters/Comp14/Comp14_Avatar.png",
    "character_path": "res://Assets/Characters/Comp14/Comp14.png",
    "before_battle_text": "My bird brain is ready to soar. Prepare to face the wind’s fury!",
@@ -250,13 +250,13 @@ var comp14 = {
    "champion_text": "I am the king of the woods, the heart of nature’s might!",
    "info_welcome_text": "This is my secret info!",
    "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This is my strategy!",
+   "info_strategy_text": "This strategy ensures that the computer selects a number that is a multiple of 5, within the range from 1 to GameData.MAX_NUMBER.",
 }
 
 var comp15 = {
    "id": 15,
    "name": "Zelora Dawncrest",
-   "computer_strategy": "proximity_bias_strategy",
+   "computer_strategy": "choose_letter_q_strategy",
    "avatar_path": "res://Assets/Characters/Comp15/Comp15_Avatar.png",
    "character_path": "res://Assets/Characters/Comp15/Comp15.png",
    "before_battle_text": "The stars above guide my every step, and they will not falter now.",
@@ -266,15 +266,15 @@ var comp15 = {
    "victory_text": "The light of the stars shines bright. Victory is mine!",
    "defeat_text": "The night may have won, but the dawn always rises again.",
    "champion_text": "I am the chosen of the stars, the celestial champion of light!",
-   "info_welcome_text": "This is my secret info!",
-   "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This is my strategy!",
+   "info_welcome_text": "Quality over Quantity",
+   "info_fun_fact_text": "Loves the Letter Q",
+   "info_strategy_text": "QQQQQQQQ\nQQQQQQQ!",
 }
 
 var comp16 = {
    "id": 16,
    "name": "Draegon Darkbane",
-   "computer_strategy": "even",
+   "computer_strategy": "choose_repeated_digits_strategy",
    "avatar_path": "res://Assets/Characters/Comp16/Comp16_Avatar.png",
    "character_path": "res://Assets/Characters/Comp16/Comp16.png",
    "before_battle_text": "Your fear echoes through the abyss. It will consume you.",
@@ -286,13 +286,13 @@ var comp16 = {
    "champion_text": "I am the true king of darkness, unchallenged and eternal!",
    "info_welcome_text": "This is my secret info!",
    "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This is my strategy!",
+   "info_strategy_text": "This strategy makes the computer choose a number formed by repeating a random digit (e.g., 1, 11, 111, etc.) until it surpasses the maximum allowed number.",
 }
 
 var comp17 = {
    "id": 17,
    "name": "TheGoat",
-   "computer_strategy": "proximity_bias_strategy",
+   "computer_strategy": "choose_unique_digits_strategy",
    "avatar_path": "res://Assets/Characters/Comp17/Comp17_Avatar.png",
    "character_path": "res://Assets/Characters/Comp17/Comp17.png",
    "before_battle_text": "Baa! Baaa-haaahh!",
@@ -304,13 +304,13 @@ var comp17 = {
    "champion_text": "Baaaahh! I AM THE GOAT!",
    "info_welcome_text": "This is my secret info!",
    "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This is my strategy!",
+   "info_strategy_text": "This strategy makes the computer choose a number that contains only unique digits, ensuring no repeated digits in the number.",
 }
 
 var comp18 = {
    "id": 18,
    "name": "Sir Bone",
-   "computer_strategy": "uneven",
+   "computer_strategy": "choose_same_first_last_digit_strategy",
    "avatar_path": "res://Assets/Characters/Comp18/Comp18_Avatar.png",
    "character_path": "res://Assets/Characters/Comp18/Comp18.png",
    "before_battle_text": "Ah, my dear friend, I do hope you’ve prepared for what’s to come. Shall we begin?",
@@ -319,13 +319,16 @@ var comp18 = {
    "initiative_lose_text": "A bit of a setback, I must say. But no matter, we’ll carry on!",
    "victory_text": "Ah, victory, my good fellow! Quite a delightful affair, wouldn’t you agree?",
    "defeat_text": "Oh, well done indeed. Perhaps we can enjoy a nice cup of tea together after this little scuffle?",
-   "champion_text": "And so, it is I who shall wear the crown! A true champion of unparalleled grace!"
+   "champion_text": "And so, it is I who shall wear the crown! A true champion of unparalleled grace!",
+   "info_welcome_text": "This is my secret info!",
+   "info_fun_fact_text": "This is my fun fact!",
+   "info_strategy_text": "The strategy chooses a number where the first and last digits are the same, selecting double-digit numbers like 11, 22, 33 if MAX_NUMBER is below 100, or finding numbers like 101, 111, 121 if MAX_NUMBER is 100 or higher.",
 }
 
 var comp19 = {
    "id": 19,
    "name": "Grimshaw Rotfury",
-   "computer_strategy": "half_guess",
+   "computer_strategy": "choose_throne_number",
    "avatar_path": "res://Assets/Characters/Comp19/Comp19_Avatar.png",
    "character_path": "res://Assets/Characters/Comp19/Comp19.png",
    "before_battle_text": "You might think you can bury me, but I’ll rise... and storm your battlefield!",
@@ -337,7 +340,7 @@ var comp19 = {
    "champion_text": "The storm can rage all it wants, but I’m already dead... and unbeatable!",
    "info_welcome_text": "This is my secret info!",
    "info_fun_fact_text": "This is my fun fact!",
-   "info_strategy_text": "This is my strategy!",
+   "info_strategy_text": "T + H + R + O + N + E",
 }
 
 var comp_tutorial = {

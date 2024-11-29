@@ -23,6 +23,7 @@ var is_guess_too_high = false
 
 # Computer Strategy
 var computer_previous_guesses = []
+var computer_number = 0
 
 
 var player_guess = 0

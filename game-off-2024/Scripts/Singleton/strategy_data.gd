@@ -1,8 +1,10 @@
 extends Node
 
+# REMOVE RETURNS AND PRINT STATEMENTS
+
 var prox_midpoint = 0
 
-var strategies = [
+var guess_strategies = [
 	"even", 
 	"uneven", 
 	"half_guess", 
@@ -14,11 +16,187 @@ var strategies = [
 	"guess_within_player_range",
 	]
 
+## Choose Computer Number
+func choose_computer_number():
+	var strategy = BattleData.computer.computer_strategy
+	match strategy:
+		"choose_with_zero":
+			choose_number_with_zero()
+		"choose_double_digit_strategy":
+			choose_double_digit_strategy()
+		"choose_multiple_of_5_strategy":
+			choose_multiple_of_5_strategy()
+		"choose_letter_q_strategy":
+			choose_letter_q_strategy()
+		"choose_repeated_digits_strategy":
+			choose_repeated_digits_strategy()
+		"choose_unique_digits_strategy":
+			choose_unique_digits_strategy()
+		"choose_throne_number":
+			BattleData.computer_number = 34 # T8+ H4 + R7 + O6 + N6 + E3
+		_: 
+			print("Default")
+			BattleData.computer_number = randi() % GameData.MAX_NUMBER + 1
+
+# Strategy to choose a number with a 0 in it
+func choose_number_with_zero():
+	var valid_numbers = []
+	# Loop through all numbers from 1 to GameData.MAX_NUMBER and check if they contain '0'
+	for num in range(1, GameData.MAX_NUMBER + 1):
+		if str(num).find("0") != -1:
+			valid_numbers.append(num)
+	
+	# If we found any valid numbers, pick one at random
+	if valid_numbers.size() > 0:
+		BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
+		print("Chosen number with 0: ", BattleData.computer_number)
+	else:
+		# If no valid number with 0 is found, just default to a random number
+		BattleData.computer_number = randi() % GameData.MAX_NUMBER + 1
+
+func choose_double_digit_strategy() -> int:
+	print("Double Digit Strategy")
+	
+	# Define the valid range starting from 11 up to GameData.MAX_NUMBER
+	var valid_numbers = []
+
+	for num in range(11, GameData.MAX_NUMBER + 1):
+		if is_double_digit(num):
+			valid_numbers.append(num)
+
+	# Randomly select a valid number
+	BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
+	print("Computer chose: ", BattleData.computer_number)
+	return BattleData.computer_number
+
+
+# Helper function to check if a number has at least two identical digits
+func is_double_digit(number: int) -> bool:
+	var str_number = str(number)
+	for i in range(str_number.length()):
+		if str_number.count(str_number[i]) >= 2:
+			return true
+	return false
+
+
+func choose_multiple_of_5_strategy() -> int:
+	print("Multiple of 5 Strategy")
+
+	# Define the valid range from 1 to GameData.MAX_NUMBER
+	var valid_numbers = []
+
+	for num in range(1, GameData.MAX_NUMBER + 1):
+		if num % 5 == 0:
+			valid_numbers.append(num)
+
+	# Randomly select a valid number from the list
+	BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
+	print("Computer chose: ", BattleData.computer_number)
+	return BattleData.computer_number
+
+func choose_letter_q_strategy() -> int:
+	print("Choose 7 or 77 Strategy")
+
+	# Define valid options (7 or 77) (Q or QQ)
+	var valid_numbers = [7, 77]
+
+	# Randomly select one of the valid numbers
+	BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
+	print("Computer chose: ", BattleData.computer_number)
+	return BattleData.computer_number
+
+
+# Strategy: Choose a number based on repeated digits (e.g. 1, 11, 111, etc.)
+func choose_repeated_digits_strategy() -> int:
+	print("Choose Repeated Digits Strategy")
+
+	var base_digit = randi() % 9 + 1  # Random digit between 1 and 9
+	var repeated_number = str(base_digit)
+	var max_number = GameData.MAX_NUMBER
+
+	# Build a number by repeating the base digit until it exceeds the max number
+	while repeated_number.to_int() <= max_number:
+		repeated_number += str(base_digit)
+
+	# Return the last valid repeated number (one step before exceeding the max number)
+	BattleData.computer_number = repeated_number.left(repeated_number.length() - 1).to_int()
+	print("Computer chose: ", BattleData.computer_number)
+	return BattleData.computer_number
+
+# Strategy: Choose a number where every digit is unique
+func choose_unique_digits_strategy() -> int:
+	print("Choose Unique Digits Strategy")
+
+	var max_number = GameData.MAX_NUMBER
+	var unique_number = -1
+
+	# Loop until we find a number with all unique digits
+	while true:
+		unique_number = randi() % max_number + 1
+		var unique_digits = str(unique_number).split("")
+		
+		# Use a dictionary to check if all digits are unique
+		var digits_dict = {}
+		var is_unique = true
+		
+		for digit in unique_digits:
+			if digits_dict.has(digit):  # If the digit is already in the dictionary, it's a repeat
+				is_unique = false
+				break
+			digits_dict[digit] = true  # Add the digit to the dictionary
+		
+		if is_unique:
+			break  # Valid number with unique digits found
+		
+	BattleData.computer_number = unique_number
+	print("Computer chose: ", BattleData.computer_number)
+	return BattleData.computer_number
+
+# Strategy: Choose a number between 100 and MAX_NUMBER where the first and last digits are the same
+# If MAX_NUMBER is below 100, choose double digits like 11, 22, 33, etc.
+func choose_same_first_last_digit_strategy() -> int:
+	print("Choose Same First and Last Digit Strategy")
+
+	var max_number = GameData.MAX_NUMBER
+	var number = -1
+
+	# If MAX_NUMBER is below 100, choose a double-digit number with same digits
+	if max_number < 100:
+		# Loop through double-digit numbers with same digits
+		var possible_numbers = []
+		for i in range(1, 10):  # Digits 1-9
+			var num = i * 10 + i  # Create numbers like 11, 22, 33, etc.
+			if num <= max_number:
+				possible_numbers.append(num)
+
+		# Choose a random number from the possible double-digit numbers
+		if possible_numbers.size() > 0:
+			number = possible_numbers[randi() % possible_numbers.size()]
+		else:
+			# If no valid number exists, default to a random number in range
+			number = randi() % (max_number - 10 + 1) + 10
+
+	else:
+		# If MAX_NUMBER is 100 or higher, pick a number between 100 and MAX_NUMBER
+		while true:
+			number = randi() % (max_number - 100 + 1) + 100  # Ensure the number is between 100 and MAX_NUMBER
+			var num_str = str(number)
+
+			# Check if the first and last digits are the same
+			if num_str[0] == num_str[num_str.length() - 1]:
+				break  # Found a number where first and last digits are the same
+
+	BattleData.computer_number = number
+	print("Computer chose: ", BattleData.computer_number)
+	return BattleData.computer_number
+
+
+## Guesses
 func smart_computer_guess() -> int:
 
 	var strategy = BattleData.computer.computer_strategy
 	if strategy == "random":
-		strategy = strategies[randi() % strategies.size()]
+		strategy = guess_strategies[randi() % guess_strategies.size()]
 		
 	match strategy:
 		"even":
@@ -42,8 +220,8 @@ func smart_computer_guess() -> int:
 		_:
 			print("Default")
 			BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
-			return BattleData.last_guess
 
+	return BattleData.last_guess
 
 # Handle Computer Strategy Logic
 func even_strategy() -> int:

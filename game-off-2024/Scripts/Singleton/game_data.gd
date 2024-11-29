@@ -3,7 +3,7 @@ extends Node
 var game_active = false;
 
 #Settings
-var MAX_NUMBER = 50
+var MAX_NUMBER = 500
 # Should always be a power of 2 (2, 4, 8, 16 etc.)
 var MAX_PLAYERS = 8
 

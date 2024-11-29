@@ -4,8 +4,6 @@ extends Node2D
 var battle_active = BattleData.battle_active    
 
 # Player
-var player_number = BattleData.player_number
-var computer_number = 0
 var player_attempts = 0
 var is_player_turn = false 
 
@@ -59,7 +57,6 @@ func _input(event):
 
 
 func setup_game():
-	computer_number = randi() % GameData.MAX_NUMBER + 1
 	player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
@@ -96,7 +93,7 @@ func setup_game():
 
 	#Debug Print Numbers
 	print("Computer Strategy:\t",BattleData.computer.computer_strategy)
-	print("Computer Number:\t\t",computer_number)
+	print("Computer Number:\t\t",BattleData.computer_number)
 	print("Player Number:\t\t",BattleData.player_number)
 
 
@@ -159,11 +156,11 @@ func check_guess(guess: int):
 	player_attempts += 1
 	var result = ""
 	
-	if guess < computer_number:
+	if guess < BattleData.computer_number:
 		result = "Too low!"
 		%BattleStatusLabel.text = "Wait for " + BattleData.computer.name + " 's turn..."
 		%PlayerResultLabel.text = result
-	elif guess > computer_number:
+	elif guess > BattleData.computer_number:
 		result = "Too high!"
 		%BattleStatusLabel.text = "Wait for " + BattleData.computer.name + " 's turn..."
 		%PlayerResultLabel.text = result
@@ -179,8 +176,8 @@ func check_guess(guess: int):
 	})
 	update_history_display()
 	
-	if guess == computer_number:
-		finish_game(computer_number, PlayerData.player)
+	if guess == BattleData.computer_number:
+		finish_game(BattleData.computer_number, PlayerData.player)
 		
 	is_player_turn = false 
 	%InstructionLabel.text = BattleData.computer.name + " will guess in 2 seconds..."
@@ -198,13 +195,13 @@ func computer_guesses():
 	BattleData.is_guess_too_low = false
 	BattleData.is_guess_too_high = false
 	
-	if guess < player_number:
+	if guess < BattleData.player_number:
 		result = "Too low!"
 		%BattleStatusLabel.text = "Your turn"
 		%ComputerResultLabel.text = "Computer guessed too low!"
 		BattleData.computer_min = guess + 1
 		BattleData.is_guess_too_low = true
-	elif guess > player_number:
+	elif guess > BattleData.player_number:
 		result = "Too high!"
 		%BattleStatusLabel.text = "Your turn"
 		%ComputerResultLabel.text = "Computer guessed too high!"
@@ -223,8 +220,8 @@ func computer_guesses():
 	
 	update_history_display()
 	
-	if guess == player_number:
-		finish_game(player_number, BattleData.computer)
+	if guess == BattleData.player_number:
+		finish_game(BattleData.player_number, BattleData.computer)
 
 
 ## Button
