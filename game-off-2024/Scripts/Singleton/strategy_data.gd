@@ -2,13 +2,25 @@ extends Node
 
 var prox_midpoint = 0
 
+var strategies = [
+	"even", 
+	"uneven", 
+	"half_guess", 
+	"proximity_bias_strategy", 
+	"range_split_strategy", 
+	"preference_for_4_and_5_strategy", 
+	"preference_for_1_and_6_strategy", 
+	"pi_explorer_strategy", 
+	"guess_within_player_range",
+	]
+
 func smart_computer_guess() -> int:
-	var debug = true
-	if debug:
-		return guess_within_player_range()
 
-
-	match BattleData.computer.computer_strategy:
+	var strategy = BattleData.computer.computer_strategy
+	if strategy == "random":
+		strategy = strategies[randi() % strategies.size()]
+		
+	match strategy:
 		"even":
 			return even_strategy()
 		"uneven":
