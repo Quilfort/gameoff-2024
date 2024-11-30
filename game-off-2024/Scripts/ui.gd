@@ -23,6 +23,8 @@ func _input(event):
 			set_player_info_visible(false)
 
 func _ready():
+	if GameData.random_mode:
+		set_info_button_visible(false)
 	set_player_info_visible(false)
 
 func setup_ui():
@@ -99,9 +101,11 @@ func set_background(background_path):
 func set_player_info_visible(new_visibility):
 	%PlayerStrategy.visible = new_visibility
 
+func set_info_button_visible(new_visibility):
+	%ViewInfoButton.visible = new_visibility
+
 func set_player_info():
 	print("Setting player info")
-	print(BattleData.computer)
 	%WelcomeText.text = BattleData.computer.info_welcome_text
 	%FunFactText.text = BattleData.computer.info_fun_fact_text
 	%StrategyText.text = BattleData.computer.info_strategy_text

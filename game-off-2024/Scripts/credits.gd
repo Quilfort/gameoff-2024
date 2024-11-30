@@ -1,8 +1,11 @@
 extends Node2D
 
+var background_image_path = "res://Assets/Background/bg_battle_blur.png" 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#Set Background
+	%MenuBackground.set_background(background_image_path)
+	# Set text
 	%ChampionTextLabel.text = "Glory is yours, %s!\nYou have claimed the 500 Numbers Throne.\n\nRule the kingdom with honor for the next 10 years."  % PlayerData.player.name
 
 func reset_game():
@@ -18,12 +21,13 @@ func reset_game():
 
 func reset_settings():
 	PlayerData.player.name = ""
+	GameData.random_mode = false
 
 
 func _on_main_menu_button_pressed() -> void:
 	reset_game()
 	reset_settings()
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu/main.tscn")
 
 
 func _on_exit_button_pressed() -> void:

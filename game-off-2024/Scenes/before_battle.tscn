@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://byxxtiah36xw1"]
+[gd_scene load_steps=7 format=3 uid="uid://byxxtiah36xw1"]
 
 [ext_resource type="Script" path="res://Scripts/before_battle.gd" id="1_oxnch"]
+[ext_resource type="Theme" uid="uid://6a8ww2e7l04d" path="res://UI/GuessInput/guess_input.tres" id="3_26t4y"]
 [ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="3_uss4f"]
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="3_y5ce3"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="4_8cw4k"]
@@ -11,6 +12,7 @@ script = ExtResource("1_oxnch")
 
 [node name="UI" parent="." instance=ExtResource("3_uss4f")]
 unique_name_in_owner = true
+theme = ExtResource("3_26t4y")
 
 [node name="CharacterDialog" parent="." instance=ExtResource("6_vnly6")]
 unique_name_in_owner = true
@@ -39,8 +41,9 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 300.0
 offset_top = 250.0
-offset_right = 400.0
+offset_right = 450.0
 offset_bottom = 290.0
+theme = ExtResource("3_26t4y")
 
 [node name="StartButton" type="Button" parent="PlayerChoice"]
 unique_name_in_owner = true

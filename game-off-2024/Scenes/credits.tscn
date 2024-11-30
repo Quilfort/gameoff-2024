@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx4icv2b4br81"]
+[gd_scene load_steps=5 format=3 uid="uid://dx4icv2b4br81"]
 
 [ext_resource type="Script" path="res://Scripts/credits.gd" id="1_ts8xb"]
 [ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="2_8giaj"]
+[ext_resource type="PackedScene" uid="uid://bq05puxycrtd" path="res://Scenes/Menu/menu_background.tscn" id="2_d00h5"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="3_51n4l"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_ts8xb")
+
+[node name="MenuBackground" parent="." instance=ExtResource("2_d00h5")]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

@@ -1,6 +1,11 @@
 extends Node2D
 
 var player_name = ""
+var background_image_path = "res://Assets/Background/bg_settings.jpg" 
+
+
+func _ready():
+	%MenuBackground.set_background(background_image_path)
 
 
 func check_player_name():
@@ -24,7 +29,7 @@ func check_player_name():
 	
 	# Check if the name matches the regex
 	if not regex.search(player_name):
-		%PlayerNameErrorLabel.text = "Invalid characters in name. Only letters, numbers, spaces, and '-' are allowed."
+		%PlayerNameErrorLabel.text = "Only letters, numbers, spaces, and '-' are allowed."
 		return false
 
 	print("Name is valid:", player_name)

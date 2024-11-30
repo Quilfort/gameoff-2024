@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c35jywy4rwnw6"]
+[gd_scene load_steps=5 format=3 uid="uid://c35jywy4rwnw6"]
 
-[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_7hyng"]
-[ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="2_7vdpb"]
-[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_kg5lg"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_5x3bc"]
+[ext_resource type="PackedScene" uid="uid://bq05puxycrtd" path="res://Scenes/Menu/menu_background.tscn" id="2_61b7d"]
+[ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="2_v8oa0"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_2a5no"]
 
 [node name="MainMenu" type="Node2D"]
-script = ExtResource("1_7hyng")
+script = ExtResource("1_5x3bc")
+
+[node name="MenuBackground" parent="." instance=ExtResource("2_61b7d")]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -21,7 +25,7 @@ offset_left = 426.0
 offset_top = 200.0
 offset_right = 726.0
 offset_bottom = 275.0
-theme = ExtResource("2_7vdpb")
+theme = ExtResource("2_v8oa0")
 theme_override_font_sizes/font_size = 32
 text = "Start
 "
@@ -32,7 +36,7 @@ offset_left = 426.0
 offset_top = 400.0
 offset_right = 726.0
 offset_bottom = 475.0
-theme = ExtResource("2_7vdpb")
+theme = ExtResource("2_v8oa0")
 theme_override_font_sizes/font_size = 32
 text = "Quit to Desktop"
 
@@ -43,7 +47,7 @@ offset_left = 376.0
 offset_top = 50.0
 offset_right = 776.0
 offset_bottom = 90.0
-theme = ExtResource("3_kg5lg")
+theme = ExtResource("3_2a5no")
 text = "The 500 Number Throne"
 
 [connection signal="pressed" from="Control/StartButton" to="." method="_on_start_button_pressed"]

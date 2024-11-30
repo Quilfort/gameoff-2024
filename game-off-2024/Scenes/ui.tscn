@@ -115,6 +115,7 @@ theme_override_fonts/font = ExtResource("2_628rw")
 text = "???"
 
 [node name="ViewInfoButton" type="Button" parent="PlayerInfo/PlayerInfoBox"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

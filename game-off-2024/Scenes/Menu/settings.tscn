@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvvsrrltls00u"]
+
+[ext_resource type="Script" path="res://Scripts/settings.gd" id="1_dwumi"]
+[ext_resource type="PackedScene" uid="uid://bq05puxycrtd" path="res://Scenes/Menu/menu_background.tscn" id="2_8830l"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="2_bc5wn"]
+[ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="3_kod5a"]
+[ext_resource type="Theme" uid="uid://6a8ww2e7l04d" path="res://UI/GuessInput/guess_input.tres" id="4_8s7of"]
+[ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="5_8wr2m"]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_dwumi")
+
+[node name="MenuBackground" parent="." instance=ExtResource("2_8830l")]
+unique_name_in_owner = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerNameLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 150.0
+offset_right = 776.0
+offset_bottom = 200.0
+theme = ExtResource("2_bc5wn")
+text = "Choose your name"
+
+[node name="PlayerNameInput" type="LineEdit" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 376.0
+offset_top = 210.0
+offset_right = 776.0
+offset_bottom = 260.0
+theme = ExtResource("4_8s7of")
+
+[node name="PlayerNameErrorLabel" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 376.0
+offset_top = 270.0
+offset_right = 776.0
+offset_bottom = 370.0
+theme = ExtResource("2_bc5wn")
+theme_override_fonts/font = ExtResource("5_8wr2m")
+
+[node name="SkipTutorialLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 380.0
+offset_right = 776.0
+offset_bottom = 430.0
+theme = ExtResource("2_bc5wn")
+text = "Skip Tutorial?"
+
+[node name="GoTutorialButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 450.0
+offset_right = 526.0
+offset_bottom = 490.0
+theme = ExtResource("3_kod5a")
+theme_override_font_sizes/font_size = 24
+text = "No"
+
+[node name="SkipTutorialButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 450.0
+offset_right = 766.0
+offset_bottom = 490.0
+theme = ExtResource("3_kod5a")
+theme_override_font_sizes/font_size = 24
+text = "Yes"
+
+[connection signal="pressed" from="Control/GoTutorialButton" to="." method="_on_go_tutorial_button_pressed"]
+[connection signal="pressed" from="Control/SkipTutorialButton" to="." method="_on_skip_tutorial_button_pressed"]

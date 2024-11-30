@@ -12,3 +12,6 @@ var DRAFT_COMPLETED = false
 var tournament_matches = []
 var next_matches = []
 var tournament_champion = null
+
+# Random Mode
+var random_mode = false

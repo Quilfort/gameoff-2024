@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://djktntsm8n3v3"]
+[gd_scene load_steps=5 format=3 uid="uid://djktntsm8n3v3"]
 
-[ext_resource type="Script" path="res://Scripts/restart_menu.gd" id="1_ldg81"]
-[ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="2_dgsi6"]
-[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_v4hgq"]
+[ext_resource type="Script" path="res://Scripts/restart_menu.gd" id="1_gumvl"]
+[ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="2_t5dlp"]
+[ext_resource type="PackedScene" uid="uid://bq05puxycrtd" path="res://Scenes/Menu/menu_background.tscn" id="2_wsndf"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_amewr"]
 
 [node name="RestartMenu" type="Node2D"]
-script = ExtResource("1_ldg81")
+script = ExtResource("1_gumvl")
+
+[node name="MenuBackground" parent="." instance=ExtResource("2_wsndf")]
+unique_name_in_owner = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -19,7 +23,7 @@ offset_left = 426.0
 offset_top = 200.0
 offset_right = 726.0
 offset_bottom = 275.0
-theme = ExtResource("2_dgsi6")
+theme = ExtResource("2_t5dlp")
 theme_override_font_sizes/font_size = 32
 text = "Restart"
 
@@ -29,7 +33,7 @@ offset_left = 426.0
 offset_top = 350.0
 offset_right = 726.0
 offset_bottom = 425.0
-theme = ExtResource("2_dgsi6")
+theme = ExtResource("2_t5dlp")
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 
@@ -39,7 +43,7 @@ offset_left = 426.0
 offset_top = 500.0
 offset_right = 726.0
 offset_bottom = 575.0
-theme = ExtResource("2_dgsi6")
+theme = ExtResource("2_t5dlp")
 theme_override_font_sizes/font_size = 32
 text = "Quit to Desktop"
 
@@ -50,7 +54,7 @@ offset_left = 326.0
 offset_top = 25.0
 offset_right = 826.0
 offset_bottom = 175.0
-theme = ExtResource("3_v4hgq")
+theme = ExtResource("3_amewr")
 text = "You have lost the throne, 1234567890123456.
 Try again in 10 years"
 
