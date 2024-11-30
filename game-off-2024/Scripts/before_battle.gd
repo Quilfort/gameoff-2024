@@ -19,7 +19,7 @@ func _input(event):
 func setup_game():	
 	setup_general_ui()
 	BattleData.battle_active = false
-	%StartLabel.text = "Choose thy number wisely, between 1 and %d. \nThy claim to the throne rests upon this fateful choice!" % GameData.MAX_NUMBER
+	%StartLabel.text = "Choose thy number wisely, between 1 and %d. \n\nThy claim to the throne rests upon this fateful choice!" % GameData.MAX_NUMBER
 
 
 func setup_general_ui():

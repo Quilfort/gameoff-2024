@@ -7,8 +7,9 @@ func _ready():
 	#Set Background
 	%MenuBackground.set_background(background_image_path)
 	#Set text
-	%GameOverLabel.text = "The kingdom fell, %s. Reclaim it in 10 years" % PlayerData.player.name
 
+
+	%GameOverLabel.text ="The hour of reckoning has arrived, %s.\n\nThe kingdom's demise is all but sealed. But you still have a chance to turn the tide of history. Reclaim your rightful place on the throne within 10 years, or be forever shrouded in the shadows of forgotten glory." % PlayerData.player.name
 func reset_game():
 	# GameData
 	GameData.game_active = false

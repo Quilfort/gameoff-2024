@@ -24,10 +24,10 @@ anchors_preset = 0
 
 [node name="Panel" type="Panel" parent="PlayerChoice"]
 layout_mode = 0
-offset_left = 300.0
+offset_left = 276.0
 offset_top = 150.0
-offset_right = 700.0
-offset_bottom = 200.0
+offset_right = 876.0
+offset_bottom = 250.0
 
 [node name="StartLabel" type="Label" parent="PlayerChoice/Panel"]
 unique_name_in_owner = true
@@ -35,24 +35,27 @@ layout_mode = 0
 offset_right = 70.0
 offset_bottom = 30.0
 theme_override_fonts/font = ExtResource("3_y5ce3")
+theme_override_font_sizes/font_size = 24
 
 [node name="GuessInput" type="LineEdit" parent="PlayerChoice"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 300.0
-offset_top = 250.0
-offset_right = 450.0
-offset_bottom = 290.0
+offset_left = 426.0
+offset_top = 300.0
+offset_right = 726.0
+offset_bottom = 375.0
 theme = ExtResource("3_26t4y")
+theme_override_font_sizes/font_size = 24
 
 [node name="StartButton" type="Button" parent="PlayerChoice"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 300.0
-offset_top = 350.0
-offset_right = 370.0
-offset_bottom = 380.0
+offset_left = 426.0
+offset_top = 400.0
+offset_right = 726.0
+offset_bottom = 475.0
 theme = ExtResource("4_8cw4k")
+theme_override_font_sizes/font_size = 32
 text = "Start"
 
 [connection signal="pressed" from="PlayerChoice/StartButton" to="." method="_on_start_button_pressed"]
