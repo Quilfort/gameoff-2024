@@ -121,7 +121,7 @@ func create_match_box(match_data: Dictionary) -> Node2D:
 
 func draw_connection_lines(match_node: Node2D, round_index: int, match_index: int):
 	var line = Line2D.new()
-	line.default_color = Color(0.7, 0.7, 0.7, 0.5)  # Lighter, semi-transparent lines
+	line.default_color = Color(1.7, 0.7, 0.7, 0.5)  # Lighter, semi-transparent lines
 	line.width = 2.0
 	
 	# Calculate start and end positions
