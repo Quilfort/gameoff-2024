@@ -231,7 +231,7 @@ func _on_submit_button_pressed():
 	elif is_player_turn:
 		BattleData.player_guess = %GuessInput.text.to_int()
 		if BattleData.player_guess < 1 or BattleData.player_guess > GameData.MAX_NUMBER:
-			%PlayerResultLabel.text = "Please enter a number between 1 and %d." % GameData.MAX_NUMBER
+			%PlayerResultLabel.text = "Please enter a number \nbetween 1 and %d." % GameData.MAX_NUMBER
 			return
 		check_guess(BattleData.player_guess)
 

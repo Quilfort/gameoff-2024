@@ -42,7 +42,7 @@ func game_over():
 			get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 		else:
 			print("computer")
-			get_tree().change_scene_to_file("res://Scenes/restart_menu.tscn")
+			get_tree().change_scene_to_file("res://Scenes/Menu/restart_menu.tscn")
 
 
 ## DRAFT

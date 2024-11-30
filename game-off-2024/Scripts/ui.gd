@@ -107,8 +107,8 @@ func set_info_button_visible(new_visibility):
 func set_player_info():
 	print("Setting player info")
 	%WelcomeText.text = BattleData.computer.info_welcome_text
-	%FunFactText.text = BattleData.computer.info_fun_fact_text
-	%StrategyText.text = BattleData.computer.info_strategy_text
+	%FunFactText.text = "Fun Fact:\n" + BattleData.computer.info_fun_fact_text
+	%StrategyText.text = "Strategy info:\n" + BattleData.computer.info_strategy_text
 
 
 func _on_view_info_button_pressed() -> void:
