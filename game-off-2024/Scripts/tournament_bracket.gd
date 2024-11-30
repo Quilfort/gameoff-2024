@@ -76,27 +76,33 @@ func create_round(round_index: int):
 func create_match_box(match_data: Dictionary) -> Node2D:
 	var match_box = Node2D.new()
 	
-	# Create background panel
+	# Create background panel with theme
 	var panel = Panel.new()
 	panel.custom_minimum_size = Vector2(MATCH_BOX_WIDTH, MATCH_BOX_HEIGHT)
+	panel.theme = load("res://UI/Menu/text_panel.tres")
 	
 	# Create VBoxContainer for vertical text alignment
 	var vbox = VBoxContainer.new()
 	vbox.custom_minimum_size = Vector2(MATCH_BOX_WIDTH, MATCH_BOX_HEIGHT)
 	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
 	
-	# Create labels for each team
+	# Create labels for each team with dialog box theme
+	var dialog_theme = load("res://UI/CharacterDialog/dialog_box.tres")
+	
 	var team1_label = Label.new()
 	team1_label.text = match_data["team1"].name
 	team1_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	team1_label.theme = dialog_theme
 	
 	var vs_label = Label.new()
 	vs_label.text = "vs"
 	vs_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vs_label.theme = dialog_theme
 	
 	var team2_label = Label.new()
 	team2_label.text = match_data["team2"].name
 	team2_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	team2_label.theme = dialog_theme
 	
 	# Add labels to VBoxContainer
 	vbox.add_child(team1_label)
