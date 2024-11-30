@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://byxxtiah36xw1"]
+[gd_scene load_steps=8 format=3 uid="uid://byxxtiah36xw1"]
 
 [ext_resource type="Script" path="res://Scripts/before_battle.gd" id="1_oxnch"]
 [ext_resource type="Theme" uid="uid://6a8ww2e7l04d" path="res://UI/GuessInput/guess_input.tres" id="3_26t4y"]
 [ext_resource type="PackedScene" uid="uid://d360y0a5qn3dt" path="res://Scenes/ui.tscn" id="3_uss4f"]
-[ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="3_y5ce3"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="4_8cw4k"]
+[ext_resource type="Theme" uid="uid://2o0neax1nafo" path="res://UI/Menu/text_panel.tres" id="5_gthha"]
+[ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="6_baqdi"]
 [ext_resource type="PackedScene" uid="uid://xhmfb0131pue" path="res://Scenes/character_dialog.tscn" id="6_vnly6"]
 
 [node name="BeforeBattle" type="Node2D"]
@@ -25,17 +26,29 @@ anchors_preset = 0
 [node name="Panel" type="Panel" parent="PlayerChoice"]
 layout_mode = 0
 offset_left = 276.0
-offset_top = 150.0
+offset_top = 175.0
 offset_right = 876.0
-offset_bottom = 250.0
+offset_bottom = 275.0
+theme = ExtResource("5_gthha")
 
 [node name="StartLabel" type="Label" parent="PlayerChoice/Panel"]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 70.0
-offset_bottom = 30.0
-theme_override_fonts/font = ExtResource("3_y5ce3")
-theme_override_font_sizes/font_size = 24
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_baqdi")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.72549, 0.67451, 1)
+theme_override_font_sizes/font_size = 20
 
 [node name="GuessInput" type="LineEdit" parent="PlayerChoice"]
 unique_name_in_owner = true

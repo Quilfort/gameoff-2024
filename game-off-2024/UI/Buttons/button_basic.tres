@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://deqou0uy8dcse"]
 
 [ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="1_18cli"]
-[ext_resource type="Texture2D" uid="uid://dmnl36c55plcn" path="res://UI/GUI.png" id="2_xcqnr"]
+[ext_resource type="Texture2D" uid="uid://dmnl36c55plcn" path="res://UI/Buttons/GUI.png" id="2_xcqnr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe6xn"]
 content_margin_left = 4.0

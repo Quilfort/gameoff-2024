@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://2o0neax1nafo"]
+
+[ext_resource type="Texture2D" uid="uid://bab4dhi3sh06v" path="res://UI/PanelSpriteSheet.png" id="1_1tfw6"]
+[ext_resource type="FontFile" uid="uid://b0y5yr7fs8qj7" path="res://Assets/Fonts/FacultyGlyphic-Regular.ttf" id="1_4nh2w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jklfl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jpvw"]
+texture = ExtResource("1_1tfw6")
+texture_margin_left = 9.0
+texture_margin_top = 9.0
+texture_margin_right = 9.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(32, 678, 410, 84)
+
+[resource]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_4nh2w")
+Label/styles/normal = SubResource("StyleBoxEmpty_jklfl")
+Panel/styles/panel = SubResource("StyleBoxTexture_7jpvw")

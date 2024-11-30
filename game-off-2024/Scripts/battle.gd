@@ -235,15 +235,10 @@ func _on_submit_button_pressed():
 			return
 		check_guess(BattleData.player_guess)
 
-func visibility_battle_field(visible: bool):
-	#%InstructionLabel.visible = visible
-	#%PlayerResultLabel.visible = visible
-	#%ComputerGuessLabel.visible = visible
-	#%ComputerResultLabel.visible = visible
-	%BattleStatusLabel.visible = visible
-	%PlayerHistoryLabel.visible = visible
-	%ComputerHistoryLabel.visible = visible
-	#%GuessInput.visible = visible
-	#%SubmitButton.visible = visible
-	%PlayerSpace.visible = visible
-	%ComputerSpace.visible = visible
+func visibility_battle_field(new_visible: bool):
+	%BattleStatusPanel.visible = new_visible
+	%PlayerHistoryPanel.visible = new_visible
+	%PlayerSpacePanel.visible = new_visible
+	%SubmitButton.visible = new_visible
+	%ComputerHistoryPanel.visible = new_visible
+	%ComputerSpacePanel.visible = new_visible
