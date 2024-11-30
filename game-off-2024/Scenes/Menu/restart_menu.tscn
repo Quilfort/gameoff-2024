@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djktntsm8n3v3"]
+[gd_scene load_steps=6 format=3 uid="uid://djktntsm8n3v3"]
 
 [ext_resource type="Script" path="res://Scripts/restart_menu.gd" id="1_gumvl"]
 [ext_resource type="Theme" uid="uid://deqou0uy8dcse" path="res://UI/Buttons/button_basic.tres" id="2_t5dlp"]
 [ext_resource type="PackedScene" uid="uid://bq05puxycrtd" path="res://Scenes/Menu/menu_background.tscn" id="2_wsndf"]
 [ext_resource type="Theme" uid="uid://duictke4swjwo" path="res://UI/CharacterDialog/dialog_box.tres" id="3_amewr"]
+[ext_resource type="Theme" uid="uid://2o0neax1nafo" path="res://UI/Menu/text_panel.tres" id="4_riomr"]
 
 [node name="RestartMenu" type="Node2D"]
 script = ExtResource("1_gumvl")
@@ -55,17 +56,25 @@ anchor_bottom = 1.0
 offset_left = 75.0
 offset_top = 100.0
 offset_right = 535.0
-offset_bottom = 460.0
+offset_bottom = 510.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_riomr")
 
 [node name="GameOverLabel" type="RichTextLabel" parent="Control/Panel"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_right = 500.0
-offset_bottom = 800.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 810.0
+grow_horizontal = 2
 rotation = 0.0035772
 theme = ExtResource("3_amewr")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "You have lost the throne, 1234567890123456.
 Try again in 10 years"
 
