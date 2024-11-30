@@ -1,11 +1,6 @@
 extends Node2D
 
+var background_image_path = "res://Assets/Background/bg_settings.jpg" 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready():
+	%MenuBackground.set_background(background_image_path)
