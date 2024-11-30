@@ -22,10 +22,10 @@ grow_vertical = 2
 [node name="ChampionTextLabel" type="RichTextLabel" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 276.0
-offset_top = 25.0
-offset_right = 976.0
-offset_bottom = 225.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 350.0
+offset_bottom = 450.0
 theme = ExtResource("2_8giaj")
 text = "Glory is yours, 1234567890123456!
 You have claimed the 500 Numbers Throne.
@@ -34,25 +34,26 @@ Rule the kingdom with honor for the next 10 years."
 
 [node name="CreditsLabel" type="RichTextLabel" parent="Control"]
 layout_mode = 0
-offset_left = 276.0
-offset_top = 250.0
-offset_right = 976.0
-offset_bottom = 450.0
+offset_left = 900.0
+offset_top = 300.0
+offset_right = 1100.0
+offset_bottom = 600.0
 theme = ExtResource("2_8giaj")
 theme_override_font_sizes/normal_font_size = 24
-text = "Game Developer:
-Quilfort
+bbcode_enabled = true
+text = "[center]Game Developer:
+[wave]Quilfort[/wave]
 
 Assets from:
-cogabushi on itch.io
+[wave]cogabushi[/wave] on itch.io
 "
 
 [node name="MainMenuButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 406.0
-offset_top = 450.0
+offset_top = 500.0
 offset_right = 546.0
-offset_bottom = 490.0
+offset_bottom = 540.0
 theme = ExtResource("3_51n4l")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
@@ -60,9 +61,9 @@ text = "Main Menu"
 [node name="ExitButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 606.0
-offset_top = 450.0
+offset_top = 500.0
 offset_right = 746.0
-offset_bottom = 490.0
+offset_bottom = 540.0
 theme = ExtResource("3_51n4l")
 theme_override_font_sizes/font_size = 24
 text = "Quit"

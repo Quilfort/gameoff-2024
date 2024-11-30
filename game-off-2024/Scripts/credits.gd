@@ -1,6 +1,6 @@
 extends Node2D
 
-var background_image_path = "res://Assets/Background/bg_battle_blur.png" 
+var background_image_path = "res://Assets/Background/bg_restart_credits.jpg" 
 
 func _ready() -> void:
 	#Set Background
