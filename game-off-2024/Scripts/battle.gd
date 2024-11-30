@@ -90,6 +90,7 @@ func setup_game():
 	%PlayerHistoryLabel.text = ""
 	%ComputerHistoryLabel.text = ""
 	%GuessInput.clear()
+	%PlayerNumberLabel.text = "Your Number is %d" % BattleData.player_number
 
 	#Debug Print Numbers
 	print("Computer Strategy:\t",BattleData.computer.computer_strategy)
@@ -113,13 +114,14 @@ func which_player_starts():
 	else:
 		%CharacterDialog.update_battle_dialog(BattleData.computer.initiative_win_text)
 		%BattleStatusLabel.text = "Computer starts guessing..."
-		%InstructionLabel.text = "Computer will guess in 2 seconds..."
+		%InstructionLabel.text = "Computer will guess"
 		await get_tree().create_timer(2.0).timeout
 
 
 func finish_game(number, winner):
 	# Set battle_active to false to prevent further guesses
 	battle_active = false
+	%InstructionLabel.visible = false
 	
 	PlayerData.player.total_attempts += player_attempts
 
@@ -158,16 +160,16 @@ func check_guess(guess: int):
 	
 	if guess < BattleData.computer_number:
 		result = "Too low!"
-		%BattleStatusLabel.text = "Wait for " + BattleData.computer.name + " 's turn..."
+		%BattleStatusLabel.text = BattleData.computer.name + " 's turn..."
 		%PlayerResultLabel.text = result
 	elif guess > BattleData.computer_number:
 		result = "Too high!"
-		%BattleStatusLabel.text = "Wait for " + BattleData.computer.name + " 's turn..."
+		%BattleStatusLabel.text = BattleData.computer.name + " 's turn..."
 		%PlayerResultLabel.text = result
 	else:
 		result = "Correct!"
 		%BattleStatusLabel.text = "You Won"
-		%PlayerResultLabel.text = "Correct! You won in " + str(player_attempts) + " attempts!"
+		%PlayerResultLabel.text = "You won in " + str(player_attempts) + " attempts!"
 		
 	# Add guess to history
 	player_guess_history.append({
@@ -177,10 +179,11 @@ func check_guess(guess: int):
 	update_history_display()
 	
 	if guess == BattleData.computer_number:
+		%InstructionLabel.text = ""
 		finish_game(BattleData.computer_number, PlayerData.player)
 		
 	is_player_turn = false 
-	%InstructionLabel.text = BattleData.computer.name + " will guess in 2 seconds..."
+	%InstructionLabel.text = BattleData.computer.name + "'s turn"
 	%GuessInput.clear()
 
 
@@ -198,19 +201,19 @@ func computer_guesses():
 	if guess < BattleData.player_number:
 		result = "Too low!"
 		%BattleStatusLabel.text = "Your turn"
-		%ComputerResultLabel.text = "Computer guessed too low!"
+		%ComputerResultLabel.text = "It's too low!"
 		BattleData.computer_min = guess + 1
 		BattleData.is_guess_too_low = true
 	elif guess > BattleData.player_number:
 		result = "Too high!"
 		%BattleStatusLabel.text = "Your turn"
-		%ComputerResultLabel.text = "Computer guessed too high!"
+		%ComputerResultLabel.text = "It's too high!"
 		BattleData.computer_max = guess - 1
 		BattleData.is_guess_too_high = true
 	else:
 		result = "Correct!"
 		%BattleStatusLabel.text = "You lost"
-		%ComputerResultLabel.text = "Computer won in " + str(computer_attempts) + " attempts!"
+		%ComputerResultLabel.text = "In " + str(computer_attempts) + " attempts!"
 	
 	# Add guess to history
 	computer_guess_history.append({
@@ -221,6 +224,7 @@ func computer_guesses():
 	update_history_display()
 	
 	if guess == BattleData.player_number:
+		%InstructionLabel.text = ""
 		finish_game(BattleData.player_number, BattleData.computer)
 
 
