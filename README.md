@@ -35,17 +35,15 @@ Instructions on how to download and run the game will be added soon.
 
 ### Assets
 
-Template assest from [here](https://cogabushi.itch.io/free-20-fantasy-characters-pack)
+Character and background from [here](https://cogabushi.itch.io/free-20-fantasy-characters-pack)
 
 ### Button
 
-https://mounirtohami.itch.io/pixel-art-gui-elements
+Buttons GUI from [here](https://mounirtohami.itch.io/pixel-art-gui-elements)
 
-###
+### Background Castle
 
-Background Castle
-
-https://liminal-space-dev.itch.io/free-horror-dark-castle-vn-backgrounds
+Castle Backgrounds from [here](https://liminal-space-dev.itch.io/free-horror-dark-castle-vn-backgrounds)
 
 ## License
 
