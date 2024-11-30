@@ -93,16 +93,19 @@ func create_match_box(match_data: Dictionary) -> Node2D:
 	team1_label.text = match_data["team1"].name
 	team1_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	team1_label.theme = dialog_theme
+	team1_label.add_theme_color_override("font_color", Color.BLACK)
 	
 	var vs_label = Label.new()
 	vs_label.text = "vs"
 	vs_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vs_label.theme = dialog_theme
+	vs_label.add_theme_color_override("font_color", Color.BLACK)
 	
 	var team2_label = Label.new()
 	team2_label.text = match_data["team2"].name
 	team2_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	team2_label.theme = dialog_theme
+	team2_label.add_theme_color_override("font_color", Color.BLACK)
 	
 	# Add labels to VBoxContainer
 	vbox.add_child(team1_label)
