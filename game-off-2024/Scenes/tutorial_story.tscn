@@ -51,3 +51,5 @@ theme = ExtResource("5_wi270")
 theme_override_fonts/font = ExtResource("6_d2hdj")
 theme_override_font_sizes/font_size = 24
 text = "Succes!"
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

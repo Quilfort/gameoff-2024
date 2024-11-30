@@ -50,7 +50,7 @@ func get_first_name(full_name):
 func _on_go_tutorial_button_pressed() -> void:
 	# Should go to tutorial
 	if check_player_name():
-		get_tree().change_scene_to_file("res://Scenes/tournament.tscn")
+		get_tree().change_scene_to_file("res://Scenes/tutorial_story.tscn")
 
 
 func _on_skip_tutorial_button_pressed() -> void:

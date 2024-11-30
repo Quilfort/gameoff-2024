@@ -141,7 +141,7 @@ var comp8 = {
 	"champion_text": "I am the one who will rule, with power beyond the stars!",
 	"info_welcome_text": "Serah Dawnlight, ready to claim the power of the stars?",
 	"info_fun_fact_text": "Serah is driven by a hunger for power, always seeking to dominate.",
-	"info_strategy_text": "Serah alternates between guessing numbers near the smallest and largest edges, expanding by up to a random range for unpredictable results."
+	"info_strategy_text": "Serah's strategy involves guessing numbers near the boundaries of her options, take a good look at her guesses"
 }
 
 var comp9 = {
@@ -159,7 +159,7 @@ var comp9 = {
 	"champion_text": "I am the queen of devils! Let the world burn in my name!",
 	"info_welcome_text": "Lilith Inferno, ready to set the world ablaze?",
 	"info_fun_fact_text": "Lilith is a force of destruction, leaving nothing but ashes in her wake.",
-	"info_strategy_text": "Lilith focuses on guessing numbers closest to the midpoint of the range to quickly narrow down the possibilities."
+	"info_strategy_text": "Lilith tries to guess numbers in the middle to quickly find the hidden number."
 }
 
 var comp10 = {
@@ -177,7 +177,7 @@ var comp10 = {
 	"champion_text": "I am the eternal flame, and none can extinguish my glory!",
 	"info_welcome_text": "Kael Ardyn, the eternal flame, ready to fight for destiny.",
 	"info_fun_fact_text": "Kael believes in the eternal flame, burning brightly with destiny's fire.",
-	"info_strategy_text": "Kael guesses numbers closest to multiples of Pi (π) within the current range, adding a mathematical twist to the guessing pattern."
+	"info_strategy_text": "Kael picks numbers near special Pi (π) math points to make unique guesses."
 }
 
 var comp11 = {
@@ -195,7 +195,7 @@ var comp11 = {
 	"champion_text": "I am the champion... but the throne belongs to my brother, David. He will rule, and I’ll find peace.",
 	"info_welcome_text": "Freya Shadowtorn, guided by light to victory?",
 	"info_fun_fact_text": "Freya believes in her brother David and the power of light, even in the darkest of times.",
-	"info_strategy_text": "Freya guesses a number within a range of 10 numbers higher or lower than the player’s guess, adjusting for the boundaries of the possible range.",
+	"info_strategy_text": "Freya guesses a number within 10 higher or lower than the player’s guess, staying within the allowed range.",
 }
 
 var comp12 = {
@@ -267,7 +267,7 @@ var comp15 = {
    "champion_text": "I am the chosen of the stars, the celestial champion of light!",
    "info_welcome_text": "Zelora's motto is Quality over Quantity",
    "info_fun_fact_text": "Loves the Letter Q",
-   "info_strategy_text": "QQQQQQQQ\nQQQQQQQ!",
+   "info_strategy_text": "Q\nQQ\nQQQ!",
 }
 
 var comp16 = {
