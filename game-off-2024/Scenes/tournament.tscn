@@ -27,11 +27,12 @@ script = ExtResource("2_sfcib")
 
 [node name="NextBattleButton" type="Button" parent="."]
 unique_name_in_owner = true
-offset_left = 976.0
-offset_top = 500.0
-offset_right = 1046.0
-offset_bottom = 530.0
+offset_left = 800.0
+offset_top = 530.0
+offset_right = 1100.0
+offset_bottom = 605.0
 theme = ExtResource("4_6vfnb")
+theme_override_font_sizes/font_size = 32
 text = "Next"
 
 [connection signal="pressed" from="NextBattleButton" to="." method="_on_next_battle_button_pressed"]

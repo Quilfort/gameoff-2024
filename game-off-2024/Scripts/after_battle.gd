@@ -47,6 +47,7 @@ func update_other_match_in_round():
 
 func player_not_eliminated():
 	# Generate the next round pairings
+	show_total_attempts()
 	var next_round = create_duos(BattleData.battle_winners)
 
 	# Update tournament matches with the new round
@@ -82,7 +83,34 @@ func player_eliminated():
 			GameData.next_matches = next_round
 
 		# Declare the champion
+		show_computer_results()
 		GameData.tournament_champion = BattleData.battle_winners[0]
+
+
+func show_computer_results():
+	%StatusResultLabel.text = "GAME OVER!"
+
+
+func show_total_attempts():
+	# Calculate the status values
+	var current_attempts = PlayerData.player.total_attempts - BattleData.player_attempts
+	var battle_attempts = BattleData.player_attempts
+	var total_attempts = PlayerData.player.total_attempts
+
+	# Add a descriptive header
+	var current_text = "Current Attempts: \t\t%d\n" % current_attempts
+	var battle_text = "Battle Attempts: \t\t%d\n" % battle_attempts
+	var total_text = "Total Attempts: \t\t%d" % total_attempts
+
+	# Format the result string with line breaks for readability
+	var status_result = "%s\n%s\n%s" % [
+		current_text,
+		battle_text,
+		total_text
+	]
+
+	# Assign the formatted string to the label
+	%StatusResultLabel.text = status_result
 
 
 func display_round_result():
@@ -109,6 +137,7 @@ func reset_battle_data():
 	BattleData.computer_previous_guesses = []	
 	BattleData.player_guess = 0	
 	BattleData.computer_number = 0
+	BattleData.player_attempts = 0
 
 
 # Function to create duos

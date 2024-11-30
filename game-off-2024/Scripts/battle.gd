@@ -4,7 +4,6 @@ extends Node2D
 var battle_active = BattleData.battle_active    
 
 # Player
-var player_attempts = 0
 var is_player_turn = false 
 
 #Computer
@@ -57,7 +56,7 @@ func _input(event):
 
 
 func setup_game():
-	player_attempts = 0
+	BattleData.player_attempts = 0
 	computer_attempts = 0
 	computer_timer = 0
 
@@ -123,7 +122,7 @@ func finish_game(number, winner):
 	battle_active = false
 	%InstructionLabel.visible = false
 	
-	PlayerData.player.total_attempts += player_attempts
+	PlayerData.player.total_attempts += BattleData.player_attempts
 
 	# Store player and computer histories in BattleData.battle_history
 	BattleData.battle_history = {
@@ -155,7 +154,7 @@ func check_guess(guess: int):
 	if !is_player_turn:
 		return
 		
-	player_attempts += 1
+	BattleData.player_attempts += 1
 	var result = ""
 	
 	if guess < BattleData.computer_number:
@@ -169,7 +168,7 @@ func check_guess(guess: int):
 	else:
 		result = "Correct!"
 		%BattleStatusLabel.text = "You Won"
-		%PlayerResultLabel.text = "You won in " + str(player_attempts) + " attempts!"
+		%PlayerResultLabel.text = "You won in " + str(BattleData.player_attempts) + " attempts!"
 		
 	# Add guess to history
 	player_guess_history.append({

@@ -65,18 +65,21 @@ func update_tournament_ui():
 func update_before_battle_ui():
 	#set_background("res://Assets/Background/bg_tournament_blur.png")
 	player_info_box.visible = true
+	%NumberText.visible = false
 	update_player_info()
 
 
 func update_battle_ui():
 	#set_background("res://Assets/Background/bg_battle_blur.png")
 	player_info_box.visible = true
+	%NumberText.visible = false
 	update_player_info()
 
 
 func update_after_battle_ui():
 	set_background("res://Assets/Background/bg_tournament_blur.png")
 	player_info_box.visible = true
+	%NumberText.text = str(BattleData.computer_number)
 	update_player_info()
 
 func get_scene_name() -> String:
