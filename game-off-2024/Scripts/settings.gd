@@ -32,7 +32,7 @@ func check_player_name():
 		%PlayerNameErrorLabel.text = "Only letters, numbers, spaces, and '-' are allowed."
 		return false
 
-	print("Name is valid:", player_name)
+	# print("Name is valid:", player_name)
 	PlayerData.player.name = player_name
 	return true
 

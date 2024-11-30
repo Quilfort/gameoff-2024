@@ -35,7 +35,7 @@ func choose_computer_number():
 		"choose_throne_number":
 			BattleData.computer_number = 80 # T=20, H=8, R=18, O=15, N=14, E=5
 		_: 
-			print("Default")
+			# print("Default")
 			BattleData.computer_number = randi() % GameData.MAX_NUMBER + 1
 
 # Strategy to choose a number with a 0 in it
@@ -49,13 +49,13 @@ func choose_number_with_zero():
 	# If we found any valid numbers, pick one at random
 	if valid_numbers.size() > 0:
 		BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
-		print("Chosen number with 0: ", BattleData.computer_number)
+		# print("Chosen number with 0: ", BattleData.computer_number)
 	else:
 		# If no valid number with 0 is found, just default to a random number
 		BattleData.computer_number = randi() % GameData.MAX_NUMBER + 1
 
 func choose_double_digit_strategy() -> int:
-	print("Double Digit Strategy")
+	# print("Double Digit Strategy")
 	
 	# Define the valid range starting from 11 up to GameData.MAX_NUMBER
 	var valid_numbers = []
@@ -66,7 +66,7 @@ func choose_double_digit_strategy() -> int:
 
 	# Randomly select a valid number
 	BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
-	print("Computer chose: ", BattleData.computer_number)
+	# print("Computer chose: ", BattleData.computer_number)
 	return BattleData.computer_number
 
 
@@ -80,7 +80,7 @@ func is_double_digit(number: int) -> bool:
 
 
 func choose_multiple_of_5_strategy() -> int:
-	print("Multiple of 5 Strategy")
+	# print("Multiple of 5 Strategy")
 
 	# Define the valid range from 1 to GameData.MAX_NUMBER
 	var valid_numbers = []
@@ -91,24 +91,24 @@ func choose_multiple_of_5_strategy() -> int:
 
 	# Randomly select a valid number from the list
 	BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
-	print("Computer chose: ", BattleData.computer_number)
+	# print("Computer chose: ", BattleData.computer_number)
 	return BattleData.computer_number
 
 func choose_letter_q_strategy() -> int:
-	print("Choose 7 or 77 Strategy")
+	# print("Choose 7 or 77 Strategy")
 
 	# Define valid options (7 or 77) (Q or QQ)
 	var valid_numbers = [7, 77]
 
 	# Randomly select one of the valid numbers
 	BattleData.computer_number = valid_numbers[randi() % valid_numbers.size()]
-	print("Computer chose: ", BattleData.computer_number)
+	# print("Computer chose: ", BattleData.computer_number)
 	return BattleData.computer_number
 
 
 # Strategy: Choose a number based on repeated digits (e.g. 1, 11, 111, etc.)
 func choose_repeated_digits_strategy() -> int:
-	print("Choose Repeated Digits Strategy")
+	# print("Choose Repeated Digits Strategy")
 
 	var base_digit = randi() % 9 + 1  # Random digit between 1 and 9
 	var repeated_number = str(base_digit)
@@ -120,12 +120,12 @@ func choose_repeated_digits_strategy() -> int:
 
 	# Return the last valid repeated number (one step before exceeding the max number)
 	BattleData.computer_number = repeated_number.left(repeated_number.length() - 1).to_int()
-	print("Computer chose: ", BattleData.computer_number)
+	# print("Computer chose: ", BattleData.computer_number)
 	return BattleData.computer_number
 
 # Strategy: Choose a number where every digit is unique
 func choose_unique_digits_strategy() -> int:
-	print("Choose Unique Digits Strategy")
+	# print("Choose Unique Digits Strategy")
 
 	var max_number = GameData.MAX_NUMBER
 	var unique_number = -1
@@ -149,13 +149,13 @@ func choose_unique_digits_strategy() -> int:
 			break  # Valid number with unique digits found
 		
 	BattleData.computer_number = unique_number
-	print("Computer chose: ", BattleData.computer_number)
+	# print("Computer chose: ", BattleData.computer_number)
 	return BattleData.computer_number
 
 # Strategy: Choose a number between 100 and MAX_NUMBER where the first and last digits are the same
 # If MAX_NUMBER is below 100, choose double digits like 11, 22, 33, etc.
 func choose_same_first_last_digit_strategy() -> int:
-	print("Choose Same First and Last Digit Strategy")
+	# print("Choose Same First and Last Digit Strategy")
 
 	var max_number = GameData.MAX_NUMBER
 	var number = -1
@@ -187,7 +187,7 @@ func choose_same_first_last_digit_strategy() -> int:
 				break  # Found a number where first and last digits are the same
 
 	BattleData.computer_number = number
-	print("Computer chose: ", BattleData.computer_number)
+	# print("Computer chose: ", BattleData.computer_number)
 	return BattleData.computer_number
 
 
@@ -217,14 +217,14 @@ func smart_computer_guess() -> int:
 		"guess_within_player_range":
 			return guess_within_player_range()
 		_:
-			print("Default")
+			# print("Default")
 			BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
 
 	return BattleData.last_guess
 
 # Handle Computer Strategy Logic
 func even_strategy() -> int:
-	print("Even Strategy")
+	# print("Even Strategy")
 	var possible_numbers = []
 	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
 		if i not in BattleData.computer_previous_guesses and i % 2 == 0:
@@ -240,7 +240,7 @@ func even_strategy() -> int:
 
 
 func uneven_strategy() -> int:
-	print("Uneven Strategy")
+	# print("Uneven Strategy")
 	var possible_numbers = []
 	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
 		if i not in BattleData.computer_previous_guesses and i % 2 == 1:
@@ -256,7 +256,7 @@ func uneven_strategy() -> int:
 
 
 func half_guess() -> int:
-	print("Half Guess Strategy")
+	# print("Half Guess Strategy")
 	if BattleData.last_guess == 0:
 		# First guess: Start at half of MAX_NUMBER
 		BattleData.last_guess = ceil(float(GameData.MAX_NUMBER) / 2)
@@ -278,7 +278,7 @@ func half_guess() -> int:
 	return BattleData.last_guess
 
 func proximity_bias_strategy() -> int:
-	print("Proximity Bias Strategy")
+	# print("Proximity Bias Strategy")
 	# Calculate the midpoint of the valid range
 	prox_midpoint = (BattleData.computer_min + BattleData.computer_max) / 2.0
 	
@@ -307,7 +307,7 @@ func _sort_by_proximity(a: int, b: int) -> bool:
 	return diff_a < diff_b  # Return true if `a` should come before `b`
 
 func range_split_strategy() -> int:
-	print("Enhanced Range Split Strategy")
+	# print("Enhanced Range Split Strategy")
 	# Gather all unguessed numbers
 	var possible_numbers = []
 	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
@@ -335,7 +335,7 @@ func range_split_strategy() -> int:
 	return BattleData.last_guess
 
 func preference_for_4_and_5_strategy() -> int:
-	print("Preference for 4 and 5 Strategy")
+	# print("Preference for 4 and 5 Strategy")
 	# Gather all unguessed numbers
 	var possible_numbers = []
 	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
@@ -358,7 +358,7 @@ func preference_for_4_and_5_strategy() -> int:
 	return BattleData.last_guess
 
 func preference_for_1_and_6_strategy() -> int:
-	print("Preference for 1 and 6 Strategy")
+	# print("Preference for 1 and 6 Strategy")
 	# Gather all unguessed numbers
 	var possible_numbers = []
 	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
@@ -381,7 +381,7 @@ func preference_for_1_and_6_strategy() -> int:
 	return BattleData.last_guess
 
 func pi_explorer_strategy() -> int:
-	print("Pi Explorer Strategy")
+	# print("Pi Explorer Strategy")
 	# Gather all unguessed numbers
 	var possible_numbers = []
 	for i in range(BattleData.computer_min, BattleData.computer_max + 1):
@@ -415,13 +415,13 @@ func pi_explorer_strategy() -> int:
 	return BattleData.last_guess
 
 func guess_within_player_range() -> int:
-	print("Guess Within Range Strategy")
+	# print("Guess Within Range Strategy")
 	
 	# Check if the player's guess is 0 or the range is not possible
 	if BattleData.player_guess == 0 or (BattleData.player_guess - 10 < BattleData.computer_min and BattleData.player_guess + 10 > BattleData.computer_max):
 		# If the player's guess is 0 or the range is not possible, guess randomly
 		BattleData.last_guess = randi() % (BattleData.computer_max - BattleData.computer_min + 1) + BattleData.computer_min
-		print("Random Guess: ", BattleData.last_guess)
+		# print("Random Guess: ", BattleData.last_guess)
 		return BattleData.last_guess
 
 	# Calculate the valid range based on the player's guess

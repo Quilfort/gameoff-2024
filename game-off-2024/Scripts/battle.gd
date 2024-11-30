@@ -92,9 +92,9 @@ func setup_game():
 	%PlayerNumberLabel.text = "Your Number is %d" % BattleData.player_number
 
 	#Debug Print Numbers
-	print("Computer Strategy:\t",BattleData.computer.computer_strategy)
-	print("Computer Number:\t\t",BattleData.computer_number)
-	print("Player Number:\t\t",BattleData.player_number)
+	# print("Computer Strategy:\t",BattleData.computer.computer_strategy)
+	# print("Computer Number:\t\t",BattleData.computer_number)
+	# print("Player Number:\t\t",BattleData.player_number)
 
 
 	#Logic to determine who starts
@@ -230,7 +230,8 @@ func computer_guesses():
 ## Button
 func _on_submit_button_pressed():
 	if !battle_active:
-		print("Game is not active")
+		# print("Game is not active")
+		pass
 	elif is_player_turn:
 		BattleData.player_guess = %GuessInput.text.to_int()
 		if BattleData.player_guess < 1 or BattleData.player_guess > GameData.MAX_NUMBER:

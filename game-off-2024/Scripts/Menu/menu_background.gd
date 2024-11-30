@@ -14,4 +14,5 @@ func set_background(background_path):
 	if texture:
 		background_image.texture = texture
 	else:
-		print("Failed to load texture from path:", background_path)
+		# print("Failed to load texture from path:", background_path)
+		pass

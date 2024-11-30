@@ -54,7 +54,8 @@ func update_player_info():
 	if texture:
 		avatar_image.texture = texture
 	else:
-		print("Failed to load texture from path:", BattleData.computer.avatar_path)
+		# print("Failed to load texture from path:", BattleData.computer.avatar_path)
+		pass
 
 
 func update_tournament_ui():
@@ -89,7 +90,7 @@ func get_scene_name() -> String:
 		var scene_name = scene_path.get_file().get_basename()
 		return scene_name
 	else:
-		print("No current scene found!")
+		# print("No current scene found!")
 		return ""
 
 
@@ -99,7 +100,8 @@ func set_background(background_path):
 	if texture:
 		background_image.texture = texture
 	else:
-		print("Failed to load texture from path:", background_path)
+		# print("Failed to load texture from path:", background_path)
+		pass
 
 func set_player_info_visible(new_visibility):
 	%PlayerStrategy.visible = new_visibility
@@ -108,7 +110,7 @@ func set_info_button_visible(new_visibility):
 	%ViewInfoButton.visible = new_visibility
 
 func set_player_info():
-	print("Setting player info")
+	# print("Setting player info")
 	%WelcomeText.text = BattleData.computer.info_welcome_text
 	%FunFactText.text = "Fun Fact:\n" + BattleData.computer.info_fun_fact_text
 	%StrategyText.text = "Strategy info:\n" + BattleData.computer.info_strategy_text

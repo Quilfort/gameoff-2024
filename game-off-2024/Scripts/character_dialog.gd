@@ -80,7 +80,8 @@ func init_character(character_path):
 	if texture:
 		%Character.texture = texture
 	else:
-		print("Failed to load texture from path:", character_path)
+		# print("Failed to load texture from path:", character_path)
+		pass
 
 func init_text():
 	%SpeakerLabel.text = "Hello"
@@ -101,7 +102,7 @@ func get_scene_name() -> String:
 		var scene_name = scene_path.get_file().get_basename()
 		return scene_name
 	else:
-		print("No current scene found!")
+		# print("No current scene found!")
 		return ""
 
 # Optional: Function to show dialog again if needed

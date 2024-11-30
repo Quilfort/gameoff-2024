@@ -38,10 +38,10 @@ func game_over():
 	if !GameData.game_active && GameData.tournament_champion:
 		if GameData.tournament_champion == PlayerData.player:
 			#code for credits
-			print("player")
+			# print("player")
 			get_tree().change_scene_to_file("res://Scenes/credits.tscn")
 		else:
-			print("computer")
+			# print("computer")
 			get_tree().change_scene_to_file("res://Scenes/Menu/restart_menu.tscn")
 
 
